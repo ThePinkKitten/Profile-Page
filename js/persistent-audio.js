@@ -57,11 +57,10 @@ function setupAudioElements() {
 }
 
 function loadAudioState() {
-  const isPlaying = sessionStorage.getItem(AUDIO_IS_PLAYING) === 'true';
   const currentTime = parseFloat(sessionStorage.getItem(AUDIO_CURRENT_TIME) || '0');
-  const volume = parseFloat(sessionStorage.getItem(AUDIO_VOLUME) || '1');
+  const volume = parseFloat(sessionStorage.getItem(AUDIO_VOLUME) || '0.5');
   
-  console.log('[Persistent Audio] Đang tải trạng thái:', { isPlaying, currentTime, volume });
+  console.log('[Persistent Audio] Đang tải trạng thái:', { autoPlay: true, currentTime, volume });
   
   if (!audioPlayer) return;
   
@@ -71,11 +70,8 @@ function loadAudioState() {
     audioPlayer.currentTime = currentTime;
   }
   
-  if (isPlaying) {
-    playAudio();
-  } else {
-    pauseAudio(false); 
-  }
+  // Luôn tự động phát nhạc
+  playAudio();
 }
 
 function saveAudioState() {
