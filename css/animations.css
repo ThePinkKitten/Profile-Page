@@ -1,4 +1,3 @@
-
 /*
   Animations
   - Define animations for the website, any animation should be placed here
@@ -73,6 +72,40 @@
     50% { transform: translateY(-5px); }
 }
 
+@keyframes catTail {
+    0% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(-5deg); }
+}
+
+@keyframes catBlink {
+    0%, 100% { opacity: 1; }
+    49% { opacity: 1; }
+    50% { opacity: 0; }
+    52% { opacity: 1; }
+}
+
+@keyframes pawPrint {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.5);
+    }
+    30% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(10px, -10px) scale(0.5);
+    }
+}
+
+@keyframes catWalk {
+    0% { transform: translateX(-20px); }
+    50% { transform: translateX(20px); }
+    100% { transform: translateX(-20px); }
+}
+
 .glow-icon {
     filter: drop-shadow(0 0 8px rgba(110, 66, 255, 0.6));
 }
@@ -86,4 +119,35 @@
     z-index: 5;
     white-space: nowrap;
     transition: all 0.3s ease;
-} 
+}
+
+/* Cat cursor effects */
+.cat-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.cat-cursor .cat-body {
+  display: inline-block;
+}
+
+.cat-cursor .cat-tail {
+  display: inline-block;
+  animation: catTail 1.5s infinite;
+  transform-origin: left center;
+}
+
+.cat-cursor.resting {
+  animation: sleepCat 3s infinite alternate;
+}
+
+@keyframes sleepCat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}

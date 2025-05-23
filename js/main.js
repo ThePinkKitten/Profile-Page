@@ -11,6 +11,7 @@ import { initModal } from './modal.js';
 import { optimizeAvatarGif } from './optimize-images.js';
 import { initPersistentAudio } from './persistent-audio.js';
 import { initCatOfDay } from './cat-of-day.js';
+import { initCatCursor } from './cat-cursor.js';
 
 // Initialize reset functions
 const resetFunctions = {}; 
@@ -23,10 +24,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   initSidebar();
   // Initialize persistent audio player with sessionStorage
   initPersistentAudio();
-  highlightActiveSection();
-  initThemeSwitch();
+  highlightActiveSection();  initThemeSwitch();
   initModal();
   initCatOfDay();
+  initCatCursor();
   
   const loadingOverlay = document.querySelector('.loading-overlay');
   const hasVisitedBefore = sessionStorage.getItem('hasVisited');

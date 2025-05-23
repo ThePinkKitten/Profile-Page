@@ -30,7 +30,7 @@ function getRandomItem(array) {
 
 // Function to load a new cat
 function loadNewCat() {
-  const catImage = document.getElementById('catOfDay');
+  const catImage = document.getElementById('catImage');
   const catQuote = document.getElementById('catQuote');
   
   // Add loading state
@@ -44,25 +44,49 @@ function loadNewCat() {
     // When image is loaded
     catImage.onload = function() {
       catImage.style.opacity = '1';
+      catImage.classList.add('meow-loaded');
+      setTimeout(() => catImage.classList.remove('meow-loaded'), 1000);
     };
   }
   
   // Update the quote
   if (catQuote) {
     catQuote.textContent = getRandomItem(catQuotes);
+    catQuote.style.opacity = '0';
+    setTimeout(() => {
+      catQuote.style.opacity = '1';
+    }, 300);
   }
 }
 
 // Initialize the Cat of the Day feature
 export function initCatOfDay() {
-  // Add event listener to the new cat button
-  const newCatBtn = document.getElementById('newCatBtn');
-  if (newCatBtn) {
-    newCatBtn.addEventListener('click', loadNewCat);
-  }
+  // Check if the cat image element exists on the current page
+  const catImage = document.getElementById('catImage');
+  const catQuote = document.getElementById('catQuote');
   
-  // Initially load a cat if the elements exist on the page
-  if (document.getElementById('catOfDay') && document.getElementById('catQuote')) {
+  if (catImage && catQuote) {
+    // Load initial cat
     loadNewCat();
+    
+    // Add click event to the cat image to load a new cat
+    catImage.addEventListener('click', function(e) {
+      e.preventDefault();
+      loadNewCat();
+      
+      // Add a little paw effect when clicking
+      const pawPrint = document.createElement('div');
+      pawPrint.className = 'paw-print';
+      pawPrint.innerHTML = '🐾';
+      pawPrint.style.position = 'absolute';
+      pawPrint.style.left = (e.offsetX) + 'px';
+      pawPrint.style.top = (e.offsetY) + 'px';
+      pawPrint.style.animation = 'pawPrint 1s forwards';
+      this.parentNode.appendChild(pawPrint);
+      
+      setTimeout(() => {
+        this.parentNode.removeChild(pawPrint);
+      }, 1000);
+    });
   }
 }

@@ -20,12 +20,18 @@
     --background: #1a1a1a;
     --text: #ffffff;
     --link-shadow: rgba(255, 255, 255, 0.1);
+    --accent-color: #ff69b4;
+    --accent-hover: #ff8ec7;
+    --meow-shadow: rgba(255, 105, 180, 0.3);
 }
 
 [data-theme="light"] {
     --background: #ffffff;
     --text: #ffffff;
     --link-shadow: rgba(0, 0, 0, 0.1);
+    --accent-color: #ff69b4;
+    --accent-hover: #ff8ec7;
+    --meow-shadow: rgba(255, 105, 180, 0.3);
 }
 
 /* Main Layout */
@@ -43,6 +49,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3a8 8 0 100 16 8 8 0 000-16z" stroke="%23ff69b4" stroke-width="2"/></svg>') 10 10, auto;
 }
 
 [data-theme="light"] body {
@@ -53,8 +60,45 @@ body {
     background-attachment: fixed;
 }
 
-:root body {
-    background-color: #000000;
+/* Special cat cursor for clickable elements */
+a, button, .sidebar-toggle, .theme-switch {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z" fill="%23ff69b4" opacity="0.5"/><path d="M12 3a9 9 0 100 18 9 9 0 000-18z" stroke="%23ff69b4" stroke-width="2"/><path d="M8 10L8 12M16 10L16 12M9 15.5C10 16.5 12.5 17 14.5 15.5" stroke="%23ff69b4" stroke-width="1.5" stroke-linecap="round"/></svg>') 12 12, pointer;
+}
+
+/* Paw print animation for the cat of the day */
+.meow-loaded {
+    animation: catBlink 0.5s;
+}
+
+.paw-print {
+    pointer-events: none;
+    font-size: 24px;
+    position: absolute;
+    z-index: 100;
+}
+
+/* Custom scrollbar with pink cat theme */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-hover);
+}
+
+/* Pink cat selection */
+::selection {
+    background-color: var(--accent-color);
+    color: white;
 }
 
 #particles-js {
@@ -158,7 +202,7 @@ a {
 }
 
 .footer:hover {
-    color: #CCCCFF;
+    color: var(--accent-color);
 }
 
 .audio-player {
@@ -194,7 +238,7 @@ a {
 .progress-bar {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #CCCCFF, rgba(204, 204, 255, 0.5));
+    background: linear-gradient(90deg, var(--accent-color), rgba(255, 105, 180, 0.5));
     border-radius: 3px;
 }
 
@@ -202,8 +246,8 @@ a {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: rgba(204, 204, 255, 0.1);
-    border: 1px solid rgba(204, 204, 255, 0.2);
+    background: rgba(255, 105, 180, 0.1);
+    border: 1px solid rgba(255, 105, 180, 0.2);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -214,12 +258,12 @@ a {
 }
 
 #audioButton:hover {
-    background: rgba(204, 204, 255, 0.2);
+    background: rgba(255, 105, 180, 0.2);
 }
 
 #audioButton.playing {
-    background: rgba(204, 204, 255, 0.2);
-    border-color: rgba(204, 204, 255, 0.4);
+    background: rgba(255, 105, 180, 0.2);
+    border-color: rgba(255, 105, 180, 0.4);
 }
 
 .sidebar {
@@ -263,15 +307,16 @@ a {
 }
 
 .sidebar-header h3 {
-    color: #fff;
+    color: var(--accent-color);
     margin: 5px 0;
     font-size: 1.2rem;
-    text-shadow: 0 0 10px rgba(204, 204, 255, 0.3);
+    text-shadow: 0 0 10px var(--meow-shadow);
 }
 
 .sidebar-header p {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.9rem;
+    font-style: italic;
 }
 
 .sidebar-nav {
@@ -305,13 +350,19 @@ a {
 }
 
 .sidebar-nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 105, 180, 0.15);
     padding-left: 30px;
+    color: var(--accent-hover);
+}
+
+.sidebar-nav ul li a:hover::after {
+    content: " 🐾";
+    opacity: 0.8;
 }
 
 .sidebar-nav ul li a.active {
-    background-color: rgba(204, 204, 255, 0.3);
-    border-left: 3px solid #CCCCFF;
+    background-color: rgba(255, 105, 180, 0.3);
+    border-left: 3px solid var(--accent-color);
     padding-left: 27px;
 }
 
@@ -335,7 +386,7 @@ a {
 }
 
 .social-icons a:hover {
-    color: #CCCCFF;
+    color: var(--accent-color);
     transform: translateY(-3px);
     opacity: 1;
 }
@@ -407,8 +458,14 @@ a {
 }
 
 .loading-text {
-    color: #fff;
+    color: var(--accent-color);
     font-size: 1.2rem;
     font-weight: 500;
     animation: pulse 1.5s ease-in-out infinite;
+}
+
+.loading-text::after {
+    content: " ₍˄·͈⚇·͈˄₎";
+    animation: catTail 3s infinite alternate;
+    display: inline-block;
 }

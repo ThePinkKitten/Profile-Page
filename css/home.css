@@ -11,11 +11,60 @@
     height: 225px;
     width: 225px;
     border-radius: 50%;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     align-items: center;
     justify-content: center;
     animation: slideDown 1s ease-out;
+}
+
+/* Cat ears on avatar */
+.cat-ear {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    background-color: #ff69b4;
+    border-radius: 50% 50% 0 0;
+    z-index: 10;
+    top: -20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cat-ear-left {
+    left: 40px;
+    transform: rotate(-15deg);
+}
+
+.cat-ear-right {
+    right: 40px;
+    transform: rotate(15deg);
+}
+
+.cat-ear:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    background-color: #ff9ad5;
+    border-radius: 50% 50% 0 0;
+    top: 10px;
+    left: 10px;
+}
+
+/* Bounce animation for avatar */
+.avatar-bounce {
+    animation: catBounce 1s ease;
+}
+
+@keyframes catBounce {
+    0% { transform: translateY(0); }
+    20% { transform: translateY(-15px); }
+    40% { transform: translateY(0); }
+    60% { transform: translateY(-7px); }
+    80% { transform: translateY(0); }
+    90% { transform: translateY(-3px); }
+    100% { transform: translateY(0); }
 }
 
 .avatar {
@@ -54,7 +103,8 @@
 }
 .link {
     height: 2.75rem;
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,11 +115,11 @@
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px 0 var(--link-shadow);
+    box-shadow: 0 8px 32px 0 var(--meow-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
-    color: var(--link-text);
+    color: var(--text);
     transform-origin: center;
 }
 
@@ -90,13 +140,13 @@
 
 .link:hover {
     transform: scale(1.03);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px var(--meow-shadow);
 }
 
 .link span {
     width: 80%;
     text-align: center;
-    color: var(--link-text);
+    color: var(--text);
     transition: all 0.3s ease;
 }
 
@@ -124,115 +174,115 @@
 
 .link:nth-child(1) {
     background: linear-gradient(90deg,
-            rgba(204, 204, 255, 0.1) 30%,
+            rgba(255, 182, 213, 0.1) 30%,
             rgba(113, 113, 113, 0.3) 100%),
-        #CCCCFF;
+        #ffb6d5;
     color: white;
     text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
-    border: 2px solid #A3A3FF;
+    border: 2px solid var(--accent-color);
 }
 
 .link:nth-child(2) {
     background: linear-gradient(90deg,
-            rgba(204, 204, 255, 0.1) 30%,
+            rgba(255, 166, 206, 0.1) 30%,
             rgba(113, 113, 113, 0.3) 100%),
-        #B3B3FF;
+        #ffa6ce;
     color: white;
     text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
-    border: 2px solid #8C8CFF;
+    border: 2px solid var(--accent-color);
     margin-top: 10px;
 }
 
 .link:nth-child(3) {
     background: linear-gradient(90deg,
-            rgba(204, 204, 255, 0.1) 30%,
+            rgba(255, 142, 199, 0.1) 30%,
             rgba(113, 113, 113, 0.3) 100%),
-        #99A3FF;
+        #ff8ec7;
     color: white;
     text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
-    border: 2px solid #7F7FFF;
+    border: 2px solid var(--accent-color);
 }
 
 .link:nth-child(4) {
     background: linear-gradient(90deg,
-            rgba(204, 204, 255, 0.1) 30%,
+            rgba(255, 128, 193, 0.1) 30%,
             rgba(113, 113, 113, 0.3) 100%),
-        #8C8CFF;
+        #ff80c1;
     color: white;
     text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
-    border: 2px solid #6666FF;
+    border: 2px solid var(--accent-color);
 }
 
 .link:nth-child(5) {
     background: linear-gradient(90deg,
-            rgba(204, 204, 255, 0.1) 30%,
+            rgba(255, 113, 187, 0.1) 30%,
             rgba(113, 113, 113, 0.3) 100%),
-        #7F7FFF;
+        #ff71bb;
     color: white;
     text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
-    border: 2px solid #4C4CFF;
+    border: 2px solid var(--accent-color);
 }
 
 .link:nth-child(6) {
     background: linear-gradient(90deg,
-            rgba(204, 204, 255, 0.1) 30%,
+            rgba(255, 105, 180, 0.1) 30%,
             rgba(113, 113, 113, 0.3) 100%),
-        #6666FF;
+        var(--accent-color);
     color: white;
     text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
-    border: 2px solid #3333FF;
+    border: 2px solid #ff3a9d;
 }
 
 .link:nth-child(7) {
     background: linear-gradient(90deg,
-            rgba(204, 204, 255, 0.1) 30%,
+            rgba(255, 97, 175, 0.1) 30%,
             rgba(113, 113, 113, 0.3) 100%),
-        #4C4CFF;
+        #ff61af;
     color: white;
     text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
-    border: 2px solid #1A1AFF;
+    border: 2px solid var(--accent-hover);
 }
 
 .link:nth-child(8) {
     background: linear-gradient(90deg,
-            rgba(204, 204, 255, 0.1) 30%,
+            rgba(255, 90, 170, 0.1) 30%,
             rgba(113, 113, 113, 0.3) 100%),
-        #3333FF;
-    color: #3B3B6E;
+        #ff5aaa;
+    color: white;
     text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
-    border: 2px solid #1A1AFF;
+    border: 2px solid var(--accent-hover);
 }
 
 .modal {
@@ -287,4 +337,83 @@
 .typing-text::after {
     content: '|';
     animation: blink 1s infinite;
-} 
+}
+
+.cat-of-day {
+    width: 90%;
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: rgba(255, 105, 180, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 105, 180, 0.3);
+    animation: fadeIn 1s ease-out;
+}
+
+.cat-of-day h2 {
+    color: #ff69b4;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    position: relative;
+}
+
+.cat-emoji {
+    display: inline-block;
+    animation: catWalk 3s infinite linear;
+}
+
+.cat-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cat-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+.cat-image:hover {
+    transform: scale(1.02);
+}
+
+.cat-quote {
+    margin-top: 1rem;
+    font-style: italic;
+    color: var(--text);
+    background-color: rgba(255, 105, 180, 0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.cat-quote:before {
+    content: "\201C";
+    position: absolute;
+    top: 0;
+    left: 5px;
+    font-size: 2rem;
+    color: var(--accent-color);
+    opacity: 0.5;
+}
+
+.cat-quote:after {
+    content: "\201D";
+    position: absolute;
+    bottom: -10px;
+    right: 5px;
+    font-size: 2rem;
+    color: var(--accent-color);
+    opacity: 0.5;
+}

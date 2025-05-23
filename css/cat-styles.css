@@ -1,0 +1,57 @@
+/* 
+  Cat Styles
+  - Additional styles for cat-themed elements
+*/
+
+/* Cat ears on avatar */
+.avatarContainer {
+  overflow: visible !important;
+}
+
+.cat-ear {
+  position: absolute;
+  width: 40px;
+  height: 60px;
+  background-color: #ff69b4;
+  border-radius: 50% 50% 0 0;
+  z-index: 10;
+  top: -20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cat-ear-left {
+  left: 40px;
+  transform: rotate(-15deg);
+}
+
+.cat-ear-right {
+  right: 40px;
+  transform: rotate(15deg);
+}
+
+.cat-ear:before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 40px;
+  background-color: #ff9ad5;
+  border-radius: 50% 50% 0 0;
+  top: 10px;
+  left: 10px;
+}
+
+/* Bounce animation for avatar */
+.avatar-bounce {
+  animation: catBounce 1s ease;
+}
+
+@keyframes catBounce {
+  0% { transform: translateY(0); }
+  20% { transform: translateY(-15px); }
+  40% { transform: translateY(0); }
+  60% { transform: translateY(-7px); }
+  80% { transform: translateY(0); }
+  90% { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
