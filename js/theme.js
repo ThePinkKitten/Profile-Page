@@ -15,11 +15,13 @@ export function initThemeSwitch() {
   if (themeToggleContainer) {
     themeToggleContainer.style.display = 'none';
   }
-
   // Always apply dark theme
   document.documentElement.setAttribute('data-theme', 'dark');
   if (toggleSwitch) toggleSwitch.checked = false;
   sessionStorage.setItem('theme', 'dark');
+  
+  // Always set background image
+  document.body.style.backgroundImage = `url('Assets/Image/Background/background.gif')`;
   
   // Enable particle movement for dark theme
   if (window.pJSDom && window.pJSDom[0]) {

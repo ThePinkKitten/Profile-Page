@@ -53,6 +53,13 @@ function setupAudioElements() {
 
   audioPlayer.addEventListener('timeupdate', updateProgressBar);
   
+  // Thêm event listener cho việc kết thúc bài hát
+  audioPlayer.addEventListener('ended', () => {
+    // Khi bài hát kết thúc, reset về đầu và phát lại
+    audioPlayer.currentTime = 0;
+    playAudio();
+  });
+  
   musicProgress.style.transition = 'width 0.15s ease';
 }
 
@@ -69,6 +76,13 @@ function loadAudioState() {
   if (!isNaN(currentTime) && currentTime > 0) {
     audioPlayer.currentTime = currentTime;
   }
+  
+  // Thêm event listener khi metadata của audio đã load xong
+  audioPlayer.addEventListener('loadedmetadata', () => {
+    const minutes = Math.floor(audioPlayer.duration / 60);
+    const seconds = Math.floor(audioPlayer.duration % 60);
+    console.log(`[Persistent Audio] Bài hát đã tải, thời lượng: ${minutes}:${seconds < 10 ? '0' + seconds : seconds} (${audioPlayer.duration}s)`);
+  });
   
   // Luôn tự động phát nhạc
   playAudio();
@@ -126,7 +140,24 @@ function updateProgressBar() {
   if (!audioPlayer || !musicProgress) return;
   
   if (audioPlayer.duration) {
-    const progressPercent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-    musicProgress.style.width = progressPercent + '%';
+    // Xác định độ dài thực của bài (Mice on Venus - chính xác 3 phút)
+    const actualSongDuration = 180; // 3 phút = 180 giây
+    
+    // Sử dụng thời gian thực tế thay vì audioPlayer.duration nếu duration lớn hơn
+    const duration = (audioPlayer.duration > actualSongDuration) ? actualSongDuration : audioPlayer.duration;
+    
+    // Tính toán phần trăm tiến trình dựa trên thời gian thực
+    const progressPercent = (audioPlayer.currentTime / duration) * 100;
+    
+    // Giới hạn tối đa là 100%
+    const clampedProgress = Math.min(progressPercent, 100);
+    
+    musicProgress.style.width = clampedProgress + '%';
+    
+    // Reset thanh khi kết thúc bài
+    if (audioPlayer.currentTime >= duration - 1) {
+      // Nếu gần hết bài, đảm bảo thanh hiển thị đầy đủ
+      musicProgress.style.width = '100%';
+    }
   }
 } 
