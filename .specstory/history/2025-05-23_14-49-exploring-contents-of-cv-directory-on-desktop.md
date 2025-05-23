@@ -2071,7 +2071,25 @@ _**User**_
 
 _**Assistant**_
 
+Bạn có lý! 30 giây đệm là không cần thiết. Đây chỉ là một cách để đảm bảo rằng thanh nhạc không bị "trống" phần cuối, nhưng nếu bài hát chính xác là 3 phút thì chúng ta chỉ cần sử dụng 180 giây.
 
+Tôi sẽ sửa giá trị này ngay: 
+```
+
+```
+Bây giờ tôi cũng muốn kiểm tra thời gian chính xác của bài hát bằng cách thêm thêm thông tin chi tiết hơn khi metadata được tải: 
+```
+
+```
+
+
+Tốt! Tôi đã thực hiện hai thay đổi chính:
+
+1. **Cập nhật thời lượng thực tế**: Đã thay đổi `actualSongDuration` từ 210 giây (3 phút 30 giây) xuống 180 giây (3 phút chính xác), loại bỏ thời gian đệm không cần thiết.
+
+2. **Cải thiện logging thời lượng bài hát**: Thêm định dạng phút:giây cho thông tin log khi bài hát tải, giúp dễ đọc và theo dõi hơn.
+
+Với những thay đổi này, thanh tiến trình nhạc sẽ hiển thị chính xác theo độ dài 3 phút của bài hát "Mice on Venus" và không còn bị trống ở phần cuối nữa.
 
 ---
 
