@@ -203,27 +203,14 @@ function updateProgressBar() {
 function attemptAutoPlay() {
   if (!audioPlayer) return;
   
-  // Thiết lập âm lượng thấp ban đầu để tránh làm giật mình người dùng
-  const originalVolume = audioPlayer.volume;
-  audioPlayer.volume = 0.2;
-  
+  // Phát nhạc trực tiếp với âm lượng ban đầu (không giảm âm lượng)
   const playPromise = audioPlayer.play();
   
   if (playPromise !== undefined) {
     playPromise.then(() => {
       console.log('[Persistent Audio] Tự động phát nhạc thành công');
       
-      // Dần dần tăng âm lượng lên giá trị ban đầu
-      setTimeout(() => {
-        const volumeInterval = setInterval(() => {
-          if (audioPlayer.volume < originalVolume) {
-            audioPlayer.volume = Math.min(audioPlayer.volume + 0.1, originalVolume);
-          } else {
-            clearInterval(volumeInterval);
-          }
-        }, 200);
-      }, 1000);
-      
+      // Cập nhật giao diện
       audioButton.innerHTML = '<i class="fas fa-pause"></i>';
       audioButton.classList.add('playing');
       

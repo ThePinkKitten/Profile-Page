@@ -7,14 +7,7 @@
 // Function to initialize theme (dark mode only)
 export function initThemeSwitch() {
   const toggleSwitch = document.querySelector('#checkbox');
-  const particlesContainer = document.querySelector('#particles-js');
   const mainContent = document.querySelector('main') || document.body;
-
-  // Ẩn chòm sao/particles
-  if (particlesContainer) {
-    particlesContainer.style.display = 'none';
-    particlesContainer.style.opacity = '0';
-  }
 
   // Hide theme switch as we're only using dark mode
   const themeToggleContainer = document.querySelector('.theme-switch-wrapper');
@@ -29,15 +22,5 @@ export function initThemeSwitch() {
   
   // Always set background image
   document.body.style.backgroundImage = `url('Assets/Image/Background/background.gif')`;
-  
-  // Enable particle movement for dark theme
-  if (window.pJSDom && window.pJSDom[0]) {
-    window.pJSDom[0].pJS.particles.move.enable = true;
-    window.pJSDom[0].pJS.fn.particlesRefresh();
-  }
-  
-  // Show particles
-  if (particlesContainer) {
-    particlesContainer.style.opacity = '0';
-  }
+    // Dark theme is the only theme we use
 }

@@ -101,21 +101,6 @@ a, button, .sidebar-toggle, .theme-switch {
     color: white;
 }
 
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0; /* Ẩn particles */
-    transition: opacity 0.8s ease;
-    display: none; /* Tắt hoàn toàn */
-}
-
-[data-theme="light"] #particles-js {
-    opacity: 0;
-    pointer-events: none;
-}
-
 .theme-switch-wrapper {
     position: relative;
     display: flex;

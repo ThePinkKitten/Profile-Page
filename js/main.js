@@ -78,23 +78,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 // Function to load non-critical features
 async function loadNonCriticalFeatures() {
   const [
-    { initParticles },
     { initAvatarEffect },
     { initTypingAnimation, resetTyping },
     { initSocialLinks, resetLinksAnimation },
     { initImageOptimization }
   ] = await Promise.all([
-    import('./particles-config.js'),
     import('./avatar.js'),
     import('./typing.js'),
     import('./social-links.js'),
     import('./optimize-images.js')
-  ]);
-  initImageOptimization();
-
-  // Particles đã bị vô hiệu hóa để hiển thị background.gif rõ ràng hơn
-  // initParticles();
-  
+  ]);  initImageOptimization();
   initAvatarEffect();
   initTypingAnimation();
   initSocialLinks();
