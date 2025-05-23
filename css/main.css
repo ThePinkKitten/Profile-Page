@@ -40,7 +40,7 @@ body {
     background-color: var(--background);
     color: var(--text);
     transition: background-color 0.5s ease, color 0.5s ease;
-    background-image: url('../Assets/Image/Background/background.gif');
+    background-image: url('../Assets/Image/Background/background.gif') !important; /* Bắt buộc sử dụng background này */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -106,8 +106,9 @@ a, button, .sidebar-toggle, .theme-switch {
     width: 100%;
     height: 100%;
     z-index: -1;
-    opacity: 1;
+    opacity: 0; /* Ẩn particles */
     transition: opacity 0.8s ease;
+    display: none; /* Tắt hoàn toàn */
 }
 
 [data-theme="light"] #particles-js {

@@ -19,6 +19,13 @@ export function initPersistentAudio() {
   window.addEventListener('beforeunload', saveAudioState);
   
   setInterval(saveAudioState, 1000);
+  
+  // Thêm event listeners để phát nhạc sau tương tác đầu tiên của người dùng
+  document.addEventListener('click', () => {
+    if (audioPlayer && audioPlayer.paused) {
+      playAudio();
+    }
+  }, { once: true });
 }
 
 function setupAudioElements() {
@@ -82,10 +89,25 @@ function loadAudioState() {
     const minutes = Math.floor(audioPlayer.duration / 60);
     const seconds = Math.floor(audioPlayer.duration % 60);
     console.log(`[Persistent Audio] Bài hát đã tải, thời lượng: ${minutes}:${seconds < 10 ? '0' + seconds : seconds} (${audioPlayer.duration}s)`);
+    
+    // Thử phát nhạc khi metadata đã sẵn sàng
+    attemptAutoPlay();
   });
   
-  // Luôn tự động phát nhạc
-  playAudio();
+  // Sự kiện khi trình duyệt chặn tự động phát
+  audioPlayer.addEventListener('autoplay', () => {
+    console.log('[Persistent Audio] Autoplay đã sẵn sàng');
+  });
+  
+  // Bắt lỗi khi autoplay bị chặn
+  audioPlayer.addEventListener('pause', () => {
+    if (audioPlayer.currentTime === 0) {
+      console.log('[Persistent Audio] Autoplay có thể đã bị chặn bởi trình duyệt');
+    }
+  });
+
+  // Thử phát nhạc ngay lập tức
+  attemptAutoPlay();
 }
 
 function saveAudioState() {
@@ -120,6 +142,21 @@ function playAudio() {
       saveAudioState();
     }).catch(error => {
       console.error('[Persistent Audio] Lỗi khi phát nhạc:', error);
+      
+      // Nếu lỗi là do người dùng chưa tương tác, thêm trình lắng nghe sự kiện
+      const unlockAudio = () => {
+        const playAgain = audioPlayer.play();
+        if (playAgain) {
+          playAgain.catch(e => console.error('[Persistent Audio] Lỗi phát lại:', e));
+        }
+        document.removeEventListener('click', unlockAudio);
+        document.removeEventListener('touchstart', unlockAudio);
+        document.removeEventListener('keydown', unlockAudio);
+      };
+      
+      document.addEventListener('click', unlockAudio, { once: true });
+      document.addEventListener('touchstart', unlockAudio, { once: true });
+      document.addEventListener('keydown', unlockAudio, { once: true });
     });
   }
 }
@@ -160,4 +197,50 @@ function updateProgressBar() {
       musicProgress.style.width = '100%';
     }
   }
-} 
+}
+
+// Hàm cố gắng phát nhạc tự động với nhiều chiến lược
+function attemptAutoPlay() {
+  if (!audioPlayer) return;
+  
+  // Thiết lập âm lượng thấp ban đầu để tránh làm giật mình người dùng
+  const originalVolume = audioPlayer.volume;
+  audioPlayer.volume = 0.2;
+  
+  const playPromise = audioPlayer.play();
+  
+  if (playPromise !== undefined) {
+    playPromise.then(() => {
+      console.log('[Persistent Audio] Tự động phát nhạc thành công');
+      
+      // Dần dần tăng âm lượng lên giá trị ban đầu
+      setTimeout(() => {
+        const volumeInterval = setInterval(() => {
+          if (audioPlayer.volume < originalVolume) {
+            audioPlayer.volume = Math.min(audioPlayer.volume + 0.1, originalVolume);
+          } else {
+            clearInterval(volumeInterval);
+          }
+        }, 200);
+      }, 1000);
+      
+      audioButton.innerHTML = '<i class="fas fa-pause"></i>';
+      audioButton.classList.add('playing');
+      
+    }).catch(error => {
+      console.error('[Persistent Audio] Tự động phát bị chặn:', error);
+      
+      // Thêm click listener vào document để phát nhạc sau tương tác người dùng đầu tiên
+      const playAfterInteraction = function() {
+        playAudio();
+        document.removeEventListener('click', playAfterInteraction);
+        document.removeEventListener('keydown', playAfterInteraction);
+        document.removeEventListener('touchstart', playAfterInteraction);
+      };
+      
+      document.addEventListener('click', playAfterInteraction, { once: true });
+      document.addEventListener('keydown', playAfterInteraction, { once: true });
+      document.addEventListener('touchstart', playAfterInteraction, { once: true });
+    });
+  }
+}

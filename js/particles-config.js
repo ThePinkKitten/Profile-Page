@@ -9,9 +9,9 @@ export function initParticles() {
     {
       "particles": {
         "number": {
-          "value": 80,
+          "value": 0, // Đặt số lượng particles thành 0
           "density": {
-            "enable": true,
+            "enable": false,
             "value_area": 800
           }
         },

@@ -10,11 +10,18 @@ export function initThemeSwitch() {
   const particlesContainer = document.querySelector('#particles-js');
   const mainContent = document.querySelector('main') || document.body;
 
+  // Ẩn chòm sao/particles
+  if (particlesContainer) {
+    particlesContainer.style.display = 'none';
+    particlesContainer.style.opacity = '0';
+  }
+
   // Hide theme switch as we're only using dark mode
   const themeToggleContainer = document.querySelector('.theme-switch-wrapper');
   if (themeToggleContainer) {
     themeToggleContainer.style.display = 'none';
   }
+  
   // Always apply dark theme
   document.documentElement.setAttribute('data-theme', 'dark');
   if (toggleSwitch) toggleSwitch.checked = false;
@@ -31,6 +38,6 @@ export function initThemeSwitch() {
   
   // Show particles
   if (particlesContainer) {
-    particlesContainer.style.opacity = '1';
+    particlesContainer.style.opacity = '0';
   }
 }

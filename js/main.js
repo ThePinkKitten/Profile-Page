@@ -90,10 +90,10 @@ async function loadNonCriticalFeatures() {
     import('./social-links.js'),
     import('./optimize-images.js')
   ]);
-
   initImageOptimization();
 
-  initParticles();
+  // Particles đã bị vô hiệu hóa để hiển thị background.gif rõ ràng hơn
+  // initParticles();
   
   initAvatarEffect();
   initTypingAnimation();
