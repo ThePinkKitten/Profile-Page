@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects - The Pink Cat</title>
+    <link rel="icon" type="image/x-icon" href="../Assets/Image/Avatar/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <script type="module" defer src="../js/main.js"></script>
+
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/projects.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <div class="theme-transition-overlay"></div>
+    
+    <!-- Sidebar Toggle Button -->
+    <div class="sidebar-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="../Assets/Image/Avatar/avatar2.png" alt="Profile Picture" class="sidebar-avatar">
+            <h3>Hồng Phát</h3>
+            <p>@ThePinkCat</p>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="skills.html"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="projects.html" class="active"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="education.html"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <!-- Theme Switch -->
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch">
+                    <input type="checkbox" id="checkbox">
+                    <div class="slider round"></div>
+                </label>
+                <span>Light / Dark Mode</span>
+
+            </div>
+
+            <!-- Audio Player -->
+            <div class="audio-player">
+                <button id="audioButton">
+                    <i class="fas fa-play"></i>
+                </button>
+                <div class="progress-container">
+                    <div class="progress-bar" id="musicProgress"></div>
+                </div>
+                <audio id="bgMusic" loop>
+                    <source src="../Assets/Music/Mice on Venus.webm" type="audio/mp3" volume="0.5">
+                </audio>
+            </div>
+
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading-overlay">
+        <div class="loader"></div>
+        <div class="loading-text">Just a moment ₍^. .^₎⟆</div>
+    </div>
+
+    <main>
+        <div class="projects-container">
+            <!-- Projects Section -->
+            <section class="projects-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-code-branch glow-icon"></i> My Projects <span class="emoji">ヾ(￣▽￣)</span></h2>
+                    <p>Some notable projects I've created with my team and uploaded to GitHub</p>
+                </div>
+                <div class="projects-grid">
+        
+                    <!-- Website-ban-linh-kien -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="project-info">
+                            <h3><i class="fas fa-shopping-cart glow-icon"></i> Computer Parts E-commerce</h3>
+                            <p>An e-commerce website for computer parts developed with C# and modern frameworks</p>
+                            <div class="project-tags">
+                                <span data-aos="zoom-in" data-aos-delay="250">C#</span>
+                                <span data-aos="zoom-in" data-aos-delay="300">HTML</span>
+                                <span data-aos="zoom-in" data-aos-delay="350">JavaScript</span>
+                                <span data-aos="zoom-in" data-aos-delay="400">.NET</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/nupniichan/Website-ban-linh-kien" target="_blank" class="btn" data-aos="fade-up" data-aos-delay="450"><i class="fab fa-github"></i> Repository</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Page -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="project-info">
+                            <h3><i class="fas fa-id-card glow-icon"></i> Profile Page</h3>
+                            <p>A personal website inspired by nupniichan and developed entirely with HTML, CSS, and JavaScript</p>
+                            <div class="project-tags">
+                                <span data-aos="zoom-in" data-aos-delay="650">HTML</span>
+                                <span data-aos="zoom-in" data-aos-delay="700">CSS</span>
+                                <span data-aos="zoom-in" data-aos-delay="750">JavaScript</span>
+                                <span data-aos="zoom-in" data-aos-delay="800">Portfolio</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/nupniichan/profile-page" target="_blank" class="btn" data-aos="fade-up" data-aos-delay="850"><i class="fab fa-github"></i> Repository</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="footer">@2025 - Hồng Phát (ThePinkCat)</div>
+    </main>
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+        });
+    </script>
+</body>
+
+</html> 

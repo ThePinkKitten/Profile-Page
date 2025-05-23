@@ -1,0 +1,410 @@
+/*
+  Main CSS File
+  - Import necessary fonts and styles
+  - Define global variables and styles
+*/
+
+/* Import necessary fonts and styles */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+@import 'animations.css';
+@import 'responsive.css';
+
+/* Define global variables and styles */
+* {
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+:root {
+    --background: #1a1a1a;
+    --text: #ffffff;
+    --link-shadow: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+    --background: #ffffff;
+    --text: #ffffff;
+    --link-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Main Layout */
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    transition: background-color 0.5s ease, color 0.5s ease, background-image 0.5s ease;
+    background-image: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+[data-theme="light"] body {
+    background-image: url('../Assets/Image/Background/background.gif');
+}
+
+:root body {
+    background-color: #000000;
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+[data-theme="light"] #particles-js {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.theme-switch-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme-switch-wrapper span {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 24px;
+    width: 44px;
+    position: relative;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: rgba(255, 255, 255, 0.1);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    border: 1px solid rgba(204, 204, 255, 0.3);
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 2px;
+    content: "";
+    height: 18px;
+    left: 2px;
+    position: absolute;
+    transition: .4s;
+    width: 18px;
+}
+
+input:checked + .slider {
+    background-color: rgba(204, 204, 255, 0.3);
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.footer {
+    margin-top: 1rem;
+    padding: 1rem;
+    text-align: center;
+    color: var(--text);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer:hover {
+    color: #CCCCFF;
+}
+
+.audio-player {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.audio-controls span {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.progress-container {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(204, 204, 255, 0.15);
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #CCCCFF, rgba(204, 204, 255, 0.5));
+    border-radius: 3px;
+}
+
+#audioButton {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(204, 204, 255, 0.1);
+    border: 1px solid rgba(204, 204, 255, 0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+#audioButton:hover {
+    background: rgba(204, 204, 255, 0.2);
+}
+
+#audioButton.playing {
+    background: rgba(204, 204, 255, 0.2);
+    border-color: rgba(204, 204, 255, 0.4);
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    z-index: 99;
+    transform: translateX(-250px);
+    transition: transform 0.4s ease;
+}
+
+.sidebar.active {
+    transform: translateX(0);
+}
+
+.sidebar-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 15px;
+}
+
+.sidebar-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid rgba(204, 204, 255, 0.3);
+    box-shadow: 0 0 15px rgba(204, 204, 255, 0.2);
+}
+
+.sidebar-header h3 {
+    color: #fff;
+    margin: 5px 0;
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px rgba(204, 204, 255, 0.3);
+}
+
+.sidebar-header p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.sidebar-nav {
+    flex: 1;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav ul li {
+    margin-bottom: 5px;
+}
+
+.sidebar-nav ul li a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 10px 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.sidebar-nav ul li a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-left: 30px;
+}
+
+.sidebar-nav ul li a.active {
+    background-color: rgba(204, 204, 255, 0.3);
+    border-left: 3px solid #CCCCFF;
+    padding-left: 27px;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px 0;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.social-icons a:hover {
+    color: #CCCCFF;
+    transform: translateY(-3px);
+    opacity: 1;
+}
+
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-toggle i {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.sidebar-toggle:hover {
+    background-color: rgba(204, 204, 255, 0.3);
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-overlay.show {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    animation: none;
+}
+
+.loading-overlay.hide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+.loading-text {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    animation: pulse 1.5s ease-in-out infinite;
+}

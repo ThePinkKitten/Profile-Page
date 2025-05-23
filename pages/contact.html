@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Contact - The Pink Cat</title>
+    <link rel="icon" type="image/x-icon" href="../Assets/Image/Avatar/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script type="module" defer src="../js/main.js"></script>
+
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/contact.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <div class="theme-transition-overlay"></div>
+    
+    <!-- Sidebar Toggle Button -->
+    <div class="sidebar-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="../Assets/Image/Avatar/avatar2.png" alt="Profile Picture" class="sidebar-avatar">
+            <h3>Hồng Phát</h3>
+            <p>@ThePinkCat</p>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="skills.html"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="education.html"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <!-- Theme Switch -->
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch">
+                    <input type="checkbox" id="checkbox">
+                    <div class="slider round"></div>
+                </label>
+                <span>Light / Dark Mode</span>
+            </div>
+
+            <!-- Audio Player -->
+            <div class="audio-player">
+                <button id="audioButton">
+                    <i class="fas fa-play"></i>
+                </button>
+                <div class="progress-container">
+                    <div class="progress-bar" id="musicProgress"></div>
+                </div>
+                <audio id="bgMusic" loop>
+                    <source src="../Assets/Music/Mice on Venus.webm" type="audio/mp3" volume="0.5">
+                </audio>
+            </div>
+
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading-overlay">
+        <div class="loader"></div>
+        <div class="loading-text">Just a moment ₍^. .^₎⟆</div>
+    </div>
+
+    <main>
+        <div class="contact-container">
+            <div class="contact-content" data-aos="fade-up">
+                <div class="welcome-text">
+                    <h2><i class="fas fa-paper-plane glow-icon"></i> Contact <span class="emoji">/ᐠ-˕-マⳊ</span></h2>
+                    <p>Thank you for visiting my website. If you'd like to reach out, please use the information below!</p>
+                </div>
+                
+                <div class="contact-cards">
+                    <div class="info-card large-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-inner" style="align-items: center; text-align: center;">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-details" style="text-align: center;">
+                                <h3>Email</h3>
+                                <p>asdsaphat@gmail.com</p>
+                                <a href="mailto:asdsaphat@gmail.com" class="contact-link" style="justify-content: center;">
+                                    <i class="fas fa-arrow-right"></i> Send me an email
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card large-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-inner" style="align-items: center; text-align: center;">
+                            <div class="info-icon">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <div class="info-details" style="text-align: center;">
+                                <h3>Telegram / Zalo</h3>
+                                <p>Connect with me via QR code</p>
+                                <div class="social-buttons">
+                                    <button class="contact-link qr-button" data-platform="telegram">
+                                        <i class="fab fa-telegram"></i> Telegram
+                                    </button>
+                                    <button class="contact-link qr-button" data-platform="zalo">
+                                        <i class="fas fa-comment"></i> Zalo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-cards single-column">
+                    <div class="info-card large-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-inner" style="align-items: center; text-align: center;">
+                            <div class="info-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="info-details" style="text-align: center;">
+                                <h3>Return to Homepage</h3>
+                                <p>View more information about my social media profiles</p>
+                                <a href="../index.html" class="contact-link" style="justify-content: center;">
+                                    <i class="fas fa-arrow-right"></i> Back to Home
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">@2025 - Hồng Phát (ThePinkCat)</div>
+    </main>
+
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="qr-modal">
+        <div class="qr-modal-content">
+            <span class="qr-close">&times;</span>
+            <h3 id="qrTitle">Scan QR Code</h3>
+            <div class="qr-image-container">
+                <img id="qrImage" src="" alt="QR Code">
+            </div>
+        </div>
+    </div>
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                disable: window.innerWidth < 480 
+            });
+        });
+    </script>
+    
+    <!-- Script for QR Code Model -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('qrModal');
+            const qrImage = document.getElementById('qrImage');
+            const qrTitle = document.getElementById('qrTitle');
+            const closeBtn = document.querySelector('.qr-close');
+            const qrButtons = document.querySelectorAll('.qr-button');
+            
+            const qrCodes = {
+                telegram: '../Assets/Image/QR/telegram-qr.jpg',
+                zalo: '../Assets/Image/QR/zalo-qr.jpg'
+            };
+            
+            // Reset the QR image when the modal is loaded
+            window.addEventListener('DOMContentLoaded', function() {
+                qrImage.removeAttribute('src');
+            });
+            
+            qrButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const platform = this.getAttribute('data-platform');
+                    console.log('Loading QR for platform:', platform);
+                    console.log('QR image path:', qrCodes[platform]);
+                    
+                    // Clear any existing src
+                    qrImage.removeAttribute('src');
+                    
+                    // Force a reflow
+                    void qrImage.offsetWidth;
+                    
+                    qrImage.src = qrCodes[platform];
+                    console.log('Set QR image src to:', qrImage.src);
+                    
+                    qrTitle.textContent = platform === 'telegram' ? 'Telegram QR Code' : 'Zalo QR Code';
+                    modal.style.display = 'block';
+                    document.body.classList.add('modal-open');
+                    
+                    setTimeout(() => {
+                        qrImage.classList.add('qr-image-visible');
+                    }, 100);
+                });
+            });
+            
+            closeBtn.addEventListener('click', closeModal);
+            
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && modal.style.display === 'block') {
+                    closeModal();
+                }
+            });
+            
+            function closeModal() {
+                qrImage.classList.remove('qr-image-visible');
+                
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    document.body.classList.remove('modal-open');
+                }, 200);
+            }
+        });
+    </script>
+</body>
+
+</html> 

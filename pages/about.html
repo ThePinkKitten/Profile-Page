@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - The Pink Cat</title>
+    <link rel="icon" type="image/x-icon" href="../Assets/Image/Avatar/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        
+    <script type="module" defer src="../js/main.js"></script>
+
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/about.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <div class="theme-transition-overlay"></div>
+    
+    <!-- Sidebar Toggle Button -->
+    <div class="sidebar-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="../Assets/Image/Avatar/avatar2.png" alt="Profile Picture" class="sidebar-avatar">
+            <h3>Hồng Phát</h3>
+            <p>@ThePinkCat</p>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html" class="active"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="skills.html"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="education.html"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <!-- Theme Switch -->
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch">
+                    <input type="checkbox" id="checkbox">
+                    <div class="slider round"></div>
+                </label>
+                <span>Light / Dark Mode</span>
+            </div>
+
+            <!-- Audio Player -->
+            <div class="audio-player">
+                <button id="audioButton">
+                    <i class="fas fa-play"></i>
+                </button>
+                <div class="progress-container">
+                    <div class="progress-bar" id="musicProgress"></div>
+                </div>
+                <audio id="bgMusic" loop>
+                    <source src="../Assets/Music/Mice on Venus.webm" type="audio/mp3" volume="0.5">
+                </audio>
+            </div>
+
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading-overlay">
+        <div class="loader"></div>
+        <div class="loading-text">Just a moment ₍^. .^₎⟆</div>
+    </div>
+
+    <main>
+        <div class="about-container">
+            <div class="about-section">
+                <div class="about-header">
+                    <h1>About Mewself <span class="emoji">૮꒰ ˶• ༝ •˶꒱ა ♡</span></h1>
+                </div>
+                <div class="about-content">
+                    <div class="profile-card" data-aos="fade-right" data-aos-delay="100">
+                        <img src="../Assets/Image/Avatar/avatar2.png" alt="Profile Picture" class="profile-image">
+                        <h2>Trần Hồng Phát</h2>
+                        <p class="title">The Pink Cat ฅ^•ﻌ•^ฅ</p>
+                    </div>
+                    <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Introduction</h3>
+                        <p>Meow! I'm Tran Hong Phat, a developer with a feline touch 🐾 I'm passionate about software development and creating intuitive applications, especially for web and mobile platforms ≽^•⩊•^≼.</p>
+                        <p>When I'm not napping between git pushes /ᐠ. .ᐟ\ Ⳋ, I spend my time hunting bugs like a curious kitten 🕵️ and exploring new technologies to sharpen my skills ᓚ₍⑅^..^₎♡.</p>
+                        <p>With my 9 developer lives, I also enjoy watching anime, listening to music, and playing casual games ≽•⩊ •マ≼. Want to play together? I promise not to scratch your screen! (=^･ω･^=)</p>
+                    </div>
+                    <div class="interests-card" data-aos="fade-left" data-aos-delay="300">
+                        <h3>Feline Interests</h3>
+                        <ul>
+                            <li data-aos="zoom-in" data-aos-delay="400"><i class="fas fa-code"></i>Purrfect Coding</li>
+                            <li data-aos="zoom-in" data-aos-delay="500"><i class="fas fa-music"></i>Music & Meowing</li>
+                            <li data-aos="zoom-in" data-aos-delay="600"><i class="fas fa-tv"></i>Anime & Cat Videos</li>
+                            <li data-aos="zoom-in" data-aos-delay="700"><i class="fas fa-gamepad"></i>Gaming (& Mouse Hunting)</li>
+                            <li data-aos="zoom-in" data-aos-delay="800"><i class="fas fa-coffee"></i>Turning Caffeine into Code</li>
+                        </ul>
+                    </div>
+                    <div class="cat-stats-card" data-aos="zoom-in" data-aos-delay="300">
+                        <h3>Cat Stats 𖢥 ฅ(•˕ •マ)⟆</h3>
+                        <div class="cat-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Napping</span>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 85%"></div>
+                                </div>
+                                <span class="stat-value">Expert</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Bug Catching</span>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 90%"></div>
+                                </div>
+                                <span class="stat-value">Swift</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Purring</span>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 75%"></div>
+                                </div>
+                                <span class="stat-value">Melodious</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Coding</span>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 80%"></div>
+                                </div>
+                                <span class="stat-value">Purrfessional</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Lives</span>
+                                <div class="lives">
+                                    <i class="fas fa-heart"></i>
+                                    <i class="fas fa-heart"></i>
+                                    <i class="fas fa-heart"></i>
+                                    <i class="fas fa-heart"></i>
+                                    <i class="fas fa-heart"></i>
+                                    <i class="fas fa-heart"></i>
+                                    <i class="fas fa-heart"></i>
+                                    <i class="fas fa-heart"></i>
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <span class="stat-value">9/9</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cat-of-day-section" data-aos="fade-up" data-aos-delay="200">
+                <div class="about-header">
+                    <h1>/ᐠ≽•ヮ•≼マ Cat of the Day</h1>
+                </div>
+                <div class="cat-of-day-container">
+                    <div class="cat-image-container">
+                        <img id="catOfDay" src="https://api.thecatapi.com/v1/images/search?format=src&mime_types=image/jpg" alt="Cat of the Day" class="cat-of-day-image">
+                    </div>
+                    <div class="cat-quote">
+                        <blockquote>
+                            <p id="catQuote">A new cat each day keeps the stress away!</p>
+                            <footer>— The Pink Cat</footer>
+                        </blockquote>
+                        <button id="newCatBtn" class="new-cat-btn">
+                            <i class="fas fa-paw"></i> New Cat
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">@2025 - Hồng Phát (ThePinkCat) 🐾 | Purr rights reserved</div>
+    </main>
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Easter egg: Meow sound when clicking on profile image
+            const profileImage = document.querySelector('.profile-image');
+            if (profileImage) {
+                profileImage.addEventListener('click', function() {
+                    const meowSounds = [
+                        'https://www.soundjay.com/animals/sounds/cat-meow-1.mp3',
+                        'https://www.soundjay.com/animals/sounds/cat-meow-2.mp3',
+                        'https://www.soundjay.com/animals/sounds/cat-meow-3.mp3'
+                    ];
+                    const randomMeow = meowSounds[Math.floor(Math.random() * meowSounds.length)];
+                    
+                    const meowAudio = new Audio(randomMeow);
+                    meowAudio.volume = 0.5;
+                    meowAudio.play();
+                    
+                    this.classList.add('meowing');
+                    setTimeout(() => {
+                        this.classList.remove('meowing');
+                    }, 500);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,290 @@
+/*
+  Home Page
+  - Style for the home page ( Or called index.html because github auto find the index.html file )
+*/
+
+.avatarContainer {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    margin: 1rem 0;
+    position: relative;
+    height: 225px;
+    width: 225px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slideDown 1s ease-out;
+}
+
+.avatar {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    margin: 0;
+    object-fit: cover;
+    transform: translateZ(0);
+    transition: transform 0.3s ease;
+}
+
+.greetings {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: white;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.about {
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: white;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+.link {
+    height: 2.75rem;
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    margin: 0.5rem 0;
+    border-radius: 15px;
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 var(--link-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    color: var(--link-text);
+    transform-origin: center;
+}
+
+.link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+}
+
+.link:hover::before {
+    left: 100%;
+}
+
+.link:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.link span {
+    width: 80%;
+    text-align: center;
+    color: var(--link-text);
+    transition: all 0.3s ease;
+}
+
+.link:hover span {
+    transform: scale(1.05);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.link img {
+    height: 2rem;
+    aspect-ratio: 1;
+    transition: transform 0.5s ease;
+}
+
+.linkIcon {
+    height: 2rem !important;
+    aspect-ratio: 1;
+}
+
+.link:hover img {
+    transform: scale(1.2);
+    animation: pulseAnimation 1s infinite alternate;
+}
+
+.link:nth-child(1) {
+    background: linear-gradient(90deg,
+            rgba(204, 204, 255, 0.1) 30%,
+            rgba(113, 113, 113, 0.3) 100%),
+        #CCCCFF;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border: 2px solid #A3A3FF;
+}
+
+.link:nth-child(2) {
+    background: linear-gradient(90deg,
+            rgba(204, 204, 255, 0.1) 30%,
+            rgba(113, 113, 113, 0.3) 100%),
+        #B3B3FF;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border: 2px solid #8C8CFF;
+    margin-top: 10px;
+}
+
+.link:nth-child(3) {
+    background: linear-gradient(90deg,
+            rgba(204, 204, 255, 0.1) 30%,
+            rgba(113, 113, 113, 0.3) 100%),
+        #99A3FF;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border: 2px solid #7F7FFF;
+}
+
+.link:nth-child(4) {
+    background: linear-gradient(90deg,
+            rgba(204, 204, 255, 0.1) 30%,
+            rgba(113, 113, 113, 0.3) 100%),
+        #8C8CFF;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border: 2px solid #6666FF;
+}
+
+.link:nth-child(5) {
+    background: linear-gradient(90deg,
+            rgba(204, 204, 255, 0.1) 30%,
+            rgba(113, 113, 113, 0.3) 100%),
+        #7F7FFF;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border: 2px solid #4C4CFF;
+}
+
+.link:nth-child(6) {
+    background: linear-gradient(90deg,
+            rgba(204, 204, 255, 0.1) 30%,
+            rgba(113, 113, 113, 0.3) 100%),
+        #6666FF;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border: 2px solid #3333FF;
+}
+
+.link:nth-child(7) {
+    background: linear-gradient(90deg,
+            rgba(204, 204, 255, 0.1) 30%,
+            rgba(113, 113, 113, 0.3) 100%),
+        #4C4CFF;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border: 2px solid #1A1AFF;
+}
+
+.link:nth-child(8) {
+    background: linear-gradient(90deg,
+            rgba(204, 204, 255, 0.1) 30%,
+            rgba(113, 113, 113, 0.3) 100%),
+        #3333FF;
+    color: #3B3B6E;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border: 2px solid #1A1AFF;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    animation: fadeIn 0.5s;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transform: scale(0.7);
+    animation: scaleUp 0.5s forwards;
+}
+
+.theme-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 9999;
+}
+
+.theme-transition-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.typing-text {
+    display: block;
+    margin-top: 10px;
+}
+
+.typing-text::after {
+    content: '|';
+    animation: blink 1s infinite;
+} 
