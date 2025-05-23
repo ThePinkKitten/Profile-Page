@@ -102,19 +102,29 @@ export function initThemeSwitch() {
         document.documentElement.setAttribute('data-theme', 'light');
         sessionStorage.setItem('theme', 'light');
         
+        // Force repaint for background image
+        document.body.style.backgroundImage = `url('Assets/Image/Background/background.gif')`;
+        
         // Start background image loading in parallel
         const bgLoadPromise = Promise.race([
           new Promise(resolve => {
             const img = new Image();
             img.src = 'Assets/Image/Background/background.gif';
-            img.onload = resolve;
+            img.onload = () => {
+              console.log('Background image loaded successfully');
+              resolve();
+            };
+            img.onerror = () => {
+              console.error('Background image failed to load');
+              resolve();
+            };
           }),
-          new Promise(resolve => setTimeout(resolve, 1000)) // Shorter timeout
+          new Promise(resolve => setTimeout(resolve, 2000)) // Extend timeout a bit
         ]).catch(() => {
           console.log('Background image loading timeout, continuing anyway');
         });
         
-        // Wait for a maximum of 1 second for image to load
+        // Wait for a maximum of 2 seconds for image to load
         await bgLoadPromise;
       } else {
         // Dark mode transitions faster because no large background image

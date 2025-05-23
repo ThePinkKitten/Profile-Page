@@ -33,7 +33,7 @@ body {
     font-family: "Montserrat", sans-serif;
     background-color: var(--background);
     color: var(--text);
-    transition: background-color 0.5s ease, color 0.5s ease, background-image 0.5s ease;
+    transition: background-color 0.5s ease, color 0.5s ease;
     background-image: none;
     background-size: cover;
     background-repeat: no-repeat;
@@ -47,6 +47,10 @@ body {
 
 [data-theme="light"] body {
     background-image: url('../Assets/Image/Background/background.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 :root body {
