@@ -141,7 +141,7 @@ function updateProgressBar() {
   
   if (audioPlayer.duration) {
     // Xác định độ dài thực của bài (Mice on Venus - chính xác 3 phút)
-    const actualSongDuration = 180; // 3 phút = 180 giây
+    const actualSongDuration = 155; // 155 giây (2 phút 35 giây)
     
     // Sử dụng thời gian thực tế thay vì audioPlayer.duration nếu duration lớn hơn
     const duration = (audioPlayer.duration > actualSongDuration) ? actualSongDuration : audioPlayer.duration;
