@@ -107,7 +107,7 @@ function setupAudioElements() {
   
   // Thêm event listener cho khi thời gian của bài hát thay đổi quá lớn
   audioPlayer.addEventListener('timeupdate', () => {
-    const actualSongDuration = 135; // 2 phút 15 giây
+    const actualSongDuration = 150; // 2 phút 15 giây
     if (audioPlayer.currentTime > actualSongDuration) {
       audioPlayer.currentTime = 0;
       musicProgress.style.width = '0%';
@@ -273,7 +273,7 @@ function updateProgressBar() {
   
   if (audioPlayer.duration) {
     // Xác định độ dài thực của bài (Mice on Venus - chính xác 2 phút 15 giây)
-    const actualSongDuration = 135; // 135 giây (2 phút 15 giây)
+    const actualSongDuration = 150; // 150 giây (2 phút 15 giây)
     
     // Nếu phát hiện thời gian hiện tại vượt quá thời gian thực của bài
     if (audioPlayer.currentTime >= actualSongDuration) {
