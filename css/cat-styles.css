@@ -1,44 +1,11 @@
-/* 
+/*
   Cat Styles
   - Additional styles for cat-themed elements
+  - Cat ears and cat cursor have been removed
 */
 
-/* Cat ears on avatar */
 .avatarContainer {
   overflow: visible !important;
-}
-
-.cat-ear {
-  position: absolute;
-  width: 40px;
-  height: 60px;
-  background-color: #ff69b4;
-  border-radius: 50% 50% 0 0;
-  z-index: 10;
-  top: -20px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.cat-ear-left {
-  left: 40px;
-  transform: rotate(-15deg);
-}
-
-.cat-ear-right {
-  right: 40px;
-  transform: rotate(15deg);
-}
-
-.cat-ear:before {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 40px;
-  background-color: #ff9ad5;
-  border-radius: 50% 50% 0 0;
-  top: 10px;
-  left: 10px;
 }
 
 /* Bounce animation for avatar */

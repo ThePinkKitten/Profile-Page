@@ -8,8 +8,7 @@ export function initAvatarEffect() {
   const avatarContainer = document.querySelector('.avatarContainer');
   const avatar = document.querySelector('.avatar');
   
-  if (avatarContainer && avatar) {
-    // 3D rotate effect on mouse move
+  if (avatarContainer && avatar) {    // 3D rotate effect on mouse move
     avatarContainer.addEventListener('mousemove', (e) => {
       const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
       const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
@@ -19,55 +18,21 @@ export function initAvatarEffect() {
     avatarContainer.addEventListener('mouseleave', () => {
       avatarContainer.style.transform = 'rotateY(0) rotateX(0)';
     });
-    
-    // Cat ears appear on hover
-    avatarContainer.addEventListener('mouseenter', () => {
-      // Create cat ears if they don't exist
-      if (!document.querySelector('.cat-ear-left')) {
-        // Create left ear
-        const leftEar = document.createElement('div');
-        leftEar.className = 'cat-ear cat-ear-left';
-        
-        // Create right ear
-        const rightEar = document.createElement('div');
-        rightEar.className = 'cat-ear cat-ear-right';
-        
-        // Add ears to container
-        avatarContainer.appendChild(leftEar);
-        avatarContainer.appendChild(rightEar);
-      }
-      
-      // Show the ears
-      document.querySelectorAll('.cat-ear').forEach(ear => {
-        ear.style.opacity = '1';
-      });
-      
-      // Add a meow sound with 30% probability
-      if (Math.random() < 0.3) {
-        const meow = new Audio('https://assets.mixkit.co/active_storage/sfx/2244/2244-preview.mp3');
-        meow.volume = 0.2;
-        meow.play();
-      }
-    });
-    
-    // Hide ears when not hovering
-    avatarContainer.addEventListener('mouseleave', () => {
-      document.querySelectorAll('.cat-ear').forEach(ear => {
-        ear.style.opacity = '0';
-      });
-    });
-    
-    // Happy bounce on click
+      // Happy bounce on click
     avatarContainer.addEventListener('click', () => {
       avatar.classList.add('avatar-bounce');
       setTimeout(() => {
         avatar.classList.remove('avatar-bounce');
       }, 1000);
+        // Phát ngẫu nhiên một trong ba âm thanh
+      const soundIndex = Math.floor(Math.random() * 3) + 1; // Số ngẫu nhiên 1, 2 hoặc 3
+      const soundFile = `Assets/Music/hurt${soundIndex}.ogg`;
       
-      // Always meow on click
-      const meow = new Audio('https://assets.mixkit.co/active_storage/sfx/2244/2244-preview.mp3');
-      meow.volume = 0.2;
-      meow.play();
+      console.log(`[Avatar] Phát âm thanh: ${soundFile}`);
+      
+      const meow = new Audio(soundFile);
+      // Giữ nguyên âm lượng gốc của file âm thanh
+      meow.play().catch(error => console.error('[Avatar] Lỗi phát âm thanh:', error));
     });
   }
-} 
+}

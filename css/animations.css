@@ -68,15 +68,10 @@
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
+    0%, 100% { transform: translateY(0); }    50% { transform: translateY(-5px); }
 }
 
-@keyframes catTail {
-    0% { transform: rotate(-5deg); }
-    50% { transform: rotate(5deg); }
-    100% { transform: rotate(-5deg); }
-}
+/* Cat tail animation removed */
 
 @keyframes catBlink {
     0%, 100% { opacity: 1; }
@@ -121,33 +116,4 @@
     transition: all 0.3s ease;
 }
 
-/* Cat cursor effects */
-.cat-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9999;
-  font-size: 24px;
-  transition: transform 0.3s ease;
-}
-
-.cat-cursor .cat-body {
-  display: inline-block;
-}
-
-.cat-cursor .cat-tail {
-  display: inline-block;
-  animation: catTail 1.5s infinite;
-  transform-origin: left center;
-}
-
-.cat-cursor.resting {
-  animation: sleepCat 3s infinite alternate;
-}
-
-@keyframes sleepCat {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
+/* Cat cursor effects and animations removed */
