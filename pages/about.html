@@ -161,19 +161,15 @@
             <div class="cat-of-day-section" data-aos="fade-up" data-aos-delay="200">
                 <div class="about-header">
                     <h1>/ᐠ≽•ヮ•≼マ Cat of the Day</h1>
-                </div>
-                <div class="cat-of-day-container">
+                </div>                <div class="cat-of-day-container">
                     <div class="cat-image-container">
                         <img id="catOfDay" src="https://api.thecatapi.com/v1/images/search?format=src&mime_types=image/jpg" alt="Cat of the Day" class="cat-of-day-image">
                     </div>
                     <div class="cat-quote">
                         <blockquote>
-                            <p id="catQuote">A new cat each day keeps the stress away!</p>
-                            <footer>— The Pink Cat</footer>
+                            <p id="catQuote" style="font-size: 1.5rem; margin: 1.5rem 0;">A new cat each day keeps the stress away!</p>
+                            <footer style="font-size: 1.2rem;">— The Pink Cat</footer>
                         </blockquote>
-                        <button id="newCatBtn" class="new-cat-btn">
-                            <i class="fas fa-paw"></i> New Cat
-                        </button>
                     </div>
                 </div>
             </div>
@@ -184,13 +180,19 @@
     <!-- AOS Animation -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
+    <script type="module">
+        // Import và khởi tạo tính năng Cat of the Day
+        import { initCatOfDay } from '../js/cat-of-day.js';
+        
         document.addEventListener('DOMContentLoaded', function() {
             AOS.init({
                 duration: 800,
                 easing: 'ease-in-out',
                 once: true
             });
+            
+            // Khởi tạo tính năng Cat of the Day
+            initCatOfDay();
             
             // Easter egg: Meow sound when clicking on profile image
             const profileImage = document.querySelector('.profile-image');

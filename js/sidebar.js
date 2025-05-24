@@ -25,7 +25,17 @@ export function initSidebar() {
       sidebar.classList.add('active');
       sidebarToggle.querySelector('i').classList.remove('fa-bars');
       sidebarToggle.querySelector('i').classList.add('fa-times');
-      if (window.innerWidth <= 768) {
+      
+      // Adjust main content when sidebar opens (for larger screens only)
+      if (window.innerWidth > 768) {
+        if (main) {
+          // Add padding to prevent content from being covered by sidebar
+          main.style.marginLeft = '250px';
+          main.style.width = 'calc(100% - 250px)';
+          main.classList.add('sidebar-open');
+        }
+      } else {
+        // For mobile, prevent scrolling of background content
         document.body.style.overflow = 'hidden';
       }
     } else {
@@ -33,6 +43,13 @@ export function initSidebar() {
       sidebarToggle.querySelector('i').classList.remove('fa-times');
       sidebarToggle.querySelector('i').classList.add('fa-bars');
       document.body.style.overflow = '';
+      
+      // Reset main content position
+      if (main) {
+        main.style.marginLeft = '0';
+        main.style.width = '100%';
+        main.classList.remove('sidebar-open');
+      }
     }
   }
 

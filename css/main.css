@@ -170,6 +170,18 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: margin-left 0.4s ease, width 0.4s ease;
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    min-height: 100vh;
+    opacity: 1;
+    position: relative; /* Added for better positioning control */
+}
+
+main.sidebar-open {
+    max-width: calc(650px + 250px); /* Adjust max-width when sidebar is open */
 }
 
 a {
@@ -258,17 +270,21 @@ a {
     position: fixed;
     left: 0;
     top: 0;
-    height: 100%;
+    height: 100vh; /* Use viewport height for better consistency */
     width: 250px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8); /* Increased opacity for better contrast */
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
-    padding: 20px 0;
+    padding: 20px 0 0 0; /* Remove bottom padding to fix gap issue */
     z-index: 99;
     transform: translateX(-250px);
-    transition: transform 0.4s ease;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    overflow-y: auto; /* Allow scrolling for smaller height screens */
+    overflow-x: hidden;
 }
 
 .sidebar.active {
@@ -357,13 +373,17 @@ a {
 .sidebar-footer {
     margin-top: auto;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    padding-bottom: 15px; /* Reduced padding to minimize empty space */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 30px 0;
+    gap: 15px; /* Further reduced gap between icons */
+    padding: 10px 0; /* Reduced padding for more compact footer */
 }
 
 .social-icons a {

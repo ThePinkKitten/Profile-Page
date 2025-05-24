@@ -1,8 +1,3 @@
-/*
-  Avatar Effect
-  - Add avatar hover effect only if avatar exists
-*/
-
 // Function to initialize avatar effect
 export function initAvatarEffect() {
   const avatarContainer = document.querySelector('.avatarContainer');

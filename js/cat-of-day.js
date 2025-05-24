@@ -30,7 +30,7 @@ function getRandomItem(array) {
 
 // Function to load a new cat
 function loadNewCat() {
-  const catImage = document.getElementById('catImage');
+  const catImage = document.getElementById('catOfDay'); // Cập nhật ID đúng từ catImage thành catOfDay
   const catQuote = document.getElementById('catQuote');
   
   // Add loading state
@@ -62,7 +62,7 @@ function loadNewCat() {
 // Initialize the Cat of the Day feature
 export function initCatOfDay() {
   // Check if the cat image element exists on the current page
-  const catImage = document.getElementById('catImage');
+  const catImage = document.getElementById('catOfDay'); // Cập nhật ID đúng từ catImage thành catOfDay
   const catQuote = document.getElementById('catQuote');
   
   if (catImage && catQuote) {
