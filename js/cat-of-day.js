@@ -30,7 +30,7 @@ function getRandomItem(array) {
 
 // Function to load a new cat
 function loadNewCat() {
-  const catImage = document.getElementById('catImage');
+  const catImage = document.getElementById('catOfDay');
   const catQuote = document.getElementById('catQuote');
   
   // Add loading state
@@ -62,8 +62,9 @@ function loadNewCat() {
 // Initialize the Cat of the Day feature
 export function initCatOfDay() {
   // Check if the cat image element exists on the current page
-  const catImage = document.getElementById('catImage');
+  const catImage = document.getElementById('catOfDay');
   const catQuote = document.getElementById('catQuote');
+  const newCatBtn = document.getElementById('newCatBtn');
   
   if (catImage && catQuote) {
     // Load initial cat
@@ -73,8 +74,14 @@ export function initCatOfDay() {
     catImage.addEventListener('click', function(e) {
       e.preventDefault();
       loadNewCat();
-        // Simple click handler for loading new cat
-      loadNewCat();
     });
+    
+    // Add click event to the New Cat button
+    if (newCatBtn) {
+      newCatBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        loadNewCat();
+      });
+    }
   }
 }
