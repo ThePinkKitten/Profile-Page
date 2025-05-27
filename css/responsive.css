@@ -110,11 +110,12 @@
         left: 0;
         height: 100vh;
         overflow-y: auto;
-        background: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(10px);
-        transition: transform 0.3s ease;
+        background: linear-gradient(145deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.95));
+        backdrop-filter: blur(12px);
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         padding: 1rem;
         box-sizing: border-box;
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.6);
     }
     
     .sidebar.active {
@@ -122,32 +123,48 @@
     }
 
     .sidebar-nav {
-        padding: 0.5rem;
-        margin-top: 2rem;
+        padding: 0;
+        margin: 1.5rem 10px 0;
+    }
+    
+    .sidebar-nav ul li {
+        margin-bottom: 8px;
     }
     
     .sidebar-nav ul li a {
-        padding: 12px 20px;
-        font-size: 1rem;
-        border-radius: 8px;
-        transition: background 0.3s ease;
+        padding: 14px 18px;
+        font-size: 1.05rem;
+        border-radius: 10px;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
     .sidebar-nav ul li a:hover {
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 105, 180, 0.15);
+        transform: translateX(5px);
+    }
+    
+    .sidebar-nav ul li a i {
+        font-size: 1.1rem;
+        margin-right: 15px;
     }
 
     .sidebar-header {
-        padding: 1rem 0.5rem;
-        margin-top: 2.5rem;
+        padding: 1.5rem 0.5rem 2rem;
+        margin-top: 2rem;
         text-align: center;
+        position: relative;
+    }
+    
+    .sidebar-header::after {
+        width: 60px;
+        height: 2px;
     }
 
-    .sidebar-header img {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        margin-bottom: 1rem;
+    .sidebar-avatar {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 1.2rem;
+        border-width: 3px;
     }
     
     main {

@@ -16,22 +16,47 @@ export function initSidebar() {
 
   if (!sidebarToggle || !sidebar) return;
 
-  // Function to toggle sidebar
+    // Function to toggle sidebar
   function toggleSidebar(open) {
     isSidebarOpen = open;
     sessionStorage.setItem('sidebarOpen', open);
     
     if (open) {
       sidebar.classList.add('active');
-      sidebarToggle.querySelector('i').classList.remove('fa-bars');
-      sidebarToggle.querySelector('i').classList.add('fa-times');
+      
+      // Animate the sidebar toggle icon
+      sidebarToggle.classList.add('active');
+      setTimeout(() => {
+        sidebarToggle.querySelector('i').classList.remove('fa-bars');
+        sidebarToggle.querySelector('i').classList.add('fa-times');
+      }, 200);
+      
       if (window.innerWidth <= 768) {
         document.body.style.overflow = 'hidden';
       }
+      
+      // Add staggered animation to nav items
+      const navItems = document.querySelectorAll('.sidebar-nav ul li');
+      navItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-20px)';
+        setTimeout(() => {
+          item.style.transition = 'all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)';
+          item.style.opacity = '1';
+          item.style.transform = 'translateX(0)';
+        }, 100 + (index * 50));
+      });
+      
     } else {
       sidebar.classList.remove('active');
-      sidebarToggle.querySelector('i').classList.remove('fa-times');
-      sidebarToggle.querySelector('i').classList.add('fa-bars');
+      
+      // Animate the sidebar toggle icon
+      sidebarToggle.classList.remove('active');
+      setTimeout(() => {
+        sidebarToggle.querySelector('i').classList.remove('fa-times');
+        sidebarToggle.querySelector('i').classList.add('fa-bars');
+      }, 200);
+      
       document.body.style.overflow = '';
     }
   }
