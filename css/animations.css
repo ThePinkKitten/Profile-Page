@@ -80,20 +80,7 @@
     52% { opacity: 1; }
 }
 
-@keyframes pawPrint {
-    0% {
-        opacity: 0;
-        transform: translate(0, 0) scale(0.5);
-    }
-    30% {
-        opacity: 1;
-        transform: translate(0, 0) scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(10px, -10px) scale(0.5);
-    }
-}
+
 
 @keyframes catWalk {
     0% { transform: translateX(-20px); }

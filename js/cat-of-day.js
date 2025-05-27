@@ -73,20 +73,8 @@ export function initCatOfDay() {
     catImage.addEventListener('click', function(e) {
       e.preventDefault();
       loadNewCat();
-      
-      // Add a little paw effect when clicking
-      const pawPrint = document.createElement('div');
-      pawPrint.className = 'paw-print';
-      pawPrint.innerHTML = '🐾';
-      pawPrint.style.position = 'absolute';
-      pawPrint.style.left = (e.offsetX) + 'px';
-      pawPrint.style.top = (e.offsetY) + 'px';
-      pawPrint.style.animation = 'pawPrint 1s forwards';
-      this.parentNode.appendChild(pawPrint);
-      
-      setTimeout(() => {
-        this.parentNode.removeChild(pawPrint);
-      }, 1000);
+        // Simple click handler for loading new cat
+      loadNewCat();
     });
   }
 }
