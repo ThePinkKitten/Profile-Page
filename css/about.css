@@ -258,7 +258,7 @@
 
 .cat-stats-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 105, 180, 0.3);
     border-color: var(--accent-color);
 }
 
@@ -284,7 +284,7 @@
 
 .cat-stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
@@ -403,6 +403,27 @@
 .hearts i:nth-child(8) { --index: 8; }
 .hearts i:nth-child(9) { --index: 9; }
 
+/* Agility special styling */
+.agility .stat-icon i {
+    animation: lightning 2s infinite;
+}
+
+.agility .stat-fill {
+    background: linear-gradient(90deg, #ff69b4, #ffeb3b);
+    animation: flickerAnimation 2s infinite;
+}
+
+@keyframes lightning {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2) rotate(5deg); opacity: 0.8; }
+    75% { transform: scale(1.1) rotate(-5deg); opacity: 0.9; }
+}
+
+@keyframes flickerAnimation {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
 @keyframes heartBeat {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.2); }
@@ -411,6 +432,19 @@
 @keyframes pulseGlow {
     0% { box-shadow: 0 0 5px rgba(255, 105, 180, 0.2); }
     100% { box-shadow: 0 0 8px rgba(255, 105, 180, 0.5); }
+}
+
+/* Responsive layouts for cat stats */
+@media (max-width: 1200px) {
+    .cat-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .cat-stats {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Update about-content grid to include cat-stats */
