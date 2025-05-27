@@ -19,8 +19,7 @@ export function initThemeSwitch() {
   document.documentElement.setAttribute('data-theme', 'dark');
   if (toggleSwitch) toggleSwitch.checked = false;
   sessionStorage.setItem('theme', 'dark');
-  
-  // Always set background image
-  document.body.style.backgroundImage = `url('Assets/Image/Background/background.gif')`;
+    // Always set background image
+  document.body.style.backgroundImage = `url('../Assets/Image/Background/background.gif')`;
     // Dark theme is the only theme we use
 }
