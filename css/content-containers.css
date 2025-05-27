@@ -136,28 +136,4 @@
     }
 }
 
-/* Cat-themed decorative elements */
-.cat-corner {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    opacity: 0.1;
-    pointer-events: none;
-}
 
-.cat-corner.top-left {
-    top: 10px;
-    left: 10px;
-    background-image: url('../Assets/Image/Avatar/favicon.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.cat-corner.bottom-right {
-    bottom: 10px;
-    right: 10px;
-    background-image: url('../Assets/Image/Avatar/favicon.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    transform: rotate(180deg);
-}
