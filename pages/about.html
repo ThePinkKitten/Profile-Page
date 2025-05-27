@@ -115,7 +115,7 @@
                                 <div class="stat-bar">
                                     <div class="stat-fill" style="width: 85%"></div>
                                 </div>
-                                <span class="stat-value">Expert</span>
+                                <span
                             </div>
                             <div class="stat-item">
                                 <span class="stat-label">Bug Catching</span>
@@ -210,9 +210,16 @@
                     this.classList.add('meowing');
                     setTimeout(() => {
                         this.classList.remove('meowing');
-                    }, 500);
-                });
+                    }, 500);                });
             }
+        });
+    </script>
+    
+    <!-- Cat of the Day Feature -->
+    <script type="module">
+        import { initCatOfDay } from '../js/cat-of-day.js';
+        document.addEventListener('DOMContentLoaded', function() {
+            initCatOfDay();
         });
     </script>
 </body>
