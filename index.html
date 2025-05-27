@@ -7,11 +7,11 @@
     <title>Home - The Pink Cat</title>
     <link rel="icon" type="image/x-icon" href="Assets/Image/Avatar/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="preload" href="Assets/Image/Background/background.gif" as="image">
-
-    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="preload" href="Assets/Image/Background/background.gif" as="image">    <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/content-containers.css" />
+    <link rel="stylesheet" href="css/paw-effects.css" />
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" href="css/cat-styles.css" />
     
@@ -32,47 +32,42 @@
             <img src="Assets/Image/Avatar/avatar2.png" alt="Profile Picture" class="sidebar-avatar critical" loading="eager" width="100" height="100">
             <h3>Hồng Phát</h3>
             <p>@ThePinkCat</p>
-        </div>
-
-        <nav class="sidebar-nav">
+        </div>        <nav class="sidebar-nav">
             <ul>
-                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="pages/about.html"><i class="fas fa-user"></i> About</a></li>
-                <li><a href="pages/skills.html"><i class="fas fa-code"></i> Skills</a></li>
-                <li><a href="pages/projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
-                <li><a href="pages/education.html"><i class="fas fa-graduation-cap"></i> Education</a></li>
-                <li><a href="pages/contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="index.html" class="active paw-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="pages/about.html" class="paw-link"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="pages/skills.html" class="paw-link"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="pages/projects.html" class="paw-link"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="pages/education.html" class="paw-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="pages/contact.html" class="paw-link"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
 
-        <div class="sidebar-footer">
-            <!-- Theme Switch -->
+        <div class="sidebar-footer">            <!-- Theme Switch -->
             <div class="theme-switch-wrapper">
-                <label class="theme-switch">
+                <label class="theme-switch with-paw-cursor">
                     <input type="checkbox" id="checkbox">
                     <div class="slider round"></div>
                 </label>
                 <span>Light / Dark Mode</span>
 
-            </div>
-
-            <!-- Audio Player -->
+            </div><!-- Audio Player -->
             <div class="audio-player">
-                <button id="audioButton">
+                <button id="audioButton" class="with-paw-cursor">
                     <i class="fas fa-play"></i>
                 </button>
-                <div class="progress-container">
+                <div class="progress-container with-paw-cursor">
                     <div class="progress-bar" id="musicProgress"></div>
                 </div>
                 <audio id="bgMusic" preload="auto" autoplay muted="false">
                     <source src="Assets/Music/Mice on Venus.webm" type="audio/webm">
                 </audio>
-            </div>            <div class="social-icons">
-                <a href="https://www.facebook.com/ThePinkKitten/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="https://github.com/ThePinkKitten" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/thepinkkitten/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com/ThePinkKitten" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.youtube.com/@thepinkcat2301" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            </div><div class="social-icons">
+                <a href="https://www.facebook.com/ThePinkKitten/" target="_blank" title="Facebook" class="paw-link"><i class="fab fa-facebook"></i></a>
+                <a href="https://github.com/ThePinkKitten" target="_blank" title="GitHub" class="paw-link"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/thepinkkitten/" target="_blank" title="Instagram" class="paw-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/ThePinkKitten" target="_blank" title="Twitter" class="paw-link"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com/@thepinkcat2301" target="_blank" title="YouTube" class="paw-link"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </div>
@@ -80,10 +75,8 @@
     <div class="loading-overlay">
         <div class="loader"></div>
         <div class="loading-text">Just a moment</div>
-    </div>
-
-    <main>
-        <div class="avatarContainer" id="avatarContainer">
+    </div>    <main>
+        <div class="avatarContainer with-paw-cursor" id="avatarContainer">
             <img class="avatar" src="Assets/Image/Avatar/Avatar.gif" alt="click here" />
         </div>
         <div class="greetings">
@@ -96,8 +89,8 @@
             </div>
         </div>
 
-        <div class="links" id="links"></div>
-        <div class="footer" id="openModal">@2025 - Hồng Phát (ThePinkCat)</div>
+        <div class="links with-paw-cursor" id="links"></div>
+        <div class="footer with-paw-cursor" id="openModal">@2025 - Hồng Phát (ThePinkCat)</div>
     </main>
     
     <script type="module" src="js/main.js"></script>

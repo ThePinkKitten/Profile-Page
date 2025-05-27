@@ -8,11 +8,11 @@
     <link rel="icon" type="image/x-icon" href="../Assets/Image/Avatar/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <script type="module" defer src="../js/main.js"></script>
-
-    <link rel="stylesheet" href="../css/animations.css" />
+    <script type="module" defer src="../js/main.js"></script>    <link rel="stylesheet" href="../css/animations.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/education.css" />
+    <link rel="stylesheet" href="../css/content-containers.css" />
+    <link rel="stylesheet" href="../css/paw-effects.css" />
     <link rel="stylesheet" href="../css/responsive.css" />
 </head>
 
@@ -30,46 +30,41 @@
             <img src="../Assets/Image/Avatar/avatar2.png" alt="Profile Picture" class="sidebar-avatar">
             <h3>Hồng Phát</h3>
             <p>@ThePinkCat</p>
-        </div>
-
-        <nav class="sidebar-nav">
+        </div>        <nav class="sidebar-nav">
             <ul>
-                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
-                <li><a href="skills.html"><i class="fas fa-code"></i> Skills</a></li>
-                <li><a href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
-                <li><a href="education.html" class="active"><i class="fas fa-graduation-cap"></i> Education</a></li>
-                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="../index.html" class="paw-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html" class="paw-link"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="skills.html" class="paw-link"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="projects.html" class="paw-link"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="education.html" class="active paw-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="contact.html" class="paw-link"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
 
-        <div class="sidebar-footer">
-            <!-- Theme Switch -->
+        <div class="sidebar-footer">            <!-- Theme Switch -->
             <div class="theme-switch-wrapper">
-                <label class="theme-switch">
+                <label class="theme-switch with-paw-cursor">
                     <input type="checkbox" id="checkbox">
                     <div class="slider round"></div>
                 </label>
                 <span>Light / Dark Mode</span>
-            </div>
-
-            <!-- Audio Player -->
+            </div><!-- Audio Player -->
             <div class="audio-player">
-                <button id="audioButton">
+                <button id="audioButton" class="with-paw-cursor">
                     <i class="fas fa-play"></i>
                 </button>
-                <div class="progress-container">
+                <div class="progress-container with-paw-cursor">
                     <div class="progress-bar" id="musicProgress"></div>
                 </div>
                 <audio id="bgMusic" loop>
                     <source src="../Assets/Music/Mice on Venus.webm" type="audio/mp3" volume="0.5">
                 </audio>
-            </div>            <div class="social-icons">
-                <a href="https://www.facebook.com/ThePinkKitten/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="https://github.com/ThePinkKitten" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/thepinkkitten/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com/ThePinkKitten" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.youtube.com/@thepinkcat2301" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            </div><div class="social-icons">
+                <a href="https://www.facebook.com/ThePinkKitten/" target="_blank" title="Facebook" class="paw-link"><i class="fab fa-facebook"></i></a>
+                <a href="https://github.com/ThePinkKitten" target="_blank" title="GitHub" class="paw-link"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/thepinkkitten/" target="_blank" title="Instagram" class="paw-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/ThePinkKitten" target="_blank" title="Twitter" class="paw-link"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com/@thepinkcat2301" target="_blank" title="YouTube" class="paw-link"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </div>
@@ -77,63 +72,62 @@
     <div class="loading-overlay">
         <div class="loader"></div>
         <div class="loading-text">Just a moment</div>
-    </div>
-
-    <main>
-        <div class="education-container">
-            <div class="about-section">
-                <div class="about-header">
+    </div>    <main>
+        <div class="page-container">
+            <section class="content-section with-glow">
+                <div class="cat-corner top-left"></div>
+                <div class="cat-corner bottom-right"></div>
+                <div class="section-header">
                     <h1><i class="fas fa-book-open glow-icon"></i> My Education Journey <span class="emoji">/ᐠ • ˕ •マ</span></h1>
+                    <p>My academic journey and qualifications</p>
                 </div>
                 
-                <div class="about-content">
-                    <div class="timeline">
-                        <div class="timeline-item" data-aos="fade-right">
-                            <div class="timeline-dot">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">2022 - Present</div>
-                                <div class="timeline-card">
-                                    <h3><i class="fas fa-laptop-code glow-icon"></i> Software Engineering</h3>
-                                    <h4><i class="fas fa-university"></i> HCMC University of Foreign Languages and Information Technology</h4>
-                                    <p>Currently studying Software Engineering with a focus on Application Development and Software Engineering as well as team management skills. Maintaining a cumulative GPA of >= 3.2</p>
-                                    <div class="achievement-list">
-                                        <div class="achievement">
-                                            <i class="fas fa-award glow-icon"></i>
-                                            <span>Academic results >= 3.5 each semester</span>
-                                        </div>
-                                        <div class="achievement">
-                                            <i class="fas fa-medal glow-icon"></i>
-                                            <span>Outstanding Project Award</span>
-                                        </div>
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-dot">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2022 - Present</div>
+                            <div class="timeline-card content-card">
+                                <h3><i class="fas fa-laptop-code glow-icon"></i> Software Engineering</h3>
+                                <h4><i class="fas fa-university"></i> HCMC University of Foreign Languages and Information Technology</h4>
+                                <p>Currently studying Software Engineering with a focus on Application Development and Software Engineering as well as team management skills. Maintaining a cumulative GPA of >= 3.2</p>
+                                <div class="achievement-list">
+                                    <div class="achievement">
+                                        <i class="fas fa-award glow-icon"></i>
+                                        <span>Academic results >= 3.5 each semester</span>
+                                    </div>
+                                    <div class="achievement">
+                                        <i class="fas fa-medal glow-icon"></i>
+                                        <span>Outstanding Project Award</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="timeline-item" data-aos="fade-left">
-                            <div class="timeline-dot">
-                                <i class="fas fa-school"></i>
-                            </div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">2019 - 2022</div>
-                                <div class="timeline-card">
-                                    <h3><i class="fas fa-certificate glow-icon"></i> Bằng tốt nghiệp THPT</h3>
-                                    <h4><i class="fas fa-building-columns"></i> Trường THPT Bắc Bình</h4>
-                                    <p>Graduated with good standing as I only realized the importance of education in my senior year ૮꒰◞ ˕ ◟ ྀི꒱ა.</p>
-                                    <div class="achievement-list">
-                                        <div class="achievement">
-                                            <i class="fas fa-trophy glow-icon"></i>
-                                            <span>Excellent Student Award (Grade 12)</span>
-                                        </div>
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-dot">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2019 - 2022</div>
+                            <div class="timeline-card content-card">
+                                <h3><i class="fas fa-certificate glow-icon"></i> Bằng tốt nghiệp THPT</h3>
+                                <h4><i class="fas fa-building-columns"></i> Trường THPT Bắc Bình</h4>
+                                <p>Graduated with good standing as I only realized the importance of education in my senior year ૮꒰◞ ˕ ◟ ྀི꒱ა.</p>
+                                <div class="achievement-list">
+                                    <div class="achievement">
+                                        <i class="fas fa-trophy glow-icon"></i>
+                                        <span>Excellent Student Award (Grade 12)</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
         <div class="footer">@2025 - Hồng Phát (ThePinkCat)</div>
     </main>

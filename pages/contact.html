@@ -8,11 +8,11 @@
     <link rel="icon" type="image/x-icon" href="../Assets/Image/Avatar/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <script type="module" defer src="../js/main.js"></script>
-
-    <link rel="stylesheet" href="../css/animations.css" />
+    <script type="module" defer src="../js/main.js"></script>    <link rel="stylesheet" href="../css/animations.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/contact.css" />
+    <link rel="stylesheet" href="../css/content-containers.css" />
+    <link rel="stylesheet" href="../css/paw-effects.css" />
     <link rel="stylesheet" href="../css/responsive.css" />
 </head>
 
@@ -30,46 +30,41 @@
             <img src="../Assets/Image/Avatar/avatar2.png" alt="Profile Picture" class="sidebar-avatar">
             <h3>Hồng Phát</h3>
             <p>@ThePinkCat</p>
-        </div>
-
-        <nav class="sidebar-nav">
+        </div>        <nav class="sidebar-nav">
             <ul>
-                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
-                <li><a href="skills.html"><i class="fas fa-code"></i> Skills</a></li>
-                <li><a href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
-                <li><a href="education.html"><i class="fas fa-graduation-cap"></i> Education</a></li>
-                <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="../index.html" class="paw-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html" class="paw-link"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="skills.html" class="paw-link"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="projects.html" class="paw-link"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="education.html" class="paw-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="contact.html" class="active paw-link"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
 
-        <div class="sidebar-footer">
-            <!-- Theme Switch -->
+        <div class="sidebar-footer">            <!-- Theme Switch -->
             <div class="theme-switch-wrapper">
-                <label class="theme-switch">
+                <label class="theme-switch with-paw-cursor">
                     <input type="checkbox" id="checkbox">
                     <div class="slider round"></div>
                 </label>
                 <span>Light / Dark Mode</span>
-            </div>
-
-            <!-- Audio Player -->
+            </div><!-- Audio Player -->
             <div class="audio-player">
-                <button id="audioButton">
+                <button id="audioButton" class="with-paw-cursor">
                     <i class="fas fa-play"></i>
                 </button>
-                <div class="progress-container">
+                <div class="progress-container with-paw-cursor">
                     <div class="progress-bar" id="musicProgress"></div>
                 </div>
                 <audio id="bgMusic" loop>
                     <source src="../Assets/Music/Mice on Venus.webm" type="audio/mp3" volume="0.5">
                 </audio>
-            </div>            <div class="social-icons">
-                <a href="https://www.facebook.com/ThePinkKitten/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="https://github.com/ThePinkKitten" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/thepinkkitten/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com/ThePinkKitten" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.youtube.com/@thepinkcat2301" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            </div><div class="social-icons">
+                <a href="https://www.facebook.com/ThePinkKitten/" target="_blank" title="Facebook" class="paw-link"><i class="fab fa-facebook"></i></a>
+                <a href="https://github.com/ThePinkKitten" target="_blank" title="GitHub" class="paw-link"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/thepinkkitten/" target="_blank" title="Instagram" class="paw-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/ThePinkKitten" target="_blank" title="Twitter" class="paw-link"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com/@thepinkcat2301" target="_blank" title="YouTube" class="paw-link"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </div>
@@ -77,18 +72,18 @@
     <div class="loading-overlay">
         <div class="loader"></div>
         <div class="loading-text">Just a moment</div>
-    </div>
-
-    <main>
-        <div class="contact-container">
-            <div class="contact-content" data-aos="fade-up">
-                <div class="welcome-text">
-                    <h2><i class="fas fa-paper-plane glow-icon"></i> Contact <span class="emoji">/ᐠ-˕-マⳊ</span></h2>
+    </div>    <main>
+        <div class="page-container">
+            <section class="content-section with-glow">
+                <div class="cat-corner top-left"></div>
+                <div class="cat-corner bottom-right"></div>
+                <div class="section-header">
+                    <h1><i class="fas fa-paper-plane glow-icon"></i> Contact <span class="emoji">/ᐠ-˕-マⳊ</span></h1>
                     <p>Thank you for visiting my website. If you'd like to reach out, please use the information below!</p>
                 </div>
                 
                 <div class="contact-cards">
-                    <div class="info-card large-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-card large-card content-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="card-inner" style="align-items: center; text-align: center;">
                             <div class="info-icon">
                                 <i class="fas fa-envelope"></i>
@@ -96,14 +91,14 @@
                             <div class="info-details" style="text-align: center;">
                                 <h3>Email</h3>
                                 <p>asdsaphat@gmail.com</p>
-                                <a href="mailto:asdsaphat@gmail.com" class="contact-link" style="justify-content: center;">
+                                <a href="mailto:asdsaphat@gmail.com" class="contact-link with-paw-cursor" style="justify-content: center;">
                                     <i class="fas fa-arrow-right"></i> Send me an email
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="info-card large-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-card large-card content-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="card-inner" style="align-items: center; text-align: center;">
                             <div class="info-icon">
                                 <i class="fab fa-telegram"></i>
@@ -112,10 +107,10 @@
                                 <h3>Telegram / Zalo</h3>
                                 <p>Connect with me via QR code</p>
                                 <div class="social-buttons">
-                                    <button class="contact-link qr-button" data-platform="telegram">
+                                    <button class="contact-link qr-button with-paw-cursor" data-platform="telegram">
                                         <i class="fab fa-telegram"></i> Telegram
                                     </button>
-                                    <button class="contact-link qr-button" data-platform="zalo">
+                                    <button class="contact-link qr-button with-paw-cursor" data-platform="zalo">
                                         <i class="fas fa-comment"></i> Zalo
                                     </button>
                                 </div>
@@ -125,7 +120,7 @@
                 </div>
 
                 <div class="contact-cards single-column">
-                    <div class="info-card large-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info-card large-card content-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="card-inner" style="align-items: center; text-align: center;">
                             <div class="info-icon">
                                 <i class="fas fa-home"></i>
@@ -133,14 +128,14 @@
                             <div class="info-details" style="text-align: center;">
                                 <h3>Return to Homepage</h3>
                                 <p>View more information about my social media profiles</p>
-                                <a href="../index.html" class="contact-link" style="justify-content: center;">
+                                <a href="../index.html" class="contact-link with-paw-cursor" style="justify-content: center;">
                                     <i class="fas fa-arrow-right"></i> Back to Home
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
         <div class="footer">@2025 - Hồng Phát (ThePinkCat)</div>
     </main>

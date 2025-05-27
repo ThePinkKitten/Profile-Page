@@ -8,11 +8,11 @@
     <link rel="icon" type="image/x-icon" href="../Assets/Image/Avatar/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <script type="module" defer src="../js/main.js"></script>
-
-    <link rel="stylesheet" href="../css/animations.css" />
+    <script type="module" defer src="../js/main.js"></script>    <link rel="stylesheet" href="../css/animations.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/skills.css" />
+    <link rel="stylesheet" href="../css/content-containers.css" />
+    <link rel="stylesheet" href="../css/paw-effects.css" />
     <link rel="stylesheet" href="../css/responsive.css" />
     
     <style>
@@ -38,23 +38,20 @@
             <img src="../Assets/Image/Avatar/avatar2.png" alt="Profile Picture" class="sidebar-avatar">
             <h3>Hồng Phát</h3>
             <p>@ThePinkCat</p>
-        </div>
-
-        <nav class="sidebar-nav">
+        </div>        <nav class="sidebar-nav">
             <ul>
-                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
-                <li><a href="skills.html" class="active"><i class="fas fa-code"></i> Skills</a></li>
-                <li><a href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
-                <li><a href="education.html"><i class="fas fa-graduation-cap"></i> Education</a></li>
-                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="../index.html" class="paw-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html" class="paw-link"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="skills.html" class="active paw-link"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="projects.html" class="paw-link"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="education.html" class="paw-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="contact.html" class="paw-link"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
 
-        <div class="sidebar-footer">
-            <!-- Theme Switch -->
+        <div class="sidebar-footer">            <!-- Theme Switch -->
             <div class="theme-switch-wrapper">
-                <label class="theme-switch">
+                <label class="theme-switch with-paw-cursor">
                     <input type="checkbox" id="checkbox">
                     <div class="slider round"></div>
                 </label>
@@ -64,21 +61,21 @@
 
             <!-- Audio Player -->
             <div class="audio-player">
-                <button id="audioButton">
+                <button id="audioButton" class="with-paw-cursor">
                     <i class="fas fa-play"></i>
                 </button>
-                <div class="progress-container">
+                <div class="progress-container with-paw-cursor">
                     <div class="progress-bar" id="musicProgress"></div>
                 </div>
                 <audio id="bgMusic" loop>
                     <source src="../Assets/Music/Mice on Venus.webm" type="audio/mp3" volume="0.5">
                 </audio>
-            </div>            <div class="social-icons">
-                <a href="https://www.facebook.com/ThePinkKitten/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="https://github.com/ThePinkKitten" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/thepinkkitten/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com/ThePinkKitten" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.youtube.com/@thepinkcat2301" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            </div><div class="social-icons">
+                <a href="https://www.facebook.com/ThePinkKitten/" target="_blank" title="Facebook" class="paw-link"><i class="fab fa-facebook"></i></a>
+                <a href="https://github.com/ThePinkKitten" target="_blank" title="GitHub" class="paw-link"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/thepinkkitten/" target="_blank" title="Instagram" class="paw-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/ThePinkKitten" target="_blank" title="Twitter" class="paw-link"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com/@thepinkcat2301" target="_blank" title="YouTube" class="paw-link"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </div>
@@ -86,13 +83,13 @@
     <div class="loading-overlay">
         <div class="loader"></div>
         <div class="loading-text">Just a moment</div>
-    </div>
-
-    <main>
-        <div class="skills-container">
-            <div class="skills-content" data-aos="fade-up">
-                <div class="welcome-text">
-                    <h2><i class="fas fa-code glow-icon"></i> Skills <span class="emoji">₍^ >ヮ<^₎</span></h2>
+    </div>    <main>
+        <div class="page-container">
+            <div class="content-section with-glow" data-aos="fade-up">
+                <div class="cat-corner top-left"></div>
+                <div class="cat-corner bottom-right"></div>
+                <div class="section-header">
+                    <h1><i class="fas fa-code glow-icon"></i> Skills <span class="emoji">₍^ >ヮ<^₎</span></h1>
                     <p>Technologies and skills I've acquired during my development journey</p>
                 </div>
                 
@@ -100,9 +97,8 @@
                 <section class="skills-section">
                     <h3 class="section-title" data-aos="fade-up"><i class="fas fa-laptop-code"></i> Programming Skills</h3>
                     
-                    <div class="skills-grid">
-                        <!-- Frontend -->
-                        <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skills-grid">                        <!-- Frontend -->
+                        <div class="skill-category content-card" data-aos="fade-up" data-aos-delay="100">
                             <h3 class="category-title"><i class="fas fa-paint-brush"></i> Frontend</h3>
                             
                             <div class="skill-items">
@@ -147,9 +143,8 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Backend -->
-                        <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                          <!-- Backend -->
+                        <div class="skill-category content-card" data-aos="fade-up" data-aos-delay="200">
                             <h3 class="category-title"><i class="fas fa-server"></i> Backend</h3>
                             
                             <div class="skill-items">
@@ -181,8 +176,7 @@
                 <section class="skills-section">
                     <h3 class="section-title" data-aos="fade-up"><i class="fas fa-database"></i> Database</h3>
                     
-                    <div class="skills-grid">
-                        <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skills-grid">                        <div class="skill-category content-card" data-aos="fade-up" data-aos-delay="100">
                             <div class="skill-items">
                                 <div class="skill-item">
                                     <div class="skill-info">
@@ -232,32 +226,28 @@
                 <section class="skills-section">
                     <h3 class="section-title" data-aos="fade-up"><i class="fas fa-tools"></i> Tools & Other Skills</h3>
                     
-                    <div class="skills-cards">
-                        <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="skills-cards">                        <div class="skill-card content-card" data-aos="zoom-in" data-aos-delay="100">
                             <div class="skill-card-icon">
                                 <i class="fab fa-docker"></i>
                             </div>
                             <h3>Docker</h3>
                             <p>Containerization and application management</p>
                         </div>
-                        
-                        <div class="skill-card" data-aos="zoom-in" data-aos-delay="200">
+                          <div class="skill-card content-card" data-aos="zoom-in" data-aos-delay="200">
                             <div class="skill-card-icon">
                                 <i class="fab fa-ubuntu"></i>
                             </div>
                             <h3>Ubuntu/Linux</h3>
                             <p>System administration and server deployment</p>
                         </div>
-                        
-                        <div class="skill-card" data-aos="zoom-in" data-aos-delay="300">
+                          <div class="skill-card content-card" data-aos="zoom-in" data-aos-delay="300">
                             <div class="skill-card-icon">
                                 <i class="fab fa-git-alt"></i>
                             </div>
                             <h3>Git & GitHub</h3>
                             <p>Source code and version control management</p>
                         </div>
-                        
-                        <div class="skill-card" data-aos="zoom-in" data-aos-delay="400">
+                          <div class="skill-card content-card" data-aos="zoom-in" data-aos-delay="400">
                             <div class="skill-card-icon">
                                 <i class="fas fa-cogs"></i>
                             </div>
@@ -271,8 +261,7 @@
                 <section class="skills-section">
                     <h3 class="section-title" data-aos="fade-up"><i class="fas fa-language"></i> Languages</h3>
                     
-                    <div class="languages-container">
-                        <div class="language-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="languages-container">                        <div class="language-card content-card" data-aos="zoom-in" data-aos-delay="100">
                             <div class="language-flag">
                                 <img src="../Assets/Image/CountryFlag/Flag_of_VietNam.png" alt="Vietnam Flag">
                             </div>
@@ -292,8 +281,7 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="language-card" data-aos="zoom-in" data-aos-delay="300">
+                          <div class="language-card content-card" data-aos="zoom-in" data-aos-delay="300">
                             <div class="language-info">
                                 <div class="language-circle">
                                     <div class="language-progress" data-progress="75">

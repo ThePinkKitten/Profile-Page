@@ -88,6 +88,54 @@
     100% { transform: translateX(-20px); }
 }
 
+@keyframes pawPrint {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes catEar {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg); }
+}
+
+@keyframes purr {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-2px) scale(1.01); }
+}
+
+@keyframes tailWag {
+    0% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+    100% { transform: rotate(-10deg); }
+}
+
+/* Apply animations */
+.paw-hover {
+    animation: pawPrint 0.3s ease-out;
+}
+
+.cat-ear-wiggle {
+    animation: catEar 1s ease-in-out infinite;
+}
+
+.purring {
+    animation: purr 0.8s ease-in-out infinite;
+}
+
+.tail-wagging {
+    animation: tailWag 1.5s ease-in-out infinite;
+}
+
 .glow-icon {
     filter: drop-shadow(0 0 8px rgba(110, 66, 255, 0.6));
 }
