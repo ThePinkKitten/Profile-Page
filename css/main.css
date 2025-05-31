@@ -81,6 +81,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: margin-left 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 a {

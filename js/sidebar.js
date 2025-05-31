@@ -13,10 +13,9 @@ export function initSidebar() {
   const sidebarToggle = document.querySelector('.sidebar-toggle');
   const sidebar = document.querySelector('.sidebar');
   const main = document.querySelector('main');
-
   if (!sidebarToggle || !sidebar) return;
 
-    // Function to toggle sidebar
+  // Function to toggle sidebar
   function toggleSidebar(open) {
     isSidebarOpen = open;
     sessionStorage.setItem('sidebarOpen', open);
@@ -30,6 +29,11 @@ export function initSidebar() {
         sidebarToggle.querySelector('i').classList.remove('fa-bars');
         sidebarToggle.querySelector('i').classList.add('fa-times');
       }, 200);
+      
+      // Push main content to the right
+      if (window.innerWidth > 768) {
+        main.style.marginLeft = '280px';
+      }
       
       if (window.innerWidth <= 768) {
         document.body.style.overflow = 'hidden';
@@ -50,6 +54,9 @@ export function initSidebar() {
     } else {
       sidebar.classList.remove('active');
       
+      // Reset main content position
+      main.style.marginLeft = '0';
+      
       // Animate the sidebar toggle icon
       sidebarToggle.classList.remove('active');
       setTimeout(() => {
@@ -69,25 +76,37 @@ export function initSidebar() {
       }
     });
   });
-
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       if (window.innerWidth > 768) {
         document.body.style.overflow = '';
-        if (!isSidebarOpen) {
+        if (isSidebarOpen) {
+          main.style.marginLeft = '280px';
+        } else {
           sidebar.style.transform = 'translateX(-250px)';
+          main.style.marginLeft = '0';
         }
+      } else {
+        // On mobile, don't push content
+        main.style.marginLeft = '0';
       }
     }, 250);
   });
-
   const hasVisitedBefore = sessionStorage.getItem('hasVisited');
+  // Apply the correct sidebar state on page load
   if (hasVisitedBefore && isSidebarOpen) {
     toggleSidebar(true);
   } else {
     toggleSidebar(false);
+  }
+  
+  // Ensure proper initial main content position based on sidebar state and viewport width
+  if (isSidebarOpen && window.innerWidth > 768) {
+    main.style.marginLeft = '280px';
+  } else {
+    main.style.marginLeft = '0';
   }
 
   sidebarToggle.addEventListener('click', () => {
