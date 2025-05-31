@@ -158,7 +158,6 @@ function setupAudioElements() {
   };
   audioButton.addEventListener('click', audioButtonHandler);
   audioButton._clickHandler = audioButtonHandler; // Lưu tham chiếu để dọn dẹp
-
   // Progress bar click event for seeking
   progressContainer.addEventListener('click', function(e) {
     e.stopPropagation();
@@ -168,8 +167,16 @@ function setupAudioElements() {
     const percentageClicked = clickPosition / progressRect.width;
     
     if (audioPlayer.duration) {
-      const seekTime = percentageClicked * audioPlayer.duration;
+      // Calculate seek time based on the actual song duration constant
+      // This prevents the song from skipping when clicking on the progress bar
+      const seekTime = percentageClicked * ACTUAL_SONG_DURATION;
       audioPlayer.currentTime = seekTime;
+      
+      // Make sure we don't exceed the song's actual duration
+      if (audioPlayer.currentTime > audioPlayer.duration) {
+        audioPlayer.currentTime = audioPlayer.duration - 1;
+      }
+      
       updateProgressBar();
     }
   });
@@ -428,28 +435,19 @@ function updateProgressBar() {
   if (!audioPlayer || !musicProgress) return;
   
   if (audioPlayer.duration) {
-    // If current time exceeds the actual song duration
-    if (audioPlayer.currentTime >= ACTUAL_SONG_DURATION) {
-      // Reset to beginning and play again
-      audioPlayer.currentTime = 0;
-      playAudio();
-      musicProgress.style.width = '0%';
-      return;
-    }
+    // Never auto-reset the song when it reaches ACTUAL_SONG_DURATION
+    // This prevents the song from unexpectedly restarting
     
-    // Calculate progress percentage based on actual duration
-    const progressPercent = (audioPlayer.currentTime / ACTUAL_SONG_DURATION) * 100;
+    // Calculate progress percentage based on actual duration or the audio element's duration
+    // whichever is smaller to prevent overflow
+    const effectiveDuration = Math.min(ACTUAL_SONG_DURATION, audioPlayer.duration);
+    const progressPercent = (audioPlayer.currentTime / effectiveDuration) * 100;
     
     // Limit to maximum of 100%
     const clampedProgress = Math.min(progressPercent, 100);
     
+    // Apply the calculated width
     musicProgress.style.width = clampedProgress + '%';
-    
-    // If near the end of the song
-    if (audioPlayer.currentTime >= ACTUAL_SONG_DURATION - 1) {
-      // Ensure the bar shows as completely full
-      musicProgress.style.width = '100%';
-    }
   }
 }
 
