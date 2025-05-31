@@ -61,12 +61,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     }),
     !hasVisitedBefore ? new Promise(resolve => setTimeout(resolve, 2000)) : Promise.resolve()
   ]);
-
   if (!hasVisitedBefore) {
     sessionStorage.setItem('hasVisited', 'true');
   }
   
-  // Hide loading overlay after all critical resources have finished loading  loadingOverlay.classList.add('hide');
+  // Hide loading overlay after all critical resources have finished loading
+  loadingOverlay.classList.add('hide');
   
   const mainContent = document.querySelector('main');
   if (mainContent) {

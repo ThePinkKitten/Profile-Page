@@ -565,11 +565,10 @@ export function cleanupPersistentAudio() {
   
   // Clean up metadata listeners
   cleanupMetadataListeners();
-  
-  // Xóa tất cả event listener tương tác người dùng còn sót lại
+    // Xóa tất cả event listener tương tác người dùng còn sót lại
   USER_INTERACTION_EVENTS.forEach(eventType => {
-    // Không cần xác định handler cụ thể vì chúng ta đã dùng { once: true }
-    // và handlers với tên đã được dọn dẹp
+    document.removeEventListener(eventType, () => {});
+    // Mặc dù chúng ta đã dùng { once: true } nhưng vẫn nên loại bỏ event listener để đảm bảo
   });
     // Remove any media session handlers
   if ('mediaSession' in navigator) {
@@ -579,7 +578,7 @@ export function cleanupPersistentAudio() {
   }
   
   // Xóa bỏ listener từ elements nếu còn tồn tại
-  if (audioPlayer) {if (audioPlayer) {
+  if (audioPlayer) {
     audioPlayer.removeEventListener('timeupdate', updateProgressBar);
     
     // Xóa bỏ event ended với handler đã lưu
