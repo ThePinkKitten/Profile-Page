@@ -14,9 +14,15 @@ import { initPersistentAudio } from './persistent-audio.js';
 const resetFunctions = {}; 
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // Preload background image
+  // Preload background image - điều chỉnh đường dẫn dựa trên URL hiện tại
+  const currentPath = window.location.pathname;
+  const isInPagesDirectory = currentPath.includes('/pages/');
+  const backgroundPath = isInPagesDirectory ? 
+    '../Assets/Image/Background/background.gif' : 
+    'Assets/Image/Background/background.gif';
+  
   const bgImage = new Image();
-  bgImage.src = 'Assets/Image/Background/background.gif';
+  bgImage.src = backgroundPath;
   bgImage.onload = () => console.log('Background image loaded successfully');
   
   // Optimize avatar GIF
@@ -27,12 +33,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   // Initialize persistent audio player with sessionStorage
   initPersistentAudio();
-  highlightActiveSection();
-    // Initialize modal
+  highlightActiveSection();  // Initialize modal
   initModal();
   
-  // Force background image to be displayed
-  document.body.style.backgroundImage = `url('Assets/Image/Background/background.gif')`;
+  // Force background image to be displayed using the backgroundPath already defined
+  document.body.style.backgroundImage = `url('${backgroundPath}')`;
   
   const loadingOverlay = document.querySelector('.loading-overlay');
   const hasVisitedBefore = sessionStorage.getItem('hasVisited');

@@ -49,8 +49,15 @@ function checkResourceExists(url) {
 
 // Function to optimize avatar and background GIFs
 export function optimizeAvatarGif() {
+  // Xác định đường dẫn chính xác dựa trên URL hiện tại
+  const currentPath = window.location.pathname;
+  const isInPagesDirectory = currentPath.includes('/pages/');
+  const backgroundPath = isInPagesDirectory ? 
+    '../Assets/Image/Background/background.gif' : 
+    'Assets/Image/Background/background.gif';
+  
   // Check if background.gif exists
-  checkResourceExists('Assets/Image/Background/background.gif')
+  checkResourceExists(backgroundPath)
     .then(exists => {
       if (!exists) {
         console.warn('Background GIF not found. Using fallback or hiding related elements.');
