@@ -28,12 +28,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Initialize persistent audio player with sessionStorage
   initPersistentAudio();
   highlightActiveSection();
-  
-  // Initialize modal
+    // Initialize modal
   initModal();
   
   // Force background image to be displayed
-  document.body.style.backgroundImage = `url('../Assets/Image/Background/background.gif')`;
+  document.body.style.backgroundImage = `url('Assets/Image/Background/background.gif')`;
   
   const loadingOverlay = document.querySelector('.loading-overlay');
   const hasVisitedBefore = sessionStorage.getItem('hasVisited');
