@@ -7,13 +7,13 @@
 /* Import necessary fonts and styles */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
 @import 'animations.css';
-@import 'responsive.css';
 
 /* Define global variables and styles */
 * {
     padding: 0;
     margin: 0;
-    transition: all 0.3s ease-in-out;
+    /* Chỉ áp dụng transition cho các thuộc tính cụ thể thay vì 'all' để tối ưu hiệu suất */
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 :root {
@@ -666,7 +666,7 @@ a {
 }
 
 .loading-text::after {
-    content: " ₍˄·͈⚇·͈˄₎";
+    content: "   ₍˄·͈⚇·͈˄₎";
     animation: catTail 3s infinite alternate;
     display: inline-block;
 }

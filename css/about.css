@@ -448,12 +448,7 @@
 
 
 
-/* Responsive layouts for cat stats */
-@media (max-width: 1200px) {
-    .cat-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+/* Responsive layouts for cat stats have been moved to responsive.css */
 
 /* Cat of Day Section */
 .cat-of-day-section {
@@ -586,83 +581,3 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* ===== 7. RESPONSIVENESS (MOBILE) ===== */
-
-/* Large screens - 1024px và dưới */
-@media (max-width: 1024px) {
-    .about-container {
-        padding: 1.5rem;
-    }
-    
-    .about-header h1 {
-        font-size: 2.2rem;
-    }
-}
-
-/* Màn hình trung bình - 768px và dưới */
-@media (max-width: 768px) {
-    .about-container {
-        padding: 1rem;
-    }
-    
-    .about-content {
-        grid-template-areas: 
-            "profile"
-            "info"
-            "interests"
-            "cat-stats";
-        grid-template-columns: 1fr;
-    }
-    
-    .profile-card,
-    .info-card,
-    .interests-card,
-    .cat-stats-card {
-        width: 100%;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .about-header h1 {
-        font-size: 2rem;
-    }
-    
-    .profile-image {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .cat-stats {
-        grid-template-columns: 1fr;
-    }
-    
-    .cat-of-day-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .cat-quote blockquote {
-        font-size: 1rem;
-    }
-}
-
-/* Màn hình nhỏ - 480px và dưới */
-@media (max-width: 480px) {
-    .about-header h1 {
-        font-size: 1.8rem;
-    }
-    
-    .profile-card h2,
-    .info-card h3,
-    .interests-card h3 {
-        font-size: 1.2rem;
-    }
-    
-    .info-card p {
-        font-size: 0.85rem;
-    }
-    
-    .interests-card li {
-        font-size: 0.8rem;
-    }
-}

@@ -1,0 +1,46 @@
+/*
+  Shared Components CSS
+  - Contains common UI components used across multiple pages
+  - Moved from responsive.css to keep responsive.css focused on media queries only
+*/
+
+/* ===== GLOBAL SHARED STYLES ===== */
+
+/* Social icons in sidebar footer */
+.sidebar-footer .social-icons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding: 15px 20px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 240px;
+}
+
+.sidebar-footer .social-icons a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.sidebar-footer .social-icons a:hover {
+    background: rgba(255, 105, 180, 0.15);
+    transform: translateY(-3px);
+}
+
+/* Audio player in sidebar footer */
+.sidebar-footer .audio-player {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin: 0 15px 10px;
+    border-radius: 10px;
+    max-width: 240px;
+}

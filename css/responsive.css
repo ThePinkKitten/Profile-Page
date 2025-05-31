@@ -1,56 +1,51 @@
-/*
+﻿/*
   Responsive CSS
   - Define responsive styles for the website
   - Organized from larger to smaller breakpoints
   - Grouped by UI components
   - Contains media queries for all components to avoid duplication in other CSS files
-  - Responsive styles from other files (like content-containers.css) have been consolidated here
+  - Responsive styles from other files (like content-containers.css, about.css, contact.css) have been consolidated here
+  - Shared UI components moved to shared-components.css
 */
 
-/* ===== GLOBAL SHARED STYLES ===== */
-
-/* Social icons in sidebar footer */
-.sidebar-footer .social-icons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    padding: 15px 20px;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 240px;
-}
-
-.sidebar-footer .social-icons a {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.sidebar-footer .social-icons a:hover {
-    background: rgba(255, 105, 180, 0.15);
-    transform: translateY(-3px);
-}
-
-/* Audio player in sidebar footer */
-.sidebar-footer .audio-player {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px;
-    margin: 0 15px 10px;
-    border-radius: 10px;
-    max-width: 240px;
-}
-
-
-
 /* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* Extra large screens - 1200px and below */
+@media (max-width: 1200px) {
+    /* Skills Page - Moved from skills.css */
+    .skills-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .skills-content {
+        max-width: 95%;
+        gap: 3.5rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+    }
+    
+    .skills-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+    
+    /* Cat Stats - Moved from about.css */
+    .cat-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Contact Page - Moved from contact.css */
+    .contact-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .contact-content {
+        max-width: 95%;
+    }
+}
 
 /* Large screens - 1024px and below */
 @media (max-width: 1024px) {
@@ -67,7 +62,8 @@
         grid-template-areas: 
             "profile"
             "info"
-            "interests";
+            "interests"
+            "cat-stats";
         gap: 1.5rem;
     }
 
@@ -78,10 +74,98 @@
     }
 
     .info-card,
-    .interests-card {
+    .interests-card,
+    .cat-stats-card {
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
+    }
+    
+    .about-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    /* Projects Page - Moved from projects.css */
+    .projects-container {
+        padding: 1.5rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0.5rem;
+    }
+    
+    .section-header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Large screens - 992px and below */
+@media (max-width: 992px) {
+    /* Skills Page - Moved from skills.css */
+    .skills-content {
+        padding: 4rem 3rem;
+        gap: 5rem;
+    }
+    
+    .section-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .header-subtitle {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+    
+    .skill-category {
+        padding: 2rem;
+    }
+    
+    .skills-grid {
+        gap: 3.5rem;
+    }
+    
+    .skills-cards {
+        gap: 3.5rem;
+    }
+    
+    .languages-container {
+        gap: 3.5rem;
+    }
+    
+    /* Contact Page - Moved from contact.css */
+    .contact-content {
+        padding: 3rem 2rem;
+        max-width: 800px;
+    }
+    
+    /* Education Page - Moved from education.css */
+    .education-container {
+        padding: 1.5rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+    
+    .about-section {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 2rem;
+        border-radius: 15px;
+    }
+    
+    .about-header {
+        margin-bottom: 1.5rem;
     }
 }
 
@@ -271,6 +355,19 @@
         gap: 0.8rem;
     }
 
+    /* Cat Stats - Moved from about.css */
+    .cat-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .cat-of-day-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .cat-quote blockquote {
+        font-size: 1rem;
+    }
+
     /* Contact Page */
     .contact-container {
         width: 100%;
@@ -312,6 +409,52 @@
     .social-section {
         padding: 1.5rem;
     }
+
+    /* Education Page - Moved from education.css */
+    .education-container {
+        padding: 1rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+    
+    .education-section {
+        padding: 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 15px;
+    }
+    
+    .education-header {
+        margin-bottom: 1.3rem;
+    }
+}
+
+/* Small screens - 640px and below */
+@media (max-width: 640px) {
+    /* Education Page - Moved from education.css */
+    .certifications-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .certification-card {
+        padding: 0.9rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .certification-info h3 {
+        font-size: 0.9rem;
+        white-space: normal;
+    }
+    
+    .interests-card {
+        padding: 1.8rem 1rem;
+        width: 100%;
+    }
 }
 
 /* Small screens - 600px and below */
@@ -343,10 +486,11 @@
     .link:hover {
         transform: scale(1.02);
     }
-    
-    .link:hover span {
+      .link:hover span {
         letter-spacing: 0.2px;
-    }    .modal-content {
+    }
+    
+    .modal-content {
         width: 90%;
     }
     
@@ -421,11 +565,11 @@
         transform: translateX(-100%);
         padding: 15px 0;
     }
-    
-    .sidebar.active {
+      .sidebar.active {
         transform: translateX(0);
     }
-      .audio-player {
+    
+    .audio-player {
         margin: 0 auto 10px;
         max-width: 220px;
     }
@@ -526,6 +670,37 @@
     .social-title {
         font-size: 1.2rem;
         margin-bottom: 1rem;
+    }
+
+    /* Projects Page - Moved from projects.css */
+    .section-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .project-info {
+        padding: 1rem;
+    }
+    
+    .project-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .project-info p {
+        font-size: 0.85rem;
+        text-align: justify;
+    }
+    
+    .project-tags {
+        gap: 0.3rem;
+    }
+    
+    .project-tags span {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.5rem;
     }
 }
 
