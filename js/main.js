@@ -13,19 +13,26 @@ import { initPersistentAudio } from './persistent-audio.js';
 // Initialize reset functions
 const resetFunctions = {}; 
 
-document.addEventListener('DOMContentLoaded', async () => {  // Preload background image
+document.addEventListener('DOMContentLoaded', async () => {
+  // Preload background image
   const bgImage = new Image();
   bgImage.src = '../Assets/Image/Background/background.gif';
   bgImage.onload = () => console.log('Background image loaded successfully');
   
   // Optimize avatar GIF
   optimizeAvatarGif();
-    // Initialize sidebar
+  
+  // Initialize sidebar
   initSidebar();
+  
   // Initialize persistent audio player with sessionStorage
   initPersistentAudio();
-  highlightActiveSection();  initModal();
-    // Force background image to be displayed
+  highlightActiveSection();
+  
+  // Initialize modal
+  initModal();
+  
+  // Force background image to be displayed
   document.body.style.backgroundImage = `url('../Assets/Image/Background/background.gif')`;
   
   const loadingOverlay = document.querySelector('.loading-overlay');
@@ -59,15 +66,14 @@ document.addEventListener('DOMContentLoaded', async () => {  // Preload backgrou
     sessionStorage.setItem('hasVisited', 'true');
   }
   
-  // Hide loading overlay after all critical resources have finished loading
-  loadingOverlay.classList.add('hide');
+  // Hide loading overlay after all critical resources have finished loading  loadingOverlay.classList.add('hide');
   
   const mainContent = document.querySelector('main');
   if (mainContent) {
     mainContent.style.opacity = '1';
   }
 
-  // Tải các tính năng không quan trọng sau khi đã hiển thị trang chính
+  // Load non-critical features after the main content is displayed
   loadNonCriticalFeatures();
 });
 
@@ -83,7 +89,10 @@ async function loadNonCriticalFeatures() {
     import('./typing.js'),
     import('./social-links.js'),
     import('./optimize-images.js')
-  ]);  initImageOptimization();
+  ]);
+  
+  // Initialize non-critical features
+  initImageOptimization();
   initAvatarEffect();
   initTypingAnimation();
   initSocialLinks();

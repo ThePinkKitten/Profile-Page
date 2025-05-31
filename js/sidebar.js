@@ -1,25 +1,35 @@
 /*
-  Sidebar
-  - Initialize sidebar functionality
-  - Initialize audio player
-  - Highlight active section
+  Sidebar Module
+  - Handles sidebar functionality and navigation
+  - Manages sidebar state across page loads
+  - Highlights active section based on scroll position
 */
 let isSidebarOpen = false;
 
-// Function to initialize sidebar
+/**
+ * Initialize the sidebar functionality
+ * Sets up event listeners and restores previous state
+ */
 export function initSidebar() {
+  // Restore sidebar state from session storage
   isSidebarOpen = sessionStorage.getItem('sidebarOpen') === 'true';
-    const sidebarToggle = document.querySelector('.sidebar-toggle');
+  
+  // Get DOM elements
+  const sidebarToggle = document.querySelector('.sidebar-toggle');
   const sidebar = document.querySelector('.sidebar');
   const main = document.querySelector('main');
   if (!sidebarToggle || !sidebar) return;
-
-  // Function to toggle sidebar
+  /**
+   * Toggle sidebar state between open and closed
+   * @param {boolean} open - Whether to open (true) or close (false) the sidebar
+   */
   function toggleSidebar(open) {
+    // Update state and persist to session storage
     isSidebarOpen = open;
     sessionStorage.setItem('sidebarOpen', open);
     
     if (open) {
+      // Open sidebar
       sidebar.classList.add('active');
       
       // Animate the sidebar toggle icon
@@ -35,37 +45,46 @@ export function initSidebar() {
         main.style.marginLeft = '280px';
       }
       
+      // Prevent body scrolling on mobile
       if (window.innerWidth <= 768) {
         document.body.style.overflow = 'hidden';
       }
       
-      // Add staggered animation to nav items
-      const navItems = document.querySelectorAll('.sidebar-nav ul li');
-      navItems.forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateX(-20px)';
-        setTimeout(() => {
-          item.style.transition = 'all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)';
-          item.style.opacity = '1';
-          item.style.transform = 'translateX(0)';
-        }, 100 + (index * 50));
-      });
-      
+      // Create staggered animation for nav items
+      animateNavItems();
     } else {
+      // Close sidebar
       sidebar.classList.remove('active');
       
       // Reset main content position
       main.style.marginLeft = '0';
       
-      // Animate the sidebar toggle icon
+      // Animate the sidebar toggle icon back
       sidebarToggle.classList.remove('active');
       setTimeout(() => {
         sidebarToggle.querySelector('i').classList.remove('fa-times');
         sidebarToggle.querySelector('i').classList.add('fa-bars');
       }, 200);
       
+      // Restore body scrolling
       document.body.style.overflow = '';
     }
+  }
+  
+  /**
+   * Create staggered animation effect for navigation items
+   */
+  function animateNavItems() {
+    const navItems = document.querySelectorAll('.sidebar-nav ul li');
+    navItems.forEach((item, index) => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateX(-20px)';
+      setTimeout(() => {
+        item.style.transition = 'all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)';
+        item.style.opacity = '1';
+        item.style.transform = 'translateX(0)';
+      }, 100 + (index * 50));
+    });
   }
 
   const sidebarLinks = document.querySelectorAll('.sidebar-nav a');

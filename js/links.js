@@ -1,8 +1,18 @@
 
 /*
-  Links
-  - Define links for social media and other platforms
+  Social Links Configuration
+  - Defines social media platform links and icons
+  - Used by social-links.js to generate the links section
+  - Each entry contains name, URL and image path
 */
+
+/**
+ * Array of social media platform links
+ * @typedef {Object} SocialLink
+ * @property {string} name - Display name of the platform
+ * @property {string} link - URL to the profile
+ * @property {string} image - Path to platform icon image
+ */
 export const links = [ 
 	{ 
 		name: "Facebook", 
@@ -27,9 +37,7 @@ export const links = [
 	{ 
 		name: "Instagram", 
 		link: "https://www.instagram.com/thepinkkitten/", 
-		image: "Assets/Image/SocialMedia/instagram.png", 
-	},  
-
+		image: "Assets/Image/SocialMedia/instagram.png", 	}
 	
-	// ... etc
+	// Additional platforms can be added here following the same structure
 ];
