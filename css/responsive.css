@@ -1,177 +1,66 @@
-﻿/*
-  Responsive CSS
-  - Define responsive styles for the website
-  - Organized from larger to smaller breakpoints
-  - Grouped by UI components
-  - Contains media queries for all components to avoid duplication in other CSS files
-  - Responsive styles from other files (like content-containers.css, about.css, contact.css) have been consolidated here
-  - Shared UI components moved to shared-components.css
+/* filepath: c:\Users\asdsa\Desktop\CV\Profile-Page\css\responsive.css */
+/*
+  Responsive CSS (Component-First Approach)
+  - Styles organized by components first, then breakpoints
+  - Each component contains all its responsive styles
+  - Makes maintenance easier when updating specific components
+  - iOS specific fixes are included at the end of each component
+  - All global styles and utilities are in shared sections
 */
 
-/* ===== RESPONSIVE BREAKPOINTS ===== */
+/* ===== TABLE OF CONTENTS =====
+ * 1. Global Component Styles
+ * 2. Page Container & Structure
+ * 3. Section Headers
+ * 4. Sidebar Component
+ * 5. Cat Stats Component
+ * 6. Skills Component
+ * 7. Projects Component
+ * 8. Education & Timeline Component
+ * 9. Contact Component
+ * 10. Audio Player Component
+ * 11. Home Page Components
+ * 12. Height-based Styles
+ * 13. iOS Specific Fixes
+ * ============================= */
 
-/* Extra large screens - 1200px and below */
-@media (max-width: 1200px) {
-    /* Skills Page - Moved from skills.css */
-    .skills-container {
-        padding: 2rem 1.5rem;
-    }
-    
-    .skills-content {
-        max-width: 95%;
-        gap: 3.5rem;
-    }
-    
-    .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2.5rem;
-    }
-    
-    .skills-cards {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2.5rem;
-    }
-    
-    /* Cat Stats - Moved from about.css */
-    .cat-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    /* Contact Page - Moved from contact.css */
-    .contact-container {
-        padding: 2rem 1.5rem;
-    }
-    
-    .contact-content {
-        max-width: 95%;
+/* ===== GLOBAL COMPONENT STYLES ===== */
+/* Global styles that apply across components */
+
+/* Body & Global Elements */
+@media (max-width: 600px) {
+    body {
+        background-size: cover;
     }
 }
 
-/* Large screens - 1024px and below */
-@media (max-width: 1024px) {
-    /* About page */
-    .about-container {
-        padding: 1rem;
-        margin-top: 1rem;
-        width: auto;
-        max-width: 100%;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-            "profile"
-            "info"
-            "interests"
-            "cat-stats";
-        gap: 1.5rem;
-    }
-
-    .profile-card {
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-
-    .info-card,
-    .interests-card,
-    .cat-stats-card {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
+/* Footer */
+@media (max-height: 900px) {
+    .footer {
+        position: relative;
+        margin-top: 0.4rem;
+        padding: 0.4rem;
     }
     
-    .about-header h1 {
-        font-size: 2.2rem;
+    .about {
+        margin-bottom: 1.2rem;
     }
     
-    /* Projects Page - Moved from projects.css */
-    .projects-container {
-        padding: 1.5rem;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-    
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-        padding: 0.5rem;
-    }
-    
-    .section-header h1 {
-        font-size: 2.2rem;
+    .links {
+        margin-bottom: 0.2rem;
     }
 }
 
-/* Large screens - 992px and below */
-@media (max-width: 992px) {
-    /* Skills Page - Moved from skills.css */
-    .skills-content {
-        padding: 4rem 3rem;
-        gap: 5rem;
-    }
-    
-    .section-header h1 {
-        font-size: 2.2rem;
-    }
-    
-    .header-subtitle {
-        font-size: 1rem;
-    }
-    
-    .section-title {
-        font-size: 1.6rem;
-        line-height: 1.5;
-        margin-bottom: 1rem;
-    }
-    
-    .skill-category {
-        padding: 2rem;
-    }
-    
-    .skills-grid {
-        gap: 3.5rem;
-    }
-    
-    .skills-cards {
-        gap: 3.5rem;
-    }
-    
-    .languages-container {
-        gap: 3.5rem;
-    }
-    
-    /* Contact Page - Moved from contact.css */
-    .contact-content {
-        padding: 3rem 2rem;
-        max-width: 800px;
-    }
-    
-    /* Education Page - Moved from education.css */
-    .education-container {
-        padding: 1.5rem;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        overflow-x: hidden;
-    }
-    
-    .about-section {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 2rem;
-        border-radius: 15px;
-    }
-    
-    .about-header {
-        margin-bottom: 1.5rem;
+@media (max-width: 480px) {
+    .footer {
+        margin-top: 0.2rem;
+        padding: 0.3rem;
     }
 }
 
-/* Medium screens - 768px and below */
+/* ===== PAGE CONTAINER & STRUCTURE ===== */
+
 @media (max-width: 768px) {
-    /* Content Containers - Moved from content-containers.css */
     .page-container {
         padding: 1.5rem;
     }
@@ -188,8 +77,116 @@
     .cards-grid {
         grid-template-columns: 1fr;
     }
+}
+
+@media (max-width: 480px) {
+    .page-container {
+        padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
     
-    /* Sidebar */
+    .content-section {
+        padding: 1.5rem 1rem;
+        border-radius: 15px;
+        width: 100%;
+        box-sizing: border-box;
+        /* iOS specific: Fix for rendering */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+/* iOS specific fixes for page containers */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
+    .page-container {
+        width: 100%;
+        box-sizing: border-box;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .content-section {
+        padding: 1.2rem 1rem;
+        width: 100%;
+        box-sizing: border-box;
+        /* iOS specific: Fix for rendering */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    .content-card {
+        /* iOS specific: Fix for box-shadow rendering */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+/* ===== SECTION HEADERS ===== */
+
+@media (max-width: 1024px) {
+    .section-header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .section-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .header-subtitle {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-header h1 {
+        font-size: 1.5rem;
+        /* iOS specific: Fix for font rendering */
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .section-header p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-top: 0.5rem;
+    }
+}
+
+/* iOS specific fixes for headers */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
+    .section-header h1 {
+        font-size: 1.5rem;
+        /* iOS specific: Fix for font rendering */
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    .section-header p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+}
+
+/* ===== SIDEBAR COMPONENT ===== */
+/* Styles for the sidebar component */
+
+/* General Styles */
+@media (max-width: 768px) {
     .sidebar {
         width: 280px;
         transform: translateX(-280px);
@@ -200,8 +197,97 @@
         height: 100vh;
         overflow-y: auto;
     }
+    
+    .sidebar-toggle {
+        display: flex;
+    }
+}
 
-    /* Cat Stats - Improved for mobile */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        transform: translateX(-100%);
+        padding: 15px 0;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .sidebar-toggle {
+        top: 0.5rem;
+        left: 0.5rem;
+        padding: 0.8rem;
+    }
+    
+    .sidebar-avatar {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .sidebar-info h2 {
+        font-size: 1.2rem;
+    }
+    
+    .sidebar-info p {
+        font-size: 0.9rem;
+    }
+    
+    .sidebar-nav ul li a {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 380px) {
+    /* Sidebar Footer */
+    .sidebar-footer .social-icons {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        padding: 10px;
+    }
+    
+    .sidebar-footer .social-icons a {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
+    }
+}
+
+/* iOS specific fixes for sidebar */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
+    .sidebar {
+        /* Fix for smooth scrolling on iOS */
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .sidebar-avatar {
+        /* Fix for border-radius rendering on iOS */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+/* ===== CAT STATS COMPONENT ===== */
+/* All responsive styles for the Cat Stats component */
+
+@media (max-width: 1200px) {
+    .cat-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .info-card,
+    .interests-card,
+    .cat-stats-card {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 768px) {
     .cat-stats-card {
         padding: 1rem;
     }
@@ -250,396 +336,8 @@
         font-size: 0.8rem;
     }
 }
-/* Small screens - 640px and below */
-@media (max-width: 640px) {
-    /* Education Page - Moved from education.css */
-    .certifications-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        width: 100%;
-    }
-    
-    .certification-card {
-        padding: 0.9rem;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    
-    .certification-info h3 {
-        font-size: 0.9rem;
-        white-space: normal;
-    }
-    
-    .interests-card {
-        padding: 1.8rem 1rem;
-        width: 100%;
-    }
-}
 
-/* Small screens - 600px and below */
-@media (max-width: 600px) {
-    /* Global */
-    body {
-        background-size: cover;
-    }
-
-    /* Home Page Links */
-    .avatar img {
-        height: auto;
-        width: auto;
-        object-fit: cover;
-    }
-
-    .link span {
-        width: 70%;
-        text-align: center;
-        color: var(--link-text);
-    }
-
-    .link {
-        width: 95vw;
-        backdrop-filter: blur(5px);
-        background: rgba(255, 255, 255, 0.1);
-    }
-    
-    .link:hover {
-        transform: scale(1.02);
-    }
-      .link:hover span {
-        letter-spacing: 0.2px;
-    }
-    
-    .modal-content {
-        width: 90%;
-    }
-    
-    .avatarContainer {
-        width: 170px;
-        height: 170px;
-    }
-
-    /* Audio Player */
-    .audio-player {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        flex-direction: row;
-        gap: 10px;
-        padding: 8px 12px;
-        border-radius: 25px;
-        width: auto;
-        max-width: 180px;
-        display: flex;
-        align-items: center;
-        z-index: 1002;
-    }
-    
-    .progress-container {
-        position: relative;
-        width: 90px;
-        height: 5px;
-        margin: 0;
-        padding: 0;
-        border-radius: 3px;
-        background: rgba(0, 0, 0, 0.3);
-        opacity: 1;
-        transform: scaleX(1);
-        border: 1px solid rgba(204, 204, 255, 0.15);
-        display: block;
-    }
-    
-    .progress-bar {
-        height: 100%;
-        width: 0%;
-        background: linear-gradient(90deg, #CCCCFF, #7070f5);
-        box-shadow: 0 0 8px rgba(204, 204, 255, 0.5);
-        border-radius: 2px;
-        transition: width 0.1s linear;
-    }
-
-    #audioButton {
-        width: 32px;
-        height: 32px;
-        margin: 0;
-        flex-shrink: 0;
-    }
-
-    #audioButton i {
-        font-size: 14px;
-    }
-}
-
-/* Extra small screens - 480px and below */
 @media (max-width: 480px) {
-    /* Global */
-    .footer {
-        margin-top: 0.2rem;
-        padding: 0.3rem;
-    }
-    
-    /* Sidebar */
-    .sidebar {
-        width: 100%;
-        transform: translateX(-100%);
-        padding: 15px 0;
-    }
-      .sidebar.active {
-        transform: translateX(0);
-    }
-    
-    .audio-player {
-        margin: 0 auto 10px;
-        max-width: 220px;
-    }
-    
-    .sidebar-toggle {
-        top: 0.5rem;
-        left: 0.5rem;
-        padding: 0.8rem;
-    }
-
-    .audio-player {
-        bottom: 10px;
-        padding: 6px 10px;
-    }
-
-    #audioButton {
-        width: 28px;
-        height: 28px;
-    }
-
-    .progress-container {
-        width: 60px;
-    }
-
-    /* About Page */
-    .about-container {
-        padding: 0.5rem;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .about-section {
-        padding: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    .about-header h1 {
-        font-size: 1.2rem;
-        line-height: 2rem;
-    }
-
-    .profile-image {
-        width: 120px;
-        height: 120px;
-    }
-
-    .profile-card h2 {
-        font-size: 1.2rem;
-    }
-
-    .info-card p {
-        font-size: 0.9rem;
-        padding: 0 0.5rem;
-    }
-
-    .interests-card ul {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .interests-card li {
-        font-size: 0.9rem;
-        padding: 0.4rem;
-    }
-
-    /* Contact Page */
-    .contact-container {
-        padding: 0.8rem;
-    }
-    
-    .contact-content {
-        padding: 1.5rem;
-        border-radius: 15px;
-    }
-    
-    .info-card.large-card {
-        padding: 1.5rem;
-        text-align: center;
-        align-items: center;
-    }
-    
-    .info-card.home-card {
-        margin-top: 0.5rem;
-    }
-    
-    .info-icon {
-        margin-bottom: 0.8rem;
-    }
-    
-    .info-details {
-        text-align: center;
-        width: 100%;
-    }
-    
-    .social-section {
-        padding: 1.2rem 0.8rem;
-    }
-    
-    .social-title {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-    }
-
-    /* Projects Page - Moved from projects.css */
-    .section-header h1 {
-        font-size: 1.8rem;
-    }
-    
-    .section-header h2 {
-        font-size: 1.6rem;
-    }
-    
-    .project-info {
-        padding: 1rem;
-    }
-    
-    .project-info h3 {
-        font-size: 1.2rem;
-    }
-    
-    .project-info p {
-        font-size: 0.85rem;
-        text-align: justify;
-    }
-    
-    .project-tags {
-        gap: 0.3rem;
-    }
-    
-    .project-tags span {
-        font-size: 0.7rem;
-        padding: 0.3rem 0.5rem;
-    }
-}
-
-/* Very small screens - 380px and below */
-@media (max-width: 380px) {
-    /* Sidebar Footer */
-    .sidebar-footer .social-icons {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 8px;
-        padding: 10px;
-    }
-    
-    .sidebar-footer .social-icons a {
-        width: 35px;
-        height: 35px;
-        font-size: 1.1rem;
-    }
-    
-    .sidebar-footer .audio-player {
-        padding: 12px;
-        margin: 0 10px 8px;
-    }
-}
-
-/* ===== HEIGHT-BASED MEDIA QUERIES ===== */
-
-/* For standard and short screens */
-@media (max-height: 900px) {
-    .footer {
-        position: relative;
-        margin-top: 0.4rem;
-        padding: 0.4rem;
-    }
-    
-    .about {
-        margin-bottom: 1.2rem;
-    }
-    
-    .links {
-        margin-bottom: 0.2rem;
-    }
-}
-
-/* For very short screens */
-@media (max-height: 700px) {
-    .sidebar-avatar {
-        width: 80px;
-        height: 80px;
-        margin-bottom: 10px;
-    }
-    
-    .sidebar-header {
-        padding: 10px 0 20px;
-        margin-bottom: 15px;
-    }
-    
-    .sidebar-nav ul li {
-        margin-bottom: 5px;
-    }
-    
-    .sidebar-nav ul li a {
-        padding: 10px 15px;
-    }
-}
-
-/* Small screens - 480px and below */
-@media (max-width: 480px) {
-    /* Page Container */
-    .page-container {
-        padding: 1rem;
-    }
-    
-    .content-section {
-        padding: 1.5rem 1rem;
-    }
-    
-    .section-header h1 {
-        font-size: 1.5rem;
-    }
-    
-    /* Cat Stats - Further optimization for very small screens */
-    .cat-stats-card {
-        padding: 0.75rem;
-    }
-    
-    .stat-item {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 1rem 0.5rem;
-    }
-    
-    .stat-icon {
-        margin-bottom: 0.5rem;
-    }
-    
-    .stat-info {
-        width: 100%;
-        align-items: center;
-    }
-    
-    .stat-header {
-        width: 100%;
-        justify-content: space-between;
-        padding: 0 0.5rem;
-    }
-    
-    .stat-bar {
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    .hearts-container {
-        justify-content: center;
-    }
-}
-
-/* iOS specific fixes and very small screens */
-@media only screen and (max-width: 480px) {
-    /* Cat Stats - Specific optimizations for iOS */
     .cat-stats {
         display: flex;
         flex-direction: column;
@@ -736,8 +434,55 @@
     .hearts i {
         font-size: 0.8rem;
     }
+}
 
-    /* Skills Page Optimization */
+/* ===== SKILLS COMPONENT ===== */
+
+@media (max-width: 1200px) {
+    .skills-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .skills-content {
+        max-width: 95%;
+        gap: 3.5rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+    }
+    
+    .skills-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .skills-content {
+        padding: 4rem 3rem;
+        gap: 5rem;
+    }
+    
+    .skill-category {
+        padding: 2rem;
+    }
+    
+    .skills-grid {
+        gap: 3.5rem;
+    }
+    
+    .skills-cards {
+        gap: 3.5rem;
+    }
+    
+    .languages-container {
+        gap: 3.5rem;
+    }
+}
+
+@media (max-width: 480px) {
     .skills-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -818,18 +563,26 @@
     .skills-section {
         margin-bottom: 2rem;
     }
-    
-    .section-header h1 {
-        font-size: 1.8rem;
-    }
-    
-    .section-header p {
-        font-size: 0.9rem;
-        line-height: 1.4;
-        margin-top: 0.5rem;
-    }
+}
 
-    /* Projects Page Optimization */
+/* ===== PROJECTS COMPONENT ===== */
+
+@media (max-width: 1024px) {
+    .projects-container {
+        padding: 1.5rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
     .projects-grid {
         display: grid;
         grid-template-columns: 1fr;
@@ -860,6 +613,7 @@
         font-size: 0.85rem;
         margin-bottom: 1rem;
         line-height: 1.5;
+        text-align: justify;
     }
     
     .project-tags {
@@ -886,8 +640,84 @@
         padding: 0.6rem 1rem;
         font-size: 0.85rem;
     }
+}
 
-    /* Education Page Optimization */
+/* ===== EDUCATION & TIMELINE COMPONENT ===== */
+/* Styles for the education and timeline component */
+
+@media (max-width: 1024px) {
+    .education-container {
+        padding: 1.5rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+    
+    .about-section {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 2rem;
+        border-radius: 15px;
+    }
+    
+    .about-header {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline-item {
+        padding-left: 20px;
+    }
+    
+    .timeline-dot {
+        width: 25px;
+        height: 25px;
+        left: 10px;
+        top: -8px;
+    }
+    
+    .timeline-date {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    .timeline-card {
+        padding: 1rem;
+    }
+    
+    .certifications-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .certifications-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .certification-card {
+        padding: 0.9rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .certification-info h3 {
+        font-size: 0.9rem;
+        white-space: normal;
+    }
+    
+    .interests-card {
+        padding: 1.8rem 1rem;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
     .timeline {
         padding: 1rem 0;
         margin: 0;
@@ -994,9 +824,64 @@
     }
 }
 
-/* iOS specific fixes for Contact page */
-@media only screen and (max-width: 480px) {
-    /* Contact Page Optimization */
+/* iOS specific fixes for education components */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
+    .timeline-dot {
+        /* Fix for smooth edges on iOS */
+        -webkit-transform: translateX(-50%) translateY(25%);
+        transform: translateX(-50%) translateY(25%);
+    }
+    
+    .timeline-card,
+    .certification-card {
+        /* Fix for box-shadow rendering on iOS */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+/* ===== CONTACT COMPONENT ===== */
+/* Styles for the contact component */
+
+@media (max-width: 1024px) {
+    .contact-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .contact-content {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-content {
+        padding: 3rem 2rem;
+        max-width: 800px;
+    }
+    
+    .contact-cards {
+        flex-direction: column;
+    }
+    
+    .info-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .social-section {
+        padding: 1.5rem;
+    }
+    
+    .social-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-content {
+        padding: 1.5rem;
+        border-radius: 15px;
+    }
+    
     .contact-cards {
         display: flex;
         flex-direction: column;
@@ -1010,6 +895,16 @@
         /* iOS specific: Ensure proper rendering */
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
+    }
+    
+    .info-card.large-card {
+        padding: 1.5rem;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .info-card.home-card {
+        margin-top: 0.5rem;
     }
     
     .info-icon {
@@ -1044,6 +939,15 @@
         align-items: center;
         width: auto;
         max-width: 200px;
+    }
+    
+    .social-section {
+        padding: 1.2rem 0.8rem;
+    }
+    
+    .social-title {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
     }
     
     .social-buttons {
@@ -1104,7 +1008,424 @@
     }
 }
 
-/* Common iOS specific fixes for all pages */
+@media (max-width: 380px) {
+    .info-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .info-details h3 {
+        font-size: 1rem;
+    }
+    
+    .info-details p {
+        font-size: 0.8rem;
+    }
+    
+    .contact-link {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .social-title {
+        font-size: 1rem;
+    }
+}
+
+/* iOS specific fixes for contact components */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
+    .info-card,
+    .qr-button {
+        /* Fix for rendering shadows and borders on iOS */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .form-input,
+    .form-textarea,
+    .submit-button {
+        /* Fix for input rendering on iOS */
+        -webkit-appearance: none;
+        appearance: none;
+        border-radius: 8px;
+    }
+}
+
+/* ===== AUDIO PLAYER COMPONENT ===== */
+/* Styles for the audio player component */
+
+@media (max-width: 768px) {
+    .audio-player {
+        bottom: 10px;
+        padding: 6px 10px;
+    }
+    
+    .progress-container {
+        width: 60px;
+    }
+    
+    #audioButton {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 600px) {
+    .audio-player {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: row;
+        gap: 10px;
+        padding: 8px 12px;
+        border-radius: 25px;
+        width: auto;
+        max-width: 180px;
+        display: flex;
+        align-items: center;
+        z-index: 1002;
+    }
+    
+    .progress-container {
+        position: relative;
+        width: 90px;
+        height: 5px;
+        margin: 0;
+        padding: 0;
+        border-radius: 3px;
+        background: rgba(0, 0, 0, 0.3);
+        opacity: 1;
+        transform: scaleX(1);
+        border: 1px solid rgba(204, 204, 255, 0.15);
+        display: block;
+    }
+    
+    .progress-bar {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #CCCCFF, #7070f5);
+        box-shadow: 0 0 8px rgba(204, 204, 255, 0.5);
+        border-radius: 2px;
+        transition: width 0.1s linear;
+    }
+
+    #audioButton {
+        width: 32px;
+        height: 32px;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    #audioButton i {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .audio-player {
+        margin: 0 auto 10px;
+        max-width: 220px;
+        bottom: 10px;
+        padding: 6px 10px;
+    }
+    
+    #audioButton {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .progress-container {
+        width: 60px;
+    }
+}
+
+@media (max-width: 380px) {
+    .sidebar-footer .audio-player {
+        padding: 12px;
+        margin: 0 10px 8px;
+    }
+}
+
+/* iOS specific fixes for audio player */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
+    .audio-player {
+        /* Fix for smooth rendering on iOS */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .progress-container {
+        /* Fix for progress bar rendering on iOS */
+        overflow: hidden;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+}
+
+/* ===== HOME PAGE COMPONENTS ===== */
+/* Styles for the home page components */
+
+@media (max-width: 768px) {
+    /* Avatar and Links */
+    .avatar img {
+        max-width: 140px;
+        height: auto;
+    }
+    
+    .links {
+        max-width: 500px;
+    }
+    
+    .link {
+        margin-bottom: 12px;
+        padding: 12px 15px;
+    }
+    
+    .link span {
+        font-size: 0.9rem;
+    }
+    
+    .modal-content {
+        width: 70%;
+        padding: 15px;
+    }
+    
+    .avatarContainer {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .avatar img {
+        height: auto;
+        width: auto;
+        object-fit: cover;
+    }
+
+    .link span {
+        width: 70%;
+        text-align: center;
+        color: var(--link-text);
+    }
+
+    .link {
+        width: 95vw;
+        backdrop-filter: blur(5px);
+        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .link:hover {
+        transform: scale(1.02);
+    }
+    
+    .link:hover span {
+        letter-spacing: 0.2px;
+    }
+    
+    .modal-content {
+        width: 90%;
+    }
+    
+    .avatarContainer {
+        width: 170px;
+        height: 170px;
+    }
+}
+
+@media (max-width: 480px) {
+    .links-container {
+        width: 100%;
+        padding: 0.5rem;
+        box-sizing: border-box;
+    }
+    
+    .links {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .link {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    
+    .link span {
+        font-size: 0.85rem;
+    }
+    
+    .link i {
+        font-size: 1.2rem;
+        margin-right: 10px;
+    }
+    
+    .modal-content {
+        margin: 30% auto;
+        padding: 15px;
+        width: 85%;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .modal-body p {
+        font-size: 0.9rem;
+    }
+    
+    .avatarContainer {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 15px;
+    }
+}
+
+/* iOS specific fixes for home page components */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
+    .link {
+        /* Fix for backdrop-filter on iOS */
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+        /* Fix for shadow rendering */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .modal-content {
+        /* Fix for modal on iOS */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+}
+
+/* ===== HEIGHT-BASED STYLES ===== */
+/* Styles for different screen heights */
+
+/* For standard and short screens */
+@media (max-height: 900px) {
+    .footer {
+        position: relative;
+        margin-top: 0.4rem;
+        padding: 0.4rem;
+    }
+    
+    .about {
+        margin-bottom: 1.2rem;
+    }
+    
+    .links {
+        margin-bottom: 0.2rem;
+    }
+}
+
+/* For very short screens */
+@media (max-height: 700px) {
+    .sidebar-avatar {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+    
+    .sidebar-header {
+        padding: 10px 0 20px;
+        margin-bottom: 15px;
+    }
+    
+    .sidebar-nav ul li {
+        margin-bottom: 5px;
+    }
+    
+    .sidebar-nav ul li a {
+        padding: 10px 15px;
+    }
+    
+    .audio-player {
+        transform: scale(0.9);
+    }
+    
+    .timeline-card {
+        padding: 1.5rem;
+    }
+    
+    .timeline-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .timeline-card h4 {
+        font-size: 1rem;
+    }
+    
+    .timeline-card p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+}
+
+/* For extremely short screens */
+@media (max-height: 600px) {
+    .sidebar-header {
+        padding: 5px 0 10px;
+        margin-bottom: 10px;
+    }
+    
+    .sidebar-avatar {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .sidebar-info h2 {
+        font-size: 1.1rem;
+    }
+    
+    .sidebar-info p {
+        font-size: 0.8rem;
+    }
+    
+    .sidebar-nav ul li {
+        margin-bottom: 2px;
+    }
+    
+    .sidebar-nav ul li a {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .sidebar-footer {
+        padding: 8px 0;
+    }
+    
+    .sidebar-footer .social-icons {
+        gap: 8px;
+        padding: 5px;
+    }
+    
+    .sidebar-footer .social-icons a {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+    
+    .audio-player {
+        transform: scale(0.85);
+    }
+}
+
+/* ===== iOS SPECIFIC FIXES ===== */
+/* 
+ * Optimizations for high-resolution iOS devices
+ * Targets devices with high pixel ratio (Retina displays)
+ * Fixes common iOS rendering issues:
+ * - Hardware acceleration for smooth animations
+ * - Box-shadow rendering
+ * - Font smoothing
+ * - Input element appearance 
+ * - Overflow handling
+ */
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
     /* Common fixes for high-resolution iOS devices */
     .page-container {
@@ -1153,4 +1474,33 @@
         -webkit-appearance: none;
         appearance: none;
     }
+    
+    /* Fix for input fields */
+    input, textarea {
+        -webkit-appearance: none;
+        appearance: none;
+        border-radius: 8px;
+    }
+    
+    /* Fix for smooth scrolling */
+    .sidebar, .content-section {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Fix for transparent backgrounds */
+    .content-card, .sidebar, .project-card, .skill-card, .timeline-card {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
 }
+
+/* ===== FUTURE MAINTENANCE RECOMMENDATIONS ===== */
+/*
+ * 1. Consider using CSS variables for common values (padding, margins, colors) to improve consistency
+ * 2. For responsive typography, consider implementing a fluid type scale using clamp()
+ * 3. Move more common UI components to shared-components.css
+ * 4. Consider using a CSS preprocessor like SASS to better organize media queries with nesting
+ * 5. Implement performance monitoring for animations on low-end mobile devices
+ * 6. When adding new components, maintain the component-based structure within media queries
+ * 7. Test iOS fixes specifically on different iOS versions and devices
+ */
