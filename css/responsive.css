@@ -199,237 +199,57 @@
         left: 0;
         height: 100vh;
         overflow-y: auto;
-        background: linear-gradient(145deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.95));
-        backdrop-filter: blur(12px);
-        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    /* Cat Stats - Improved for mobile */
+    .cat-stats-card {
         padding: 1rem;
-        box-sizing: border-box;
-        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.6);
     }
     
-    .sidebar.active {
-        transform: translateX(0);
-    }
-
-    /* Sidebar Nav */
-    .sidebar-nav {
-        padding: 0;
-        margin: 1.5rem 10px 0;
-    }
-    
-    .sidebar-nav ul li {
-        margin-bottom: 8px;
-    }
-    
-    .sidebar-nav ul li a {
-        padding: 14px 18px;
-        font-size: 1.05rem;
-        border-radius: 10px;
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-
-    .sidebar-nav ul li a:hover {
-        background: rgba(255, 105, 180, 0.15);
-        transform: translateX(5px);
-    }
-    
-    .sidebar-nav ul li a i {
-        font-size: 1.1rem;
-        margin-right: 15px;
-    }
-
-    /* Sidebar Header */
-    .sidebar-header {
-        padding: 1.5rem 0.5rem 2rem;
-        margin-top: 2rem;
-        text-align: center;
-        position: relative;
-    }
-    
-    .sidebar-header::after {
-        width: 60px;
-        height: 2px;
-    }
-
-    .sidebar-avatar {
-        width: 90px;
-        height: 90px;
-        margin-bottom: 1.2rem;
-        border-width: 3px;
-    }
-    
-    /* Sidebar Footer */
-    .sidebar-footer {
-        padding: 1rem 0.5rem;
-        position: relative;
-        width: 100%;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .sidebar .audio-player {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        transform: none;
-        margin: 0.5rem auto;
-        width: 90%;
-        max-width: 240px;
-        padding: 15px;
-        justify-content: space-between;
-    }
-
-    /* Social Icons */
-    .social-icons {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        padding: 15px;
-        margin: 0 auto;
-        width: 100%;
-        max-width: 220px;
-    }
-
-    .social-icons a {
-        font-size: 1.2rem;
-        color: var(--text-color);
-        transition: color 0.3s ease;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 38px;
-        height: 38px;
-        margin: 0 auto;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.05);
-    }
-
-    .social-icons a:hover {
-        color: var(--accent-color);
-    }
-
-    /* Sidebar Toggle */
-    .sidebar-toggle {
-        display: flex;
-        position: fixed;
-        top: 1rem;
-        left: 1rem;
-        z-index: 1001;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        padding: 0.5rem;
-        border-radius: 5px;
-        cursor: pointer;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }    /* Main Content */
-    main {
-        padding-left: 0;
-        width: 100%;
-        /* Không cố định margin-left tại đây để cho phép JavaScript trong sidebar.js điều chỉnh */
-        box-sizing: border-box;
-        transition: margin-left 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-    
-    .section {
-        width: 90%;
-    }
-
-    /* About Page */
-    .about-section {
-        padding: 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .about-header h1 {
-        font-size: 1.5rem;
-        line-height: 1.5rem;
-    }
-
-    .interests-card ul {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 0.8rem;
-    }
-
-    /* Cat Stats - Moved from about.css */
     .cat-stats {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
     
-    .cat-of-day-container {
-        grid-template-columns: 1fr;
+    .stat-item {
+        padding: 0.75rem;
+        gap: 0.75rem;
     }
     
-    .cat-quote blockquote {
-        font-size: 1rem;
-    }
-
-    /* Contact Page */
-    .contact-container {
-        width: 100%;
-        padding: 1rem;
-        box-sizing: border-box;
-    }
-    
-    .contact-content {
-        padding: 2.5rem 1.5rem;
-        max-width: 100%;
-    }
-    
-    .contact-cards {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .contact-cards.single-column {
-        max-width: 100%;
-    }
-    
-    .info-card.large-card {
-        padding: 2rem;
-        min-height: auto;
-    }
-    
-    .info-details h3 {
+    .stat-icon {
+        width: 40px;
+        height: 40px;
         font-size: 1.2rem;
     }
     
-    .info-details p {
-        font-size: 0.95rem;
-    }
-    
-    .contact-link {
-        font-size: 0.95rem;
-    }
-    
-    .social-section {
-        padding: 1.5rem;
-    }
-
-    /* Education Page - Moved from education.css */
-    .education-container {
-        padding: 1rem;
+    .stat-info {
         width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        overflow-x: hidden;
     }
     
-    .education-section {
-        padding: 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        border-radius: 15px;
+    .stat-header {
+        margin-bottom: 0.25rem;
     }
     
-    .education-header {
-        margin-bottom: 1.3rem;
+    .stat-label {
+        font-size: 0.9rem;
+    }
+    
+    .stat-percent {
+        font-size: 0.8rem;
+    }
+    
+    .stat-bar {
+        height: 8px;
+    }
+    
+    .hearts-container {
+        flex-wrap: wrap;
+    }
+    
+    .hearts i {
+        font-size: 0.8rem;
     }
 }
-
 /* Small screens - 640px and below */
 @media (max-width: 640px) {
     /* Education Page - Moved from education.css */
@@ -762,5 +582,158 @@
     
     .sidebar-nav ul li a {
         padding: 10px 15px;
+    }
+}
+
+/* Small screens - 480px and below */
+@media (max-width: 480px) {
+    /* Page Container */
+    .page-container {
+        padding: 1rem;
+    }
+    
+    .content-section {
+        padding: 1.5rem 1rem;
+    }
+    
+    .section-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    /* Cat Stats - Further optimization for very small screens */
+    .cat-stats-card {
+        padding: 0.75rem;
+    }
+    
+    .stat-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem 0.5rem;
+    }
+    
+    .stat-icon {
+        margin-bottom: 0.5rem;
+    }
+    
+    .stat-info {
+        width: 100%;
+        align-items: center;
+    }
+    
+    .stat-header {
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 0.5rem;
+    }
+    
+    .stat-bar {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .hearts-container {
+        justify-content: center;
+    }
+}
+
+/* iOS specific fixes and very small screens */
+@media only screen and (max-width: 480px) {
+    /* Cat Stats - Specific optimizations for iOS */
+    .cat-stats {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 0.8rem;
+    }
+    
+    .cat-stats-card {
+        padding: 0.75rem;
+        overflow: hidden;
+    }
+    
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        padding: 0.8rem 0.5rem;
+        box-sizing: border-box;
+        /* iOS specific: Ensure proper rendering */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .stat-info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stat-header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+        padding: 0 0.3rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+    }
+    
+    .stat-percent {
+        font-size: 0.8rem;
+    }
+    
+    .stat-bar {
+        width: 100%;
+        height: 8px;
+        max-width: 100%;
+        margin-bottom: 0.3rem;
+        /* iOS specific fix */
+        overflow: hidden;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+    
+    .stat-fill {
+        height: 100%;
+        /* iOS specific fix */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .stat-value {
+        font-size: 0.8rem;
+        margin-top: 0.2rem;
+    }
+    
+    .hearts-container {
+        justify-content: center;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    
+    .hearts {
+        display: flex;
+        justify-content: center;
+        gap: 0.2rem;
+    }
+    
+    .hearts i {
+        font-size: 0.8rem;
     }
 }
