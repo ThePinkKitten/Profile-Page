@@ -16,7 +16,7 @@ const resetFunctions = {};
 document.addEventListener('DOMContentLoaded', async () => {
   // Preload background image
   const bgImage = new Image();
-  bgImage.src = '../Assets/Image/Background/background.gif';
+  bgImage.src = 'Assets/Image/Background/background.gif';
   bgImage.onload = () => console.log('Background image loaded successfully');
   
   // Optimize avatar GIF

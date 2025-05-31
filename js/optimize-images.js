@@ -40,7 +40,21 @@ export function initImageOptimization() {
   }
 }
 
-// Empty function to avoid errors in main.js
+// Check if a resource exists before attempting to load it
+function checkResourceExists(url) {
+  return fetch(url, { method: 'HEAD' })
+    .then(response => response.ok)
+    .catch(() => false);
+}
+
+// Function to optimize avatar and background GIFs
 export function optimizeAvatarGif() {
-  // Do nothing - keep the original GIF
-} 
+  // Check if background.gif exists
+  checkResourceExists('Assets/Image/Background/background.gif')
+    .then(exists => {
+      if (!exists) {
+        console.warn('Background GIF not found. Using fallback or hiding related elements.');
+        // You could add fallback logic here if needed
+      }
+    });
+}
