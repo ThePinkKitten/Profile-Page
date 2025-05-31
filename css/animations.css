@@ -1,6 +1,8 @@
 /*
   Animations
   - Define animations for the website, any animation should be placed here
+  - All @keyframes used by component styles in other CSS files are centralized here
+  - Referenced by: paw-effects.css, content-containers.css, cat-styles.css, etc.
 */
 
 @keyframes fadeIn {
@@ -119,6 +121,16 @@
     100% { transform: rotate(-10deg); }
 }
 
+@keyframes catBounce {
+    0% { transform: translateY(0); }
+    20% { transform: translateY(-15px); }
+    40% { transform: translateY(0); }
+    60% { transform: translateY(-7px); }
+    80% { transform: translateY(0); }
+    90% { transform: translateY(-3px); }
+    100% { transform: translateY(0); }
+}
+
 /* Apply animations */
 .paw-hover {
     animation: pawPrint 0.3s ease-out;
@@ -150,5 +162,3 @@
     white-space: nowrap;
     transition: all 0.3s ease;
 }
-
-/* Cat cursor effects and animations removed */

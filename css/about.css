@@ -1,8 +1,18 @@
 /*
   About Section
   - Style for the about section
+  - Updated: May 31, 2025
+  - Structure:
+    1. Base Container Styles
+    2. Card Components
+    3. Cat Stats Components
+    4. Cat of Day Components
+    5. Animations
+
+    7. Responsiveness (Mobile)
 */
 
+/* ===== 1. BASE CONTAINER STYLES ===== */
 .about-container {
     padding: 2rem;
     margin-top: 2rem;
@@ -413,6 +423,8 @@
     animation: flickerAnimation 2s infinite;
 }
 
+/* ===== 5. ANIMATIONS ===== */
+
 @keyframes lightning {
     0%, 100% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.2) rotate(5deg); opacity: 0.8; }
@@ -434,31 +446,13 @@
     100% { box-shadow: 0 0 8px rgba(255, 105, 180, 0.5); }
 }
 
+
+
 /* Responsive layouts for cat stats */
 @media (max-width: 1200px) {
     .cat-stats {
         grid-template-columns: repeat(2, 1fr);
     }
-}
-
-@media (max-width: 768px) {
-    .cat-stats {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Update about-content grid to include cat-stats */
-.about-content {
-    display: grid;
-    grid-template-areas: 
-        "profile info"
-        "interests interests"
-        "cat-stats cat-stats";
-    grid-template-columns: auto 1fr;
-    gap: 2rem;
-    padding: 1rem;
-    width: 100%;
-    box-sizing: border-box;
 }
 
 /* Cat of Day Section */
@@ -573,32 +567,44 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Dark theme overrides */
-[data-theme="dark"] .about-section {
-    background: rgba(20, 20, 30, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+/* Định dạng chung cho các thẻ card */
+.profile-card,
+.info-card,
+.interests-card,
+.cat-stats-card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
 }
 
-[data-theme="dark"] .profile-card,
-[data-theme="dark"] .info-card,
-[data-theme="dark"] .interests-card,
-[data-theme="dark"] .cat-stats-card {
-    background: rgba(40, 40, 50, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+.profile-card:hover,
+.info-card:hover,
+.interests-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-[data-theme="dark"] .info-card p {
-    color: var(--text-color);
+/* ===== 7. RESPONSIVENESS (MOBILE) ===== */
+
+/* Large screens - 1024px và dưới */
+@media (max-width: 1024px) {
+    .about-container {
+        padding: 1.5rem;
+    }
+    
+    .about-header h1 {
+        font-size: 2.2rem;
+    }
 }
 
-[data-theme="dark"] .cat-of-day-section {
-    background: rgba(20, 20, 30, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Mobile responsiveness */
+/* Màn hình trung bình - 768px và dưới */
 @media (max-width: 768px) {
+    .about-container {
+        padding: 1rem;
+    }
+    
     .about-content {
         grid-template-areas: 
             "profile"
@@ -612,9 +618,19 @@
     .info-card,
     .interests-card,
     .cat-stats-card {
+        width: 100%;
         max-width: 500px;
         margin-left: auto;
         margin-right: auto;
+    }
+    
+    .about-header h1 {
+        font-size: 2rem;
+    }
+    
+    .profile-image {
+        width: 120px;
+        height: 120px;
     }
     
     .cat-stats {
@@ -630,55 +646,7 @@
     }
 }
 
-@media (max-width: 1024px) {
-    .about-container {
-        padding: 1.5rem;
-    }
-    
-    .about-header h1 {
-        font-size: 2.2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .about-container {
-        padding: 1rem;
-    }
-    
-    .about-content {
-        grid-template-areas: 
-            "profile"
-            "info"
-            "interests"
-            "cat-stats";
-        grid-template-columns: 1fr;
-    }
-    
-    .profile-card {
-        width: 100%;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .info-card,
-    .interests-card,
-    .cat-stats-card {
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .about-header h1 {
-        font-size: 2rem;
-    }
-    
-    .profile-image {
-        width: 120px;
-        height: 120px;
-    }
-}
-
+/* Màn hình nhỏ - 480px và dưới */
 @media (max-width: 480px) {
     .about-header h1 {
         font-size: 1.8rem;

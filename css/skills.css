@@ -695,22 +695,7 @@
     }
 }
 
-[data-theme="dark"] .skills-content {
-    background: rgba(20, 20, 30, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
 
-[data-theme="dark"] .skill-category, 
-[data-theme="dark"] .skill-card,
-[data-theme="dark"] .language-card {
-    background: rgba(40, 40, 50, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme="dark"] .language-badge {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
 
 .skills-section.aos-animate .skill-progress {
     width: var(--progress-width);

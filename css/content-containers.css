@@ -82,7 +82,10 @@
     margin-bottom: 1.5rem;
 }
 
-/* Automatically add purr effect to all content cards */
+/* Automatically add purr effect to all content cards 
+   Note: This uses the 'purr' animation defined in animations.css
+   The same animation is also available via .purr-on-hover class in paw-effects.css
+*/
 .content-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
@@ -116,24 +119,7 @@
     width: 100%;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .page-container {
-        padding: 1.5rem;
-    }
-    
-    .content-section {
-        padding: 1.8rem;
-        border-radius: 15px;
-    }
-    
-    .content-card {
-        padding: 1.5rem;
-    }
-    
-    .cards-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-
+/* 
+  Note: Responsive styling for these containers has been moved to responsive.css 
+  for better organization and to avoid duplication
+*/

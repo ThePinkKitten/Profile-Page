@@ -1,24 +1,14 @@
 /*
   Cat Styles
   - Additional styles for cat-themed elements
-  - Cat ears and cat cursor have been removed
 */
 
 .avatarContainer {
   overflow: visible !important;
 }
 
-/* Bounce animation for avatar */
+/* Bounce animation for avatar 
+   Note: catBounce keyframe has been moved to animations.css */
 .avatar-bounce {
   animation: catBounce 1s ease;
-}
-
-@keyframes catBounce {
-  0% { transform: translateY(0); }
-  20% { transform: translateY(-15px); }
-  40% { transform: translateY(0); }
-  60% { transform: translateY(-7px); }
-  80% { transform: translateY(0); }
-  90% { transform: translateY(-3px); }
-  100% { transform: translateY(0); }
 }

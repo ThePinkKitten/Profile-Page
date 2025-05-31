@@ -241,28 +241,7 @@
     transform: translateY(-2px);
 }
 
-[data-theme="dark"] .skills-section,
-[data-theme="dark"] .projects-section {
-    background: rgba(20, 20, 30, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
 
-[data-theme="dark"] .skill-category,
-[data-theme="dark"] .project-card {
-    background: rgba(40, 40, 50, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme="dark"] .project-tags span {
-    background: rgba(60, 60, 60, 0.5);
-    color: var(--accent-color);
-}
-
-[data-theme="dark"] .btn {
-    background: var(--accent-color);
-    color: #ffffff;
-}
 
 @media (max-width: 1024px) {
     .projects-container {

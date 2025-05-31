@@ -6,7 +6,6 @@
 
 // Import necessary modules
 import { initSidebar, highlightActiveSection } from './sidebar.js';
-import { initThemeSwitch } from './theme.js';
 import { initModal } from './modal.js';
 import { optimizeAvatarGif } from './optimize-images.js';
 import { initPersistentAudio } from './persistent-audio.js';
@@ -21,12 +20,11 @@ document.addEventListener('DOMContentLoaded', async () => {  // Preload backgrou
   
   // Optimize avatar GIF
   optimizeAvatarGif();
-  
-  // Initialize sidebar
+    // Initialize sidebar
   initSidebar();
   // Initialize persistent audio player with sessionStorage
   initPersistentAudio();
-  highlightActiveSection();  initThemeSwitch();  initModal();
+  highlightActiveSection();  initModal();
     // Force background image to be displayed
   document.body.style.backgroundImage = `url('../Assets/Image/Background/background.gif')`;
   
@@ -97,12 +95,4 @@ async function loadNonCriticalFeatures() {
   window.resetTyping = resetTyping;
 }
 
-window.addEventListener('themeChanged', (event) => {
-  if (resetFunctions.resetLinksAnimation) {
-    resetFunctions.resetLinksAnimation();
-  }
-  
-  if (resetFunctions.resetTyping) {
-    resetFunctions.resetTyping();
-  }
-});
+
