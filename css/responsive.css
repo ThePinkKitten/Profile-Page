@@ -175,24 +175,24 @@
     
     .section {
         width: 90%;
-    }
-
-    .sidebar .audio-player {
+    }    .sidebar .audio-player {
         position: relative;
         bottom: auto;
         left: auto;
         transform: none;
         margin: 0.5rem auto;
         width: 90%;
-        max-width: none;
-    }
-
-    .sidebar-footer {
+        max-width: 240px;
+        padding: 15px;
+        justify-content: space-between;
+    }.sidebar-footer {
         padding: 1rem 0.5rem;
         position: relative;
-        bottom: 20px;
         width: 100%;
         box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
     .theme-switch-wrapper {
@@ -205,14 +205,14 @@
 
     .theme-switch-wrapper span {
         font-size: 0.9rem;
-    }
-
-    .social-icons {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        padding: 20px;
-        margin: 0;
+    }    .social-icons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        padding: 15px;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 220px;
     }
 
     .social-icons a {
@@ -220,6 +220,14 @@
         color: var(--text-color);
         transition: color 0.3s ease;
         padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        margin: 0 auto;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
     }
 
     .social-icons a:hover {
@@ -231,10 +239,17 @@
     .sidebar {
         width: 100%;
         transform: translateX(-100%);
+        padding: 15px 0;
     }
     
     .sidebar.active {
         transform: translateX(0);
+    }
+    
+    .theme-switch-wrapper,
+    .audio-player {
+        margin: 0 auto 10px;
+        max-width: 220px;
     }
     
     .sidebar-toggle {
@@ -476,4 +491,96 @@
         position: relative;
         margin-top: 2rem;
     }
-} 
+}
+
+/* Fix for social icons in sidebar */
+.sidebar-footer .social-icons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding: 15px 20px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 240px;
+}
+
+.sidebar-footer .social-icons a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.sidebar-footer .social-icons a:hover {
+    background: rgba(255, 105, 180, 0.15);
+    transform: translateY(-3px);
+}
+
+/* Fix for audio player */
+.sidebar-footer .audio-player {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin: 0 15px 10px;
+    border-radius: 10px;
+    max-width: 240px;
+}
+
+/* Theme switch wrapper */
+.sidebar-footer .theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin: 0 15px 10px;
+    max-width: 240px;
+}
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 380px) {
+    .sidebar-footer .social-icons {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        padding: 10px;
+    }
+    
+    .sidebar-footer .social-icons a {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
+    }
+    
+    .sidebar-footer .audio-player,
+    .sidebar-footer .theme-switch-wrapper {
+        padding: 12px;
+        margin: 0 10px 8px;
+    }
+}
+
+/* Fix for vertical spacing when screen height is small */
+@media (max-height: 700px) {
+    .sidebar-avatar {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+    
+    .sidebar-header {
+        padding: 10px 0 20px;
+        margin-bottom: 15px;
+    }
+    
+    .sidebar-nav ul li {
+        margin-bottom: 5px;
+    }
+    
+    .sidebar-nav ul li a {
+        padding: 10px 15px;
+    }
+}
