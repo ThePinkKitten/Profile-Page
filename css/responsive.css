@@ -346,15 +346,13 @@
     
     .link:hover span {
         letter-spacing: 0.2px;
-    }
-
-    .modal-content {
+    }    .modal-content {
         width: 90%;
     }
     
     .avatarContainer {
-        width: 180px;
-        height: 180px;
+        width: 170px;
+        height: 170px;
     }
 
     /* Audio Player */
@@ -411,6 +409,12 @@
 
 /* Extra small screens - 480px and below */
 @media (max-width: 480px) {
+    /* Global */
+    .footer {
+        margin-top: 0.2rem;
+        padding: 0.3rem;
+    }
+    
     /* Sidebar */
     .sidebar {
         width: 100%;
@@ -548,11 +552,20 @@
 
 /* ===== HEIGHT-BASED MEDIA QUERIES ===== */
 
-/* For short screens */
-@media (max-height: 800px) {
+/* For standard and short screens */
+@media (max-height: 900px) {
     .footer {
         position: relative;
-        margin-top: 2rem;
+        margin-top: 0.4rem;
+        padding: 0.4rem;
+    }
+    
+    .about {
+        margin-bottom: 1.2rem;
+    }
+    
+    .links {
+        margin-bottom: 0.2rem;
     }
 }
 

@@ -90,8 +90,8 @@ a {
 }
 
 .footer {
-    margin-top: 1rem;
-    padding: 1rem;
+    margin-top: 0.4rem;
+    padding: 0.6rem;
     text-align: center;
     color: var(--text);
     cursor: pointer;
