@@ -9,8 +9,7 @@ let isSidebarOpen = false;
 // Function to initialize sidebar
 export function initSidebar() {
   isSidebarOpen = sessionStorage.getItem('sidebarOpen') === 'true';
-  
-  const sidebarToggle = document.querySelector('.sidebar-toggle');
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
   const sidebar = document.querySelector('.sidebar');
   const main = document.querySelector('main');
   if (!sidebarToggle || !sidebar) return;
@@ -30,8 +29,9 @@ export function initSidebar() {
         sidebarToggle.querySelector('i').classList.add('fa-times');
       }, 200);
       
-      // Push main content to the right
-      if (window.innerWidth > 768) {
+      // Push main content to the right - but only if not on the index page
+      const isIndexPage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/');
+      if (window.innerWidth > 768 && !isIndexPage) {
         main.style.marginLeft = '280px';
       }
       
@@ -75,14 +75,15 @@ export function initSidebar() {
         toggleSidebar(false);
       }
     });
-  });
-  let resizeTimer;
+  });  let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
+      const isIndexPage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/');
+      
       if (window.innerWidth > 768) {
         document.body.style.overflow = '';
-        if (isSidebarOpen) {
+        if (isSidebarOpen && !isIndexPage) {
           main.style.marginLeft = '280px';
         } else {
           sidebar.style.transform = 'translateX(-250px)';
@@ -101,9 +102,9 @@ export function initSidebar() {
   } else {
     toggleSidebar(false);
   }
-  
-  // Ensure proper initial main content position based on sidebar state and viewport width
-  if (isSidebarOpen && window.innerWidth > 768) {
+    // Ensure proper initial main content position based on sidebar state and viewport width
+  const isIndexPage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/');
+  if (isSidebarOpen && window.innerWidth > 768 && !isIndexPage) {
     main.style.marginLeft = '280px';
   } else {
     main.style.marginLeft = '0';
