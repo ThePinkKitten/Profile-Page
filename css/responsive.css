@@ -24,6 +24,17 @@
  * 13. iOS Specific Fixes
  * ============================= */
 
+/* ===== CSS VARIABLES FOR BREAKPOINTS ===== */
+:root {
+    --breakpoint-xxl: 1440px; /* Extra large screens */
+    --breakpoint-xl: 1200px;  /* Large desktop */
+    --breakpoint-lg: 1024px;  /* Desktop */
+    --breakpoint-md: 768px;   /* Tablet */
+    --breakpoint-sm: 600px;   /* Mobile landscape */
+    --breakpoint-xs: 480px;   /* Mobile portrait */
+    --breakpoint-xxs: 375px;  /* Small mobile */
+}
+
 /* ===== GLOBAL COMPONENT STYLES ===== */
 /* Global styles that apply across components */
 
@@ -31,6 +42,28 @@
 @media (max-width: 600px) {
     body {
         background-size: cover;
+    }
+    
+    .certifications-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .certification-card {
+        padding: 0.9rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .certification-info h3 {
+        font-size: 0.9rem;
+        white-space: normal;
+    }
+    
+    .interests-card {
+        padding: 1.8rem 1rem;
+        width: 100%;
     }
 }
 
@@ -132,12 +165,6 @@
     .section-header h1 {
         font-size: 2.2rem;
     }
-}
-
-@media (max-width: 992px) {
-    .section-header h1 {
-        font-size: 2.2rem;
-    }
     
     .header-subtitle {
         font-size: 1rem;
@@ -149,6 +176,8 @@
         margin-bottom: 1rem;
     }
 }
+
+/* Merged into 1024px breakpoint */
 
 @media (max-width: 480px) {
     .section-header h1 {
@@ -239,7 +268,7 @@
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 375px) {
     /* Sidebar Footer */
     .sidebar-footer .social-icons {
         grid-template-columns: repeat(4, 1fr);
@@ -459,28 +488,7 @@
     }
 }
 
-@media (max-width: 992px) {
-    .skills-content {
-        padding: 4rem 3rem;
-        gap: 5rem;
-    }
-    
-    .skill-category {
-        padding: 2rem;
-    }
-    
-    .skills-grid {
-        gap: 3.5rem;
-    }
-    
-    .skills-cards {
-        gap: 3.5rem;
-    }
-    
-    .languages-container {
-        gap: 3.5rem;
-    }
-}
+/* Merged into 1024px breakpoint */
 
 @media (max-width: 480px) {
     .skills-grid {
@@ -693,29 +701,7 @@
     }
 }
 
-@media (max-width: 640px) {
-    .certifications-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        width: 100%;
-    }
-    
-    .certification-card {
-        padding: 0.9rem;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    
-    .certification-info h3 {
-        font-size: 0.9rem;
-        white-space: normal;
-    }
-    
-    .interests-card {
-        padding: 1.8rem 1rem;
-        width: 100%;
-    }
-}
+/* Merged into 600px breakpoint */
 
 @media (max-width: 480px) {
     .timeline {
@@ -1008,7 +994,7 @@
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 375px) {
     .info-icon {
         width: 50px;
         height: 50px;
@@ -1141,7 +1127,7 @@
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 375px) {
     .sidebar-footer .audio-player {
         padding: 12px;
         margin: 0 10px 8px;
