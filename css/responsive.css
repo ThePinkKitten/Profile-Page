@@ -214,6 +214,13 @@
 /* ===== SIDEBAR COMPONENT ===== */
 /* Styles for the sidebar component */
 
+/* Desktop styles with transition */
+@media (min-width: 769px) {
+    .sidebar {
+        transition: transform 0.3s ease-in-out;
+    }
+}
+
 /* General Styles */
 @media (max-width: 768px) {
     .sidebar {
@@ -225,6 +232,7 @@
         left: 0;
         height: 100vh;
         overflow-y: auto;
+        /* Không áp dụng transition cho thiết bị di động */
     }
     
     .sidebar-toggle {
@@ -237,6 +245,7 @@
         width: 100%;
         transform: translateX(-100%);
         padding: 15px 0;
+        transition: none !important; /* Tắt hoàn toàn transition trên mobile */
     }
     
     .sidebar.active {
