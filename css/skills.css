@@ -9,10 +9,13 @@
     z-index: 1;
 }
 
+/* Apply same container system as other pages */
 .skills-container {
-    max-width: 1300px;
+    max-width: 1200px;  /* Same as page-container */
     margin: 0 auto;
-    padding: 2.5rem;
+    padding: 2.5rem;    /* Same as content-section base padding */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .section-header {
