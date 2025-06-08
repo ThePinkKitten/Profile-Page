@@ -475,18 +475,9 @@
 }
 
 /* ===== SKILLS COMPONENT ===== */
-/* Apply same responsive system as About page */
+/* Use shared responsive system from content-section */
 
 @media (max-width: 1200px) {
-    .skills-container {
-        padding: 2rem 1.5rem;
-    }
-    
-    .skills-content {
-        max-width: 95%;
-        gap: 3.5rem;
-    }
-    
     .skills-grid {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2.5rem;
@@ -499,11 +490,7 @@
 }
 
 @media (max-width: 768px) {
-    /* Apply same responsive rules as content-section for Skills */
-    .skills-container {
-        padding: 1.8rem;
-    }
-    
+    /* Skills will use content-section padding automatically */
     .skills-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -518,13 +505,7 @@
 /* Merged into 1024px breakpoint */
 
 @media (max-width: 480px) {
-    /* Apply same responsive rules as content-section for Skills */
-    .skills-container {
-        padding: 1.5rem 1rem;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    
+    /* Skills will use content-section padding automatically */
     .skills-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
