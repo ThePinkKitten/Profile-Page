@@ -84,7 +84,6 @@
 
 /* Automatically add purr effect to all content cards 
    Note: This uses the 'purr' animation defined in animations.css
-   The same animation is also available via .purr-on-hover class in paw-effects.css
 */
 .content-card:hover {
     transform: translateY(-5px);

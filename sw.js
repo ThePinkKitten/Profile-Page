@@ -4,18 +4,16 @@
  */
 
 // Tên của cache
-const CACHE_NAME = 'pink-cat-profile-cache-v1';
+const CACHE_NAME = 'pink-cat-profile-cache-v2';
 
 // Danh sách các tài nguyên cần cache
 const urlsToCache = [
   '/',
   '/index.html',
   '/css/main.css',
-  '/css/animations.css',
-  '/css/shared-components.css',
+  '/css/animations.css',  '/css/shared-components.css',
   '/css/home.css',
   '/css/content-containers.css',
-  '/css/paw-effects.css',
   '/css/responsive.css',
   '/css/cat-styles.css',
   '/js/main.js',

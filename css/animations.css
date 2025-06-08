@@ -2,7 +2,7 @@
   Animations
   - Define animations for the website, any animation should be placed here
   - All @keyframes used by component styles in other CSS files are centralized here
-  - Referenced by: paw-effects.css, content-containers.css, cat-styles.css, etc.
+  - Referenced by: content-containers.css, cat-styles.css, etc.
 */
 
 @keyframes fadeIn {
