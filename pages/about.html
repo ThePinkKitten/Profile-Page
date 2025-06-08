@@ -231,27 +231,6 @@
                 once: true,
                 disable: window.innerWidth < 480 // Disable AOS on mobile for better performance
             });
-            
-            // Easter egg: Meow sound when clicking on profile image
-            const profileImage = document.querySelector('.profile-image');
-            if (profileImage) {
-                profileImage.addEventListener('click', function() {
-                    const meowSounds = [
-                        'https://www.soundjay.com/animals/sounds/cat-meow-1.mp3',
-                        'https://www.soundjay.com/animals/sounds/cat-meow-2.mp3',
-                        'https://www.soundjay.com/animals/sounds/cat-meow-3.mp3'
-                    ];
-                    const randomMeow = meowSounds[Math.floor(Math.random() * meowSounds.length)];
-                    
-                    const meowAudio = new Audio(randomMeow);
-                    meowAudio.volume = 0.5;
-                    meowAudio.play();
-                    
-                    this.classList.add('meowing');
-                    setTimeout(() => {
-                        this.classList.remove('meowing');
-                    }, 500);                });
-            }
         });
     </script>
     
