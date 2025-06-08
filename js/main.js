@@ -13,6 +13,35 @@ import { initPersistentAudio } from './persistent-audio.js';
 // Initialize reset functions
 const resetFunctions = {}; 
 
+// Language progress animation function
+function initLanguageProgress() {
+  const progressRings = document.querySelectorAll('.progress-ring-fill');
+  
+  const animateProgress = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const ring = entry.target;
+        const progress = parseInt(ring.getAttribute('data-progress'));
+        const circumference = 2 * Math.PI * 50; // radius = 50
+        const offset = circumference - (progress / 100) * circumference;
+        
+        // Animate the stroke-dashoffset
+        ring.style.strokeDashoffset = offset;
+        
+        observer.unobserve(ring);
+      }
+    });
+  };
+  
+  const observer = new IntersectionObserver(animateProgress, {
+    threshold: 0.5
+  });
+  
+  progressRings.forEach(ring => {
+    observer.observe(ring);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   // Preload background image - điều chỉnh đường dẫn dựa trên URL hiện tại
   const currentPath = window.location.pathname;
@@ -35,6 +64,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   initPersistentAudio();
   highlightActiveSection();  // Initialize modal
   initModal();
+  
+  // Initialize language progress animation
+  initLanguageProgress();
   
   // Force background image to be displayed using the backgroundPath already defined
   document.body.style.backgroundImage = `url('${backgroundPath}')`;
@@ -106,6 +138,9 @@ async function loadNonCriticalFeatures() {
   
   window.resetLinksAnimation = resetLinksAnimation;
   window.resetTyping = resetTyping;
+  
+  // Initialize language progress animation
+  initLanguageProgress();
 }
 
 

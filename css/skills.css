@@ -231,94 +231,68 @@
     margin: 0 auto;
 }
 
+/* Languages Section */
 .languages-container {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
-    flex-wrap: wrap;
-    padding: 1rem 0;
-    width: 100%;
+    justify-items: center;
+    padding: 2rem 0;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-/* Languages container responsive adjustments */
-@media (max-width: 768px) {
-    .languages-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-    }
-}
-
 .language-card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
+    border-radius: 20px;
     padding: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 320px;
+    width: 100%;
+    max-width: 400px;
     position: relative;
     overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.language-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    transition: left 0.5s ease;
+}
+
+.language-card:hover::before {
+    left: 100%;
 }
 
 .language-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 40px rgba(110, 66, 255, 0.2);
+    border-color: rgba(110, 66, 255, 0.3);
 }
 
-/* Responsive language card adjustments */
-@media (max-width: 768px) {
-    .language-card {
-        width: 100%;
-        max-width: 400px;
-        padding: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .language-card {
-        padding: 1.2rem;
-        max-width: 320px;
-    }
-    
-    .language-info {
-        gap: 1rem;
-    }
-    
-    .language-circle {
-        width: 80px;
-        height: 80px;
-    }
-}
-
-@media (max-width: 375px) {
-    .language-card {
-        padding: 1rem;
-        max-width: 280px;
-    }
-    
-    .language-flag {
-        width: 35px;
-        height: 35px;
-        top: 1rem;
-        right: 1rem;
-    }
+/* Language Header */
+.language-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .language-flag {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+    position: relative;
 }
 
 .language-flag img {
@@ -327,126 +301,259 @@
     object-fit: cover;
 }
 
-.language-info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1.5rem;
-    width: 100%;
-}
-
-.language-circle {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    flex-shrink: 0;
-}
-
-.language-progress {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
+.english-flag {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 20px rgba(110, 66, 255, 0.3);
+    background: linear-gradient(45deg, #1e3a8a, #3b82f6);
 }
 
-.language-card:hover .language-progress {
-    transform: scale(1.1);
-    box-shadow: 0 15px 30px rgba(110, 66, 255, 0.4);
+.flag-emoji {
+    font-size: 1.8rem;
 }
 
-.language-percent {
+.language-title h4 {
+    font-size: 1.4rem;
     color: var(--text-color);
-    font-size: 1.3rem;
+    margin: 0;
     font-weight: 600;
-    position: relative;
-    z-index: 2;
 }
 
-.language-progress::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    background: linear-gradient(135deg, var(--accent-color), #cccfff);
-    border-radius: 50%;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.language-level {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: 500;
+    opacity: 0.8;
 }
 
-.language-card:hover .language-progress::before {
-    opacity: 0.3;
-    animation: pulse 2s infinite;
-}
-
-.language-details {
-    text-align: left;
-    width: 100%;
-}
-
-.language-card h4 {
-    font-size: 1.3rem;
-    color: var(--text-color);
-    margin: 0.5rem 0;
-    position: relative;
-    display: inline-block;
-}
-
-.language-card h4::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--accent-color);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.language-card:hover h4::after {
-    transform: scaleX(1);
-}
-
-.language-card p {
-    font-size: 1rem;
-    color: var(--text-color);
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.language-badges {
+/* Circular Progress */
+.language-progress-container {
     display: flex;
-    gap: 0.7rem;
     justify-content: center;
-    margin-top: 1rem;
+    margin: 1.5rem 0;
 }
 
-.language-badge {
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
+.circular-progress {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.progress-ring {
+    width: 120px;
+    height: 120px;
+    transform: rotate(-90deg);
+}
+
+.progress-ring-background {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 8;
+}
+
+.progress-ring-fill {
+    fill: none;
+    stroke: var(--accent-color);
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 314;
+    stroke-dashoffset: 314;
+    transition: stroke-dashoffset 2s ease-in-out, stroke 0.3s ease;
+    filter: drop-shadow(0 0 8px rgba(110, 66, 255, 0.4));
+}
+
+.language-card:hover .progress-ring-fill {
+    stroke: #ff6b9d;
+    filter: drop-shadow(0 0 12px rgba(255, 107, 157, 0.6));
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.progress-percentage {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1;
+}
+
+.progress-label {
+    display: block;
     font-size: 0.8rem;
-    font-weight: 600;
+    color: var(--accent-color);
+    margin-top: 0.2rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
+/* Language Skills */
+.language-skills {
+    margin: 1.5rem 0;
+}
+
+.skill-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    padding: 0.5rem 0;
+}
+
+.skill-name {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.skill-stars {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.skill-stars i {
+    font-size: 0.9rem;
+    color: #ffd700;
+    transition: all 0.3s ease;
+}
+
+.skill-stars .far {
+    color: rgba(255, 215, 0, 0.3);
+}
+
+.language-card:hover .skill-stars i {
+    transform: scale(1.1);
+}
+
+/* Language Badges */
+.language-badges {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.language-badge {
+    padding: 0.4rem 1rem;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.language-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.language-badge:hover::before {
+    left: 100%;
+}
+
 .language-badge.native {
-    background: linear-gradient(45deg, #43e97b, #38f9d7);
-    color: #1a1a1a;
+    background: linear-gradient(45deg, #10b981, #34d399);
+    color: #064e3b;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.language-badge.fluent {
+    background: linear-gradient(45deg, #3b82f6, #60a5fa);
+    color: #1e3a8a;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.language-badge.intermediate {
+    background: linear-gradient(45deg, #f59e0b, #fbbf24);
+    color: #92400e;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
 }
 
 .language-badge.advanced {
-    background: linear-gradient(45deg, #4facfe, #00f2fe);
-    color: #1a1a1a;
+    background: linear-gradient(45deg, #8b5cf6, #a78bfa);
+    color: #4c1d95;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.language-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .languages-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem 0;
+    }
+    
+    .language-card {
+        max-width: none;
+        padding: 1.5rem;
+    }
+    
+    .circular-progress {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .progress-ring {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .progress-percentage {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .language-card {
+        padding: 1.2rem;
+    }
+    
+    .language-header {
+        gap: 0.8rem;
+    }
+    
+    .language-flag {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .language-title h4 {
+        font-size: 1.2rem;
+    }
+    
+    .circular-progress {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .progress-ring {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .language-badges {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
 }
 
 .language-badge.proficient {
