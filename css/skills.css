@@ -5,11 +5,67 @@
 
 /* Use shared container system from content-containers.css */
 
-/* Force Skills page to match About page container size */
+/* Responsive container system to match About page sizing across all devices */
 .page-container {
-    max-width: 900px !important;
-    margin: 2rem auto !important;
-    padding: 2rem !important;
+    /* Desktop: Use default content-containers.css settings (max-width: 1200px) */
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+}
+
+/* Large desktop */
+@media (max-width: 1440px) {
+    .page-container {
+        max-width: 1200px;
+        padding: 2.5rem;
+    }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+    .page-container {
+        max-width: 1000px;
+        padding: 2rem;
+    }
+}
+
+/* Large tablet/small desktop */
+@media (max-width: 1024px) {
+    .page-container {
+        max-width: 900px;
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .page-container {
+        max-width: 100%;
+        padding: 1.5rem;
+    }
+}
+
+/* Mobile landscape */
+@media (max-width: 600px) {
+    .page-container {
+        padding: 1rem;
+    }
+}
+
+/* Mobile portrait */
+@media (max-width: 480px) {
+    .page-container {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 375px) {
+    .page-container {
+        padding: 0.8rem;
+        margin: 0.8rem auto;
+    }
 }
 
 .section-title {
@@ -58,9 +114,37 @@
     gap: 2rem;
     width: 100%;
     margin-bottom: 1rem;
-    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 1200px) {
+    .skills-grid {
+        max-width: 1000px;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .skills-grid {
+        max-width: 900px;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        max-width: 100%;
+        gap: 1.5rem;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-grid {
+        gap: 1.5rem;
+    }
 }
 
 .skills-section {
@@ -161,9 +245,37 @@
     grid-template-columns: repeat(2, 1fr); 
     gap: 2rem;
     margin-bottom: 1rem;
-    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Responsive cards adjustments */
+@media (max-width: 1200px) {
+    .skills-cards {
+        max-width: 1000px;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .skills-cards {
+        max-width: 900px;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-cards {
+        max-width: 100%;
+        gap: 1.5rem;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-cards {
+        gap: 1.5rem;
+    }
 }
 
 .skill-card {
@@ -231,8 +343,38 @@
     flex-wrap: wrap;
     padding: 1rem 0;
     width: 100%;
-    max-width: 900px;
     margin: 0 auto;
+}
+
+/* Responsive languages container adjustments */
+@media (max-width: 1200px) {
+    .languages-container {
+        max-width: 1000px;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .languages-container {
+        max-width: 900px;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .languages-container {
+        max-width: 100%;
+        gap: 1.5rem;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .languages-container {
+        gap: 1.5rem;
+        padding: 0.5rem 0;
+    }
 }
 
 .language-card {
@@ -253,6 +395,45 @@
 .language-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive language card adjustments */
+@media (max-width: 768px) {
+    .language-card {
+        width: 100%;
+        max-width: 400px;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .language-card {
+        padding: 1.2rem;
+        max-width: 320px;
+    }
+    
+    .language-info {
+        gap: 1rem;
+    }
+    
+    .language-circle {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 375px) {
+    .language-card {
+        padding: 1rem;
+        max-width: 280px;
+    }
+    
+    .language-flag {
+        width: 35px;
+        height: 35px;
+        top: 1rem;
+        right: 1rem;
+    }
 }
 
 .language-flag {
