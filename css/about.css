@@ -67,6 +67,9 @@
     padding: 1rem;
     width: 100%;
     box-sizing: border-box;
+    /* iOS performance optimization */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 .profile-card {
@@ -467,6 +470,9 @@
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     padding: 1rem;
+    /* iOS performance optimization */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 .cat-image-container {
@@ -483,6 +489,11 @@
     border: 3px solid var(--accent-color);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
+    /* iOS performance optimization */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .cat-of-day-image:hover {

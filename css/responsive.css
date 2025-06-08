@@ -582,6 +582,275 @@
     }
 }
 
+/* ===== ABOUT PAGE SPECIFIC RESPONSIVE STYLES ===== */
+/* Responsive styles specifically for the About page layout */
+
+@media (max-width: 1024px) {
+    .about-content {
+        grid-template-areas: 
+            "profile info"
+            "interests interests"
+            "cat-stats cat-stats";
+        grid-template-columns: 1fr 2fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-areas: 
+            "profile"
+            "info"
+            "interests"
+            "cat-stats";
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0.5rem;
+    }
+    
+    .profile-card {
+        max-width: none;
+        padding: 1.5rem;
+    }
+    
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .cat-of-day-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0.5rem;
+    }
+    
+    .cat-of-day-image {
+        max-height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-content {
+        padding: 0;
+        gap: 1rem;
+    }
+    
+    .profile-card {
+        padding: 1rem;
+        text-align: center;
+        /* iOS specific: Ensure proper rendering */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .profile-image {
+        width: 100px;
+        height: 100px;
+        /* iOS specific: Fix for border-radius */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .profile-card h2 {
+        font-size: 1.2rem;
+        margin: 0.8rem 0 0.5rem;
+    }
+    
+    .profile-card .title {
+        font-size: 0.9rem;
+    }
+    
+    .info-card {
+        padding: 1rem;
+        text-align: left;
+        /* iOS specific: Ensure proper rendering */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .info-card h3 {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .info-card p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        text-align: justify;
+        margin-bottom: 1rem;
+    }
+    
+    .interests-card {
+        padding: 1rem;
+        /* iOS specific: Ensure proper rendering */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .interests-card h3 {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .interests-card ul {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    
+    .interests-card li {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 0.8rem;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+        /* iOS specific: Ensure proper rendering */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .interests-card li:hover {
+        background: rgba(255, 255, 255, 0.12);
+        transform: translateY(-2px);
+    }
+    
+    /* Cat of Day Section */
+    .cat-of-day-section {
+        padding: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        /* iOS specific: Ensure proper rendering */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+    
+    .cat-of-day-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0;
+    }
+    
+    .cat-image-container {
+        width: 100%;
+        order: 1;
+    }
+    
+    .cat-of-day-image {
+        width: 100%;
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: cover;
+        /* iOS specific: Fix for image rendering */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .cat-quote {
+        order: 2;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .cat-quote blockquote {
+        font-size: 1rem;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        position: relative;
+    }
+    
+    .cat-quote blockquote::before,
+    .cat-quote blockquote::after {
+        font-size: 2rem;
+    }
+    
+    .cat-quote blockquote::before {
+        top: -10px;
+        left: -5px;
+    }
+    
+    .cat-quote blockquote::after {
+        bottom: -20px;
+        right: -5px;
+    }
+    
+    .new-cat-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+        width: fit-content;
+        /* iOS specific: Fix for button rendering */
+        -webkit-appearance: none;
+        appearance: none;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+@media (max-width: 375px) {
+    .about-content {
+        gap: 0.8rem;
+    }
+    
+    .profile-card,
+    .info-card,
+    .interests-card,
+    .cat-stats-card {
+        padding: 0.8rem;
+    }
+    
+    .profile-image {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .profile-card h2 {
+        font-size: 1.1rem;
+    }
+    
+    .profile-card .title {
+        font-size: 0.8rem;
+    }
+    
+    .info-card h3,
+    .interests-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .info-card p {
+        font-size: 0.85rem;
+    }
+    
+    .interests-card li {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+    
+    .cat-of-day-image {
+        max-width: 250px;
+        max-height: 250px;
+    }
+    
+    .cat-quote blockquote {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+    
+    .new-cat-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
 /* ===== PROJECTS COMPONENT ===== */
 
 @media (max-width: 1024px) {
@@ -1047,6 +1316,63 @@
     }
 }
 
+/* ===== iOS SPECIFIC FIXES FOR ABOUT PAGE ===== */
+/* iOS specific optimizations for About page components */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
+    .about-content {
+        /* Fix for grid layout on iOS */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .profile-card,
+    .info-card,
+    .interests-card,
+    .cat-stats-card {
+        /* Fix for card rendering on iOS */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    .profile-image {
+        /* Fix for circular image rendering on iOS */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .cat-of-day-section {
+        /* Fix for backdrop-filter on iOS */
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .cat-of-day-image {
+        /* Fix for image scaling and borders on iOS */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    .new-cat-btn {
+        /* Fix for button appearance on iOS */
+        -webkit-appearance: none;
+        appearance: none;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .interests-card li {
+        /* Fix for hover effects on iOS */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
 /* ===== AUDIO PLAYER COMPONENT ===== */
 /* Styles for the audio player component */
 
@@ -1481,11 +1807,35 @@
     .sidebar, .content-section {
         -webkit-overflow-scrolling: touch;
     }
-    
-    /* Fix for transparent backgrounds */
+      /* Fix for transparent backgrounds */
     .content-card, .sidebar, .project-card, .skill-card, .timeline-card {
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
+    }
+    
+    /* iOS touch optimization */
+    .profile-image,
+    .cat-of-day-image,
+    .new-cat-btn,
+    .interests-card li {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    
+    /* Fix for smooth scrolling on iOS */
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Prevent iOS zoom on form inputs */
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        font-size: 16px !important;
+        -webkit-appearance: none;
+        appearance: none;
     }
 }
 
