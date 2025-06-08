@@ -47,10 +47,13 @@
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 3.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
     width: 100%;
     margin-bottom: 1rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .skills-section {
@@ -149,8 +152,11 @@
 .skills-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
-    gap: 3.5rem;
+    gap: 2rem;
     margin-bottom: 1rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .skill-card {
@@ -213,11 +219,13 @@
 
 .languages-container {
     display: flex;
-    justify-content: space-around;
-    gap: 3.5rem;
+    justify-content: center;
+    gap: 2rem;
     flex-wrap: wrap;
     padding: 1rem 0;
     width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .language-card {
