@@ -359,12 +359,10 @@
     stroke-dasharray: 314;
     stroke-dashoffset: 314;
     transition: stroke-dashoffset 2s ease-in-out, stroke 0.3s ease;
-    filter: drop-shadow(0 0 8px rgba(110, 66, 255, 0.4));
 }
 
 .language-card:hover .progress-ring-fill {
     stroke: #ff6b9d;
-    filter: drop-shadow(0 0 12px rgba(255, 107, 157, 0.6));
 }
 
 .progress-text {

@@ -82,13 +82,10 @@
     margin-bottom: 1.5rem;
 }
 
-/* Automatically add purr effect to all content cards 
-   Note: This uses the 'purr' animation defined in animations.css
-*/
+/* Hover effect for content cards - smooth lift without bounce */
 .content-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
-    animation: purr 0.5s infinite ease-in-out;
 }
 
 .content-card h3 {
