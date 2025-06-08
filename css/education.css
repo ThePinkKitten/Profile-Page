@@ -233,6 +233,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .achievement:hover {
@@ -405,4 +408,137 @@
     text-align: left;
     display: block;
     margin-top: 10px;
+}
+
+/* iOS specific fixes for education page */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 768px) {
+    .timeline {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        /* iOS specific: Prevent horizontal expansion */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .timeline-card {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        /* iOS specific: Fix for container expansion */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    .timeline-content {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+    
+    .achievement-list {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+    
+    .achievement {
+        width: auto;
+        max-width: 100%;
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        /* iOS specific: Prevent text overflow */
+        -webkit-hyphens: auto;
+        hyphens: auto;
+    }
+}
+
+/* Additional mobile optimization for iOS */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 480px) {
+    .timeline-item {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+    
+    .timeline-card h3,
+    .timeline-card h4,
+    .timeline-card p {
+        width: 100%;
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .certifications-grid {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+    
+    .certification-card {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+}
+
+/* Ensure container centering like about page */
+@media (max-width: 768px) {
+    .timeline {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 1rem 0;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    
+    .timeline-content {
+        max-width: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline {
+        padding: 0.5rem 0;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .timeline-card {
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow: hidden;
+    }
+    
+    .achievement {
+        flex: 0 1 auto;
+        min-width: 0;
+        max-width: 100%;
+        white-space: normal;
+        word-break: break-word;
+    }
 }
