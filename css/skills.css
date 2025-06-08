@@ -12,12 +12,6 @@
     padding: 2rem !important;
 }
 
-/* DEBUG: Make container visible with border */
-body .page-container {
-    border: 2px solid red !important;
-    background: rgba(255, 0, 0, 0.1) !important;
-}
-
 .section-title {
     font-size: 1.3rem;
     color: var(--text-color);
