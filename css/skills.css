@@ -5,6 +5,13 @@
 
 /* Use shared container system from content-containers.css */
 
+/* Force Skills page to match About page container size */
+.content-section {
+    max-width: 900px !important;
+    margin: 0 auto 2.5rem auto !important;
+    width: 90% !important;
+}
+
 .section-title {
     font-size: 1.3rem;
     color: var(--text-color);
