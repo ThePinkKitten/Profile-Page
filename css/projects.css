@@ -138,9 +138,11 @@
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
     padding: 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .project-card {
@@ -157,7 +159,8 @@
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .project-image {
@@ -217,6 +220,13 @@
     padding: 0.25rem 0.75rem;
     border-radius: 15px;
     font-size: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.project-tags span:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
 }
 
 .project-links {
@@ -239,5 +249,78 @@
 
 .btn:hover {
     transform: translateY(-2px);
+}
+
+/* =================================================================== */
+/* RESPONSIVE DESIGN FOR PROJECTS */
+/* =================================================================== */
+
+/* Large screens - 3 columns */
+@media (min-width: 1200px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1600px;
+    }
+}
+
+/* Medium screens - 2 columns */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .project-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .project-info p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Small screens - 1 column */
+@media (max-width: 767px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+    
+    .project-card {
+        margin-bottom: 1rem;
+    }
+    
+    .project-info {
+        padding: 1rem;
+    }
+    
+    .project-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .project-info p {
+        font-size: 0.8rem;
+    }
+    
+    .project-tags span {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .projects-container {
+        padding: 1rem;
+    }
+    
+    .projects-section {
+        padding: 1rem;
+    }
+    
+    .project-info h3 {
+        font-size: 1rem;
+    }
 }
 
