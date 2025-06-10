@@ -1,5 +1,19 @@
 /*
-  Typing Animation Module
+  Typing An  "Still learning... but already purring ⋆⁺₊⋆ ☁︎",
+  "Building 8+ amazing projects... with purr-fect architecture ₊˚⊹⋆｡𖦹",
+  "Typing gently... don't wake my inner lion (ฅ'ω'ฅ)",
+  "Full-stack developer with enterprise experience ❀( ˶ˆᗜˆ˵ )❀",
+  "React + Node.js + Docker enthusiast ˘•ﻌ•˘",
+  "Deploying microservices... please stand by ⁽⁽ଘ( ˊᵕˋ )ଓ⁾⁾",
+  "Containerizing applications with a soft paw touch ෆ⸒⸒⸜( ˶'ᵕ'˶)⸝",
+  "MongoDB + MySQL + Firebase expert ♡( ◡‿◡ )",
+  "Paws-itively dedicated to clean architecture 𓃠",
+  "Code. Deploy. Purr. Repeat. ♡(=^- ω -^=)",
+  "I speak softly... but I carry enterprise solutions ⸝⸝⸝ᵕ ﻌ ᵕ⸝⸝⸝",
+  "CI/CD pipelines with a cute tail ฅ^•ﻌ•^ฅ",
+  "Little paws, big commits & production deployments ⋆꒰⌯͒•ɷ•⌯͒꒱",
+  "Club Management + E-commerce + AI Chess... (⁎⁍̴̛ᴗ⁍̴̛⁎)",
+  "Docker containers are my new cardboard boxes ˶ᵔ ᵕ ᵔ˶",
   - Creates typewriter effect with multiple phrases
   - Auto-cycles through defined phrases
 */
@@ -27,19 +41,18 @@ const texts = [
   "Code softly and carry a cute tail ฅ^•ﻌ•^ฅ",
   "Little paws, big commits ⋆꒰⌯͒•ɷ•⌯͒꒱",
   "I write code... sometimes in my sleep (⁎⁍̴̛ᴗ⁍̴̛⁎)",
-  "Please wait... compiling cuddles ˶ᵔ ᵕ ᵔ˶",
-  "Napping until next deployment... zzZ₍ᐢ•ﻌ•ᐢ₎",
-  "Explaining bugs to my plushie ૮₍ ´• ˕ •` ₎ა",
-  "Silent... but emotionally available for pull requests ₊˚ʚ ᗢ₊",
-  "Push gently — my repo has feelings ꒰⸝⸝⸝｡ ·̫ ｡⸝⸝⸝꒱",
-  "Gentle commits from a soft heart ₍ᐢ. ̫.ᐢ₎",
-  "Still finding my way... but I purr with purpose ʕ ꈍᴥꈍʔ",
-  "My favorite IDE is a cardboard box ⸝⸝⸝ᵕᴗᵕ⸝⸝⸝",
-  "Code softly and carry yarn ✿˘︶˘✿",
-  "I prefer soft tabs and softer blankets ❥( ⸝⸝⸝ᵕᴗᵕ⸝⸝⸝ )",
+  "Please wait... compiling cuddles ˶ᵔ ᵕ ᵔ˶",  "Napping until next deployment... zzZ₍ᐢ•ﻌ•ᐢ₎",
+  "Swagger documentation lover ૮₍ ´• ˕ •` ₎ა",
+  "Silent... but emotionally available for code reviews ₊˚ʚ ᗢ₊",
+  "Push gently — my microservices have feelings ꒰⸝⸝⸝｡ ·̫ ｡⸝⸝⸝꒱",
+  "From Android to Web to Desktop development ₍ᐢ. ̫.ᐢ₎",
+  "8 projects and counting... but I purr with purpose ʕ ꈍᴥꈍʔ",
+  "Payment integration specialist (MoMo + PayPal) ⸝⸝⸝ᵕᴗᵕ⸝⸝⸝",
+  "OAuth 2.0 authentication with soft tabs ✿˘︶˘✿",
+  "Enterprise architecture in a kitten package ❥( ⸝⸝⸝ᵕᴗᵕ⸝⸝⸝ )",
   "No bugs, only surprise features... like me ૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა",
-  "Reading error logs like bedtime stories 𓃠✧˖°",
-  "Caffeine in, code out, paws up ( ˘ω˘ )"
+  "Reading API docs like bedtime stories 𓃠✧˖°",
+  "Turning complex requirements into purr-fect solutions ( ˘ω˘ )"
 ];
 
 
