@@ -71,10 +71,9 @@ let typingElement;       // DOM element for displaying text
 function eraseText() {
   if (!isTyping || !typingElement) return;
   const currentText = typingElement.textContent;
-  
-  if (currentText.length > 0) {
+    if (currentText.length > 0) {
     typingElement.textContent = currentText.slice(0, -1);
-    setTimeout(eraseText, 90);
+    setTimeout(eraseText, 50);
   } else {
     textIndex = (textIndex + 1) % texts.length;
     charIndex = 0;
@@ -89,13 +88,12 @@ function eraseText() {
 function type() {
   if (!isTyping || !typingElement) return;
   const currentText = texts[textIndex];
-  
-  if (charIndex < currentText.length) {
+    if (charIndex < currentText.length) {
     typingElement.textContent += currentText.charAt(charIndex);
     charIndex++;
-    setTimeout(type, 100);
+    setTimeout(type, 60);
   } else {
-    setTimeout(eraseText, 2000);
+    setTimeout(eraseText, 1200);
   }
 }
 
