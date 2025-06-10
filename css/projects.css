@@ -241,20 +241,22 @@
     background: var(--accent-color);
     color: white;
     text-decoration: none;
-    padding: 0.75rem 1.25rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
     font-weight: 500;
     transition: all 0.3s ease;
-    margin-top: 10px;
-    min-height: 44px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    margin-top: 8px;
+    border: none;
+    cursor: pointer;
+    text-transform: none;
+    letter-spacing: 0.5px;
 }
 
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transform: translateY(-1px);
     background: linear-gradient(135deg, var(--accent-color), rgba(255, 255, 255, 0.1));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* =================================================================== */
@@ -323,7 +325,8 @@
     .projects-section {
         padding: 1rem;
     }
-      .project-info h3 {
+    
+    .project-info h3 {
         font-size: 1rem;
     }
 }
